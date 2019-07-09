@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="InAppPurchasesANE" type="flex">
+    <CLASSES>
+      <root url="jar://$DOCUMENTS$/InAppPurchases-ANE/native_extension/ane/InAppPurchasesANE.ane!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
