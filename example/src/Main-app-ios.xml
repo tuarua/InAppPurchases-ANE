@@ -3,9 +3,9 @@
     <id>com.tuarua.storekitdemo</id>
     <filename>Main</filename>
     <name>InAppPurchasesANEExample</name>
-    <versionNumber>1.1.0</versionNumber>
+    <versionNumber>1.0.0</versionNumber>
     <extensions>
-        <extensionID>com.tuarua.InAppPurchasesANE</extensionID>
+        <extensionID>com.tuarua.InAppPurchaseANE</extensionID>
     </extensions>
     <initialWindow>
         <content>SWF file name is set automatically at compile time</content>

@@ -1,10 +1,12 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="iOS Device" type="FlashRunConfigurationType" factoryName="Flash App">
+  <configuration default="false" name="iOS Device" type="FlashRunConfigurationType">
     <option name="BCName" value="iOS-Device" />
+    <option name="IOSSimulatorDevice" value="" />
     <option name="IOSSimulatorSdkPath" value="" />
     <option name="adlOptions" value="" />
     <option name="airProgramParameters" value="" />
     <option name="appDescriptorForEmulator" value="Android" />
+    <option name="clearAppDataOnEachLaunch" value="true" />
     <option name="debugTransport" value="USB" />
     <option name="debuggerSdkRaw" value="BC SDK" />
     <option name="emulator" value="NexusOne" />
@@ -22,7 +24,7 @@
       </LauncherParameters>
     </option>
     <option name="mobileRunTarget" value="iOSDevice" />
-    <option name="moduleName" value="ShareANE-Example" />
+    <option name="moduleName" value="InAppPurchaseANE-Example" />
     <option name="overriddenMainClass" value="" />
     <option name="overriddenOutputFileName" value="" />
     <option name="overrideMainClass" value="false" />
@@ -32,6 +34,8 @@
     <option name="screenWidth" value="0" />
     <option name="url" value="http://" />
     <option name="usbDebugPort" value="7936" />
-    <method />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
   </configuration>
 </component>

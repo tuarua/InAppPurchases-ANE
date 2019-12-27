@@ -2,8 +2,8 @@
 <platform xmlns="http://ns.adobe.com/air/extension/19.0">
 	<packagedResources>
 		<packagedResource>
-			<packageName>com.tuarua.ShareANE</packageName>
-			<folderName>com.tuarua.ShareANE-res</folderName>
+			<packageName>com.tuarua.InAppPurchaseANE</packageName>
+			<folderName>com.tuarua.InAppPurchaseANE-res</folderName>
 		</packagedResource>
 	</packagedResources>
 </platform>

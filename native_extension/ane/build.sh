@@ -5,7 +5,7 @@ echo "Setting path to current directory to:"
 pathtome=$0
 pathtome="${pathtome%/*}"
 
-PROJECTNAME=InAppPurchasesANE
+PROJECTNAME=InAppPurchaseANE
 fwSuffix="_FW"
 libSuffix="_LIB"
 
@@ -60,7 +60,7 @@ unzip "$pathtome/$PROJECTNAME.swc" "library.swf" -d "$pathtome"
 echo "Copying library.swf into place."
 cp "$pathtome/library.swf" "$pathtome/platforms/ios/simulator"
 cp "$pathtome/library.swf" "$pathtome/platforms/ios/device"
-#cp "$pathtome/library.swf" "$pathtome/platforms/android"
+cp "$pathtome/library.swf" "$pathtome/platforms/android"
 cp "$pathtome/library.swf" "$pathtome/platforms/default"
 
 #Copy native libraries into place.
@@ -83,10 +83,9 @@ echo "Copying Swift dylibs into place for device."
 #Device
 if [ -e "$pathtome/platforms/ios/device/Frameworks/$PROJECTNAME$fwSuffix.framework/Frameworks" ]
 then
-for dylib in "$pathtome/platforms/ios/device/Frameworks/$PROJECTNAME$fwSuffix.framework/Frameworks/*"
+for dylib in "$pathtome"/platforms/ios/device/Frameworks/"$PROJECTNAME""$fwSuffix".framework/Frameworks/*
 do
-# shellcheck disable=SC2086
-mv -f $dylib "$pathtome/../../example/ios_dependencies/device/Frameworks"
+mv -f "$dylib" "$pathtome/../../example/ios_dependencies/device/Frameworks"
 done
 rm -r "$pathtome/platforms/ios/device/Frameworks/$PROJECTNAME$fwSuffix.framework/Frameworks"
 fi
@@ -95,10 +94,9 @@ echo "Copying Swift dylibs into place for simulator."
 #Simulator
 if [ -e "$pathtome/platforms/ios/simulator/Frameworks/$PROJECTNAME$fwSuffix.framework/Frameworks" ]
 then
-for dylib in "$pathtome/platforms/ios/simulator/Frameworks/$PROJECTNAME$fwSuffix.framework/Frameworks/*"
+for dylib in "$pathtome"/platforms/ios/simulator/Frameworks/"$PROJECTNAME""$fwSuffix".framework/Frameworks/*
 do
-# shellcheck disable=SC2086
-mv -f $dylib "$pathtome/../../example/ios_dependencies/simulator/Frameworks"
+mv -f "$dylib" "$pathtome/../../example/ios_dependencies/simulator/Frameworks"
 done
 if [ -d "$pathtome/platforms/ios/device/Frameworks/$PROJECTNAME$fwSuffix.framework/Frameworks" ]; then
 rm -r "$pathtome/platforms/ios/device/Frameworks/$PROJECTNAME$fwSuffix.framework/Frameworks"
@@ -122,41 +120,41 @@ cp -R -L "$pathtome/platforms/ios/simulator/Frameworks/$PROJECTNAME$fwSuffix.fra
 cp -R -L "$pathtome/platforms/ios/device/Frameworks/$PROJECTNAME$fwSuffix.framework" "$pathtome/../../example/ios_dependencies/device/Frameworks"
 
 
-#echo "Copying Android aars into place"
-#cp "$pathtome/../../native_library/android/$PROJECTNAME/app/build/outputs/aar/app-release.aar" "$pathtome/platforms/android/app-release.aar"
-#echo "getting Android jars"
-#unzip "$pathtome/platforms/android/app-release.aar" "classes.jar" -d "$pathtome/platforms/android"
-#unzip "$pathtome/platforms/android/app-release.aar" "res/*" -d "$pathtome/platforms/android"
-#mv "$pathtome/platforms/android/res" "$pathtome/platforms/android/com.tuarua.$PROJECTNAME-res"
-
-#-platform Android-ARM \
-#-C "$pathtome/platforms/android" "library.swf" "classes.jar" \
-#com.tuarua.$PROJECTNAME-res/. \
-#-platformoptions "$pathtome/platforms/android/platform.xml" \
-#-platform Android-ARM64 \
-#-C "$pathtome/platforms/android" "library.swf" "classes.jar" \
-#com.tuarua.$PROJECTNAME-res/. \
-#-platformoptions "$pathtome/platforms/android/platform.xml" \
+echo "Copying Android aars into place"
+cp "$pathtome/../../native_library/android/$PROJECTNAME/app/build/outputs/aar/app-release.aar" "$pathtome/platforms/android/app-release.aar"
+echo "getting Android jars"
+unzip "$pathtome/platforms/android/app-release.aar" "classes.jar" -d "$pathtome/platforms/android"
+unzip "$pathtome/platforms/android/app-release.aar" "res/*" -d "$pathtome/platforms/android"
+mv "$pathtome/platforms/android/res" "$pathtome/platforms/android/com.tuarua.$PROJECTNAME-res"
 
 #Run the build command.
 echo "Building ANE."
 "$AIR_SDK"/bin/adt -package \
 -target ane "$pathtome/$PROJECTNAME.ane" "$pathtome/extension.xml" \
 -swc "$pathtome/$PROJECTNAME.swc" \
+-platform Android-x86 \
+-C "$pathtome/platforms/android" "library.swf" "classes.jar" com.tuarua.$PROJECTNAME-res/. \
+-platformoptions "$pathtome/platforms/android/platform.xml" \
+-platform Android-ARM \
+-C "$pathtome/platforms/android" "library.swf" "classes.jar" com.tuarua.$PROJECTNAME-res/. \
+-platformoptions "$pathtome/platforms/android/platform.xml" \
+-platform Android-ARM64 \
+-C "$pathtome/platforms/android" "library.swf" "classes.jar" com.tuarua.$PROJECTNAME-res/. \
+-platformoptions "$pathtome/platforms/android/platform.xml" \
 -platform iPhone-x86  -C "$pathtome/platforms/ios/simulator" "library.swf" "Frameworks" "lib$PROJECTNAME.a" \
 -platformoptions "$pathtome/platforms/ios/platform.xml" \
 -platform iPhone-ARM  -C "$pathtome/platforms/ios/device" "library.swf" "Frameworks" "lib$PROJECTNAME.a" \
 -platformoptions "$pathtome/platforms/ios/platform.xml" \
 -platform default -C "$pathtome/platforms/default" "library.swf" \
 
-#rm "$pathtome/platforms/android/classes.jar"
-#rm "$pathtome/platforms/android/app-release.aar"
-#rm "$pathtome/platforms/android/library.swf"
+rm "$pathtome/platforms/android/classes.jar"
+rm "$pathtome/platforms/android/app-release.aar"
+rm "$pathtome/platforms/android/library.swf"
 rm -r "$pathtome/platforms/ios/simulator"
 rm -r "$pathtome/platforms/ios/device"
 rm "$pathtome/$PROJECTNAME.swc"
 rm "$pathtome/library.swf"
-#rm -r "$pathtome/platforms/android/com.tuarua.$PROJECTNAME-res"
+rm -r "$pathtome/platforms/android/com.tuarua.$PROJECTNAME-res"
 
 #echo "Packaging docs into ANE."
 #zip "$pathtome/$PROJECTNAME.ane" -u docs/*

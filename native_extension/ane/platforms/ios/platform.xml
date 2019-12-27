@@ -10,7 +10,7 @@
     
     <packagedDependencies>
         <packagedDependency>Frameworks/FreSwift.framework</packagedDependency>
-        <packagedDependency>Frameworks/InAppPurchasesANE_FW.framework</packagedDependency>
+        <packagedDependency>Frameworks/InAppPurchaseANE_FW.framework</packagedDependency>
     </packagedDependencies>
     
 </platform>
