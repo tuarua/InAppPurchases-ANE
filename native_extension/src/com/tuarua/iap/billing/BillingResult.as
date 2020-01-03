@@ -24,10 +24,12 @@ public class BillingResult {
         this._debugMessage = debugMessage;
     }
 
+    /** Response code returned in In-app Billing API calls. */
     public function get responseCode():int {
         return _responseCode;
     }
 
+    /** Debug message returned in In-app Billing API calls. */
     public function get debugMessage():String {
         return _debugMessage;
     }

@@ -27,5 +27,35 @@ public final class BillingResponseCode {
     public static const error:int = 6;
     public static const itemAlreadyOwned:int = 7;
     public static const itemNotOwned:int = 8;
+    public static function asString(code:int):String {
+        switch (code) {
+            case serviceTimeout:
+                return "service timeout";
+            case featureNotSupported:
+                return "feature not supported";
+            case serviceDisconnected:
+                return "service disconnected";
+            case ok:
+                return "ok";
+            case userCancelled:
+                return "user cancelled";
+            case serviceUnavailable:
+                return "service unavailable";
+            case billingUnavailable:
+                return "billing unavailable";
+            case itemUnavailable:
+                return "item unavailable";
+            case developerError:
+                return "developer error";
+            case error:
+                return "error";
+            case itemAlreadyOwned:
+                return "item already owned";
+            case itemNotOwned:
+                return "item not owned";
+            default:
+                return "unknown";
+        }
+    }
 }
 }

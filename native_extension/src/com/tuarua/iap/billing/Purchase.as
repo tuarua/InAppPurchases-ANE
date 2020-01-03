@@ -16,16 +16,27 @@
 package com.tuarua.iap.billing {
 [RemoteClass(alias="com.tuarua.iap.billing.Purchase")]
 public class Purchase {
+    /** Returns the payload specified when the purchase was acknowledged or consumed. */
     public var developerPayload:String;
+    /** Indicates whether the purchase has been acknowledged. */
     public var isAcknowledged:Boolean;
+    /** Indicates whether the subscription renews automatically. */
     public var isAutoRenewing:Boolean;
+    /** Returns an unique order identifier for the transaction. */
     public var orderId:String;
+    /** Returns a String in JSON format that contains details about the purchase order. */
     public var originalJson:String;
+    /** Returns the application package from which the purchase originated. */
     public var packageName:String;
+    /** Returns the state of purchase. */
     public var purchaseState:int;
+    /** Returns the time the product was purchased. */
     public var purchaseTime:Date;
+    /** Returns a token that uniquely identifies a purchase for a given item and user pair. */
     public var purchaseToken:String;
+    /** Returns the product Id. */
     public var sku:String;
+    /** Returns String containing the signature of the purchase data that was signed with the private key of the developer. */
     public var signature:String;
 
     public function Purchase() {

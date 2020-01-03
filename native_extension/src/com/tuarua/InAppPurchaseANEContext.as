@@ -46,6 +46,7 @@ public class InAppPurchaseANEContext {
     private static const ON_QUERY_SKU:String = "BillingEvent.onQuerySkuDetails";
     private static const ON_PURCHASE_HISTORY:String = "BillingEvent.onPurchaseHistory";
     private static const ON_REWARDED_SKU:String = "BillingEvent.onLoadRewardedSku";
+    private static const ON_PRICE_CHANGE:String = "BillingEvent.onPriceChange";
 
     public static var callbacks:Dictionary = new Dictionary();
     private static var _context:ExtensionContext;
@@ -181,6 +182,7 @@ public class InAppPurchaseANEContext {
                     trace("parsing error", event.code, e.message);
                 }
                 break;
+            case ON_PRICE_CHANGE:
             case ON_ACKNOWLEDGE_PURCHASE:
             case ON_SETUP_FINISHED:
             case ON_REWARDED_SKU:
@@ -188,7 +190,8 @@ public class InAppPurchaseANEContext {
                 try {
                     argsAsJSON = JSON.parse(event.code);
                     callCallback(argsAsJSON.callbackId,
-                            new BillingResult(argsAsJSON.data.billingResult.responseCode, argsAsJSON.data.billingResult.debugMessage));
+                            new BillingResult(argsAsJSON.data.billingResult.responseCode,
+                                    argsAsJSON.data.billingResult.debugMessage));
 
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
@@ -203,7 +206,6 @@ public class InAppPurchaseANEContext {
                 }
                 break;
             case ON_QUERY_SKU:
-                trace(event.code);
                 try {
                     argsAsJSON = JSON.parse(event.code);
                     var skuDetailsList:Vector.<SkuDetails> = new Vector.<SkuDetails>();
@@ -220,7 +222,6 @@ public class InAppPurchaseANEContext {
                 }
                 break;
             case ON_PURCHASE_HISTORY:
-                trace(event.code);
                 try {
                     argsAsJSON = JSON.parse(event.code);
                     var purchasesList:Vector.<PurchaseHistoryRecord> = new Vector.<PurchaseHistoryRecord>();
@@ -235,7 +236,6 @@ public class InAppPurchaseANEContext {
                 }
                 break;
             case BillingEvent.ON_PURCHASES_UPDATED:
-                trace("ON_PURCHASES_UPDATED updated: ", event.code);
                 try {
                     argsAsJSON = JSON.parse(event.code);
                     ret = InAppPurchaseANEContext.context.call("getOnPurchasesUpdates", argsAsJSON.callbackId);

@@ -6,6 +6,7 @@ data class BillingEvent(val callbackId:String?, val data: Map<String, Any?>? = n
         const val ON_PURCHASE_HISTORY = "BillingEvent.onPurchaseHistory"
         const val ON_PURCHASES_UPDATED = "BillingEvent.onPurchasesUpdated"
         const val ON_ACKNOWLEDGE_PURCHASE = "BillingEvent.onAcknowledgePurchase"
+        const val ON_PRICE_CHANGE = "BillingEvent.onPriceChange"
         const val ON_REWARDED_SKU = "BillingEvent.onLoadRewardedSku"
         const val ON_SETUP_FINISHED = "BillingEvent.onBillingSetupFinished"
         const val ON_SERVICE_DISCONNECTED = "BillingEvent.onBillingServiceDisconnected"

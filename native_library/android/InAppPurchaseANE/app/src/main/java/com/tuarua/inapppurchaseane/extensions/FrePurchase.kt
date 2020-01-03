@@ -1,10 +1,10 @@
+@file:Suppress("FunctionName")
+
 package com.tuarua.inapppurchaseane.extensions
 
 import com.adobe.fre.FREObject
 import com.android.billingclient.api.Purchase
-import com.tuarua.frekotlin.FREObject
-import com.tuarua.frekotlin.set
-import com.tuarua.frekotlin.toFREObject
+import com.tuarua.frekotlin.*
 import java.util.*
 
 fun Purchase.toFREObject(): FREObject? {
@@ -21,4 +21,9 @@ fun Purchase.toFREObject(): FREObject? {
     ret["sku"] = sku.toFREObject()
     ret["signature"] = signature.toFREObject()
     return ret
+}
+
+fun Purchase(freObject: FREObject?): Purchase? {
+    val rv = freObject ?: return null
+    return Purchase(String(rv["originalJson"]), String(rv["signature"]))
 }

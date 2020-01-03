@@ -8,6 +8,5 @@ import com.tuarua.frekotlin.get
 @Suppress("FunctionName")
 fun SkuDetails(freObject: FREObject?): SkuDetails? {
     val rv = freObject ?: return null
-    val json = String(rv["originalJson"])
-    return SkuDetails(json)
+    return SkuDetails(String(rv["originalJson"]))
 }

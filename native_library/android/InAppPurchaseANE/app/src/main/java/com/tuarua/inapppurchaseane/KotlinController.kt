@@ -23,6 +23,7 @@ import com.android.billingclient.api.BillingClient.*
 import com.google.gson.Gson
 import com.tuarua.frekotlin.*
 import com.tuarua.inapppurchaseane.data.BillingEvent
+import com.tuarua.inapppurchaseane.extensions.Purchase
 import com.tuarua.inapppurchaseane.extensions.SkuDetails
 import com.tuarua.inapppurchaseane.extensions.toFREObject
 import kotlinx.coroutines.Dispatchers
@@ -97,8 +98,6 @@ class KotlinController : FreKotlinMainController, PurchasesUpdatedListener {
         return client.isReady.toFREObject()
     }
 
-    // launchPriceChangeConfirmationFlow
-
     fun isFeatureSupported(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val feature = String(argv[0]) ?: return null
@@ -151,6 +150,22 @@ class KotlinController : FreKotlinMainController, PurchasesUpdatedListener {
             builder.setReplaceSkusProrationMode(replaceSkusProrationMode)
         }
         return client.launchBillingFlow(activity, builder.build()).toFREObject()
+    }
+
+    fun launchPriceChangeConfirmationFlow(ctx: FREContext, argv: FREArgv): FREObject? {
+        val skuDetails = SkuDetails(argv[0]) ?: return null
+        val callbackId = String(argv[1]) ?: return null
+
+        val params = PriceChangeFlowParams.newBuilder().setSkuDetails(skuDetails).build()
+        client.launchPriceChangeConfirmationFlow(activity, params) {result ->
+            dispatchEvent(BillingEvent.ON_PRICE_CHANGE,
+                    Gson().toJson(BillingEvent(callbackId,
+                            mapOf("billingResult" to mapOf("debugMessage" to result.debugMessage,
+                                    "responseCode" to result.responseCode))
+                    ))
+            )
+        }
+        return null
     }
 
     fun acknowledgePurchase(ctx: FREContext, argv: FREArgv): FREObject? {
@@ -259,6 +274,15 @@ class KotlinController : FreKotlinMainController, PurchasesUpdatedListener {
             )
         }
         return null
+    }
+
+    fun isSignatureValid(ctx: FREContext, argv: FREArgv): FREObject? {
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
+        val publicKey = String(argv[0]) ?: return null
+        val purchase = Purchase(argv[1]) ?: return null
+        return Security.verifyPurchase(
+                publicKey, purchase.originalJson, purchase.signature
+        ).toFREObject()
     }
 
     fun getOnPurchasesUpdates(ctx: FREContext, argv: FREArgv): FREObject? {
