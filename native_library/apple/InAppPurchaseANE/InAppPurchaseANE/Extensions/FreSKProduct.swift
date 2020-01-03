@@ -35,8 +35,8 @@ public extension SKProduct {
             ret.subscriptionGroupIdentifier = subscriptionGroupIdentifier
         }
         if #available(iOS 11.2, *) {
-            ret.introductoryPrice = introductoryPrice?.toFREObject()
-            ret.subscriptionPeriod = subscriptionPeriod?.toFREObject()
+            ret.introductoryPrice = introductoryPrice
+            ret.subscriptionPeriod = subscriptionPeriod
         }
         return ret.rawValue
     }
@@ -44,13 +44,14 @@ public extension SKProduct {
 
 public extension Set where Element == SKProduct {
     func toFREObject() -> FREObject? {
-        guard let ret = FREArray(className: "com.tuarua.iap.storekit.Product",
-                                 length: self.count, fixed: true) else { return nil }
-        var index: UInt = 0
-        for element in self {
-            ret[index] = element.toFREObject()
-            index+=1
-        }
-        return ret.rawValue
+        return FREArray(className: "com.tuarua.iap.storekit.Product",
+            length: self.count, fixed: true, items: self.map { $0.toFREObject() })?.rawValue
+    }
+}
+
+public extension FreObjectSwift {
+    subscript(dynamicMember name: String) -> Set<SKProduct> {
+        get { return [] }
+        set { rawValue?[name] = newValue.toFREObject() }
     }
 }

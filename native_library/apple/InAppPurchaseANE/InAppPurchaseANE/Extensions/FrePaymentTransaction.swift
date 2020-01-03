@@ -15,6 +15,7 @@
 
 import Foundation
 import FreSwift
+import SwiftyStoreKit
 import StoreKit
 
 public extension PaymentTransaction {

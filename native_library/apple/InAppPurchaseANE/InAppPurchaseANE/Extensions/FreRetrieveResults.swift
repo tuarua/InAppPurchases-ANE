@@ -15,29 +15,33 @@
 
 import Foundation
 import FreSwift
+import SwiftyStoreKit
 import StoreKit
 
 public extension RetrieveResults {
     func toFREObject() -> FREObject? {
         guard let ret = FreObjectSwift(className: "com.tuarua.iap.storekit.RetrieveResults")
             else { return nil }
-        ret.retrievedProducts = retrievedProducts.toFREObject()
-        ret.invalidProductIDs = invalidProductIDs.toFREObject()
-        // ret.error = error?.localizedDescription // TODO
+        ret.retrievedProducts = retrievedProducts
+        ret.invalidProductIDs = invalidProductIDs
+        if let err = error {
+            ret.error = FREObject(className: "Error", args: err.localizedDescription)
+        }
         return ret.rawValue
     }
 }
 
 public extension Set where Element == String {
     func toFREObject() -> FREObject? {
-        guard let ret = FREArray(className: "String",
-                                 length: self.count, fixed: true) else { return nil }
-        var index: UInt = 0
-        for element in self {
-            ret[index] = element.toFREObject()
-            index+=1
-        }
-        return ret.rawValue
+        return FREArray(className: "String",
+            length: self.count, fixed: true, items: self.map { $0.toFREObject() })?.rawValue
+    }
+}
+
+public extension FreObjectSwift {
+    subscript(dynamicMember name: String) -> Set<String> {
+        get { return [] }
+        set { rawValue?[name] = newValue.toFREObject() }
     }
 }
 

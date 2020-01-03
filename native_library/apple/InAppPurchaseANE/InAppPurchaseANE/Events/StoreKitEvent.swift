@@ -15,10 +15,10 @@
 
 import Foundation
 
-class InAppPurchaseEvent: NSObject {
-    public static let PRODUCT_INFO = "InAppPurchaseEvent.ProductInfo"
-    public static let PURCHASE = "InAppPurchaseEvent.Purchase"
-    public static let RESTORE = "InAppPurchaseEvent.Restore"
-    public static let VERIFY_RECEIPT = "InAppPurchaseEvent.VerifyReceipt"
-    public static let FETCH_RECEIPT = "InAppPurchaseEvent.FetchReceipt"
+class StoreKitEvent: NSObject {
+    public static let PRODUCT_INFO = "StoreKitEvent.ProductInfo"
+    public static let PURCHASE = "StoreKitEvent.Purchase"
+    public static let RESTORE = "StoreKitEvent.Restore"
+    public static let VERIFY_RECEIPT = "StoreKitEvent.VerifyReceipt"
+    public static let FETCH_RECEIPT = "StoreKitEvent.FetchReceipt"
 }

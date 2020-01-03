@@ -26,7 +26,15 @@ public extension SKProductDiscount {
         ret.paymentMode = paymentMode.rawValue
         ret.price = price
         ret.priceLocale = priceLocale.toFREObject()
-        ret.subscriptionPeriod = subscriptionPeriod.toFREObject()
+        ret.subscriptionPeriod = subscriptionPeriod
         return ret.rawValue
+    }
+}
+
+public extension FreObjectSwift {
+    @available(iOS 11.2, *)
+    subscript(dynamicMember name: String) -> SKProductDiscount? {
+        get { return nil }
+        set { rawValue?[name] = newValue?.toFREObject() }
     }
 }

@@ -27,3 +27,11 @@ public extension SKProductSubscriptionPeriod {
         return ret.rawValue
     }
 }
+
+public extension FreObjectSwift {
+    @available(iOS 11.2, *)
+    subscript(dynamicMember name: String) -> SKProductSubscriptionPeriod? {
+        get { return nil }
+        set { rawValue?[name] = newValue?.toFREObject() }
+    }
+}

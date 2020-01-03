@@ -14,6 +14,7 @@
  */
 
 import Foundation
+import SwiftyStoreKit
 
 extension SwiftController: FreSwiftMainController {
     // Must have this function. It exposes the methods to our entry ObjC.
@@ -58,6 +59,8 @@ extension SwiftController: FreSwiftMainController {
                 // Unlock content
                 case .failed, .purchasing, .deferred:
                     break // do nothing
+                @unknown default:
+                    break
                 }
             }
         }

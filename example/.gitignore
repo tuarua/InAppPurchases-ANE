@@ -8,6 +8,7 @@ bin-release/
 bin-release-temp/
 cache/
 
+.keys
 *.app
 
 # Other files and folders
@@ -19,6 +20,7 @@ cache/
 
 # textures
 .tps
+
 
 
 

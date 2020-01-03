@@ -31,13 +31,7 @@ public extension SKDownload {
 
 public extension Array where Element == SKDownload {
     func toFREObject(_ id: String) -> FREObject? {
-        guard let ret = FREArray(className: "com.tuarua.iap.storekit.Download",
-                                 length: self.count, fixed: true) else { return nil }
-        var index: UInt = 0
-        for element in self {
-            ret[index] = element.toFREObject(id)
-            index+=1
-        }
-        return ret.rawValue
+        return FREArray(className: "com.tuarua.iap.storekit.Download",
+            length: self.count, fixed: true, items: self.map { $0.toFREObject(id) })?.rawValue
     }
 }

@@ -15,6 +15,7 @@
 
 import Foundation
 import FreSwift
+import SwiftyStoreKit
 import StoreKit
 
 public extension ReceiptItem {
@@ -38,23 +39,17 @@ public extension ReceiptItem {
 
 public extension Array where Element == ReceiptItem {
     func toFREObject() -> FREObject? {
-        guard let ret = FREArray(className: "com.tuarua.iap.storekit.ReceiptItem",
-                                 length: self.count, fixed: true) else { return nil }
-        var index: UInt = 0
-        for element in self {
-            ret[index] = element.toFREObject()
-            index+=1
-        }
-        return ret.rawValue
+        return FREArray(className: "com.tuarua.iap.storekit.ReceiptItem",
+            length: self.count, fixed: true, items: self.map { $0.toFREObject() })?.rawValue
     }
 }
 
 public extension FreObjectSwift {
-    public subscript(dynamicMember name: String) -> ReceiptItem? {
+    subscript(dynamicMember name: String) -> ReceiptItem? {
         get { return nil }
         set { rawValue?[name] = newValue?.toFREObject() }
     }
-    public subscript(dynamicMember name: String) -> [ReceiptItem] {
+    subscript(dynamicMember name: String) -> [ReceiptItem] {
         get { return [] }
         set { rawValue?[name] = newValue.toFREObject() }
     }

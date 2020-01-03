@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,33 +16,19 @@
 		9063C47422FF4C58003A451B /* FrePaymentTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9063C47322FF4C58003A451B /* FrePaymentTransaction.swift */; };
 		9063C47622FF4C72003A451B /* FreRestoreResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9063C47522FF4C72003A451B /* FreRestoreResults.swift */; };
 		909EF12022D24DA2006EFEB4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909EF11F22D24DA2006EFEB4 /* StoreKit.framework */; };
-		909EF13022D24F00006EFEB4 /* SKProduct+LocalizedPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909EF12222D24EFF006EFEB4 /* SKProduct+LocalizedPrice.swift */; };
-		909EF13122D24F00006EFEB4 /* OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909EF12322D24EFF006EFEB4 /* OS.swift */; };
-		909EF13222D24F00006EFEB4 /* CompleteTransactionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909EF12422D24EFF006EFEB4 /* CompleteTransactionsController.swift */; };
-		909EF13322D24F00006EFEB4 /* InAppReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909EF12522D24EFF006EFEB4 /* InAppReceipt.swift */; };
-		909EF13422D24F00006EFEB4 /* InAppProductQueryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909EF12622D24EFF006EFEB4 /* InAppProductQueryRequest.swift */; };
-		909EF13522D24F00006EFEB4 /* SwiftyStoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909EF12722D24EFF006EFEB4 /* SwiftyStoreKit.swift */; };
-		909EF13622D24F00006EFEB4 /* ProductsInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909EF12822D24EFF006EFEB4 /* ProductsInfoController.swift */; };
-		909EF13722D24F00006EFEB4 /* InAppReceiptVerificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909EF12922D24EFF006EFEB4 /* InAppReceiptVerificator.swift */; };
-		909EF13822D24F00006EFEB4 /* PaymentQueueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909EF12A22D24EFF006EFEB4 /* PaymentQueueController.swift */; };
-		909EF13922D24F00006EFEB4 /* InAppReceiptRefreshRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909EF12B22D24EFF006EFEB4 /* InAppReceiptRefreshRequest.swift */; };
-		909EF13A22D24F00006EFEB4 /* RestorePurchasesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909EF12C22D24EFF006EFEB4 /* RestorePurchasesController.swift */; };
-		909EF13B22D24F00006EFEB4 /* PaymentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909EF12D22D24EFF006EFEB4 /* PaymentsController.swift */; };
-		909EF13C22D24F00006EFEB4 /* AppleReceiptValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909EF12E22D24F00006EFEB4 /* AppleReceiptValidator.swift */; };
-		909EF13D22D24F00006EFEB4 /* SwiftyStoreKit+Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909EF12F22D24F00006EFEB4 /* SwiftyStoreKit+Types.swift */; };
-		909EF14222D24F8F006EFEB4 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 909EF14022D24F8F006EFEB4 /* SwiftyJSON.h */; };
-		909EF14322D24F8F006EFEB4 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909EF14122D24F8F006EFEB4 /* SwiftyJSON.swift */; };
 		909EF14622D26E59006EFEB4 /* FreRetrieveResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909EF14522D26E59006EFEB4 /* FreRetrieveResults.swift */; };
 		90AB882B23033ECE0009C9C7 /* FreReceiptItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AB882A23033ECE0009C9C7 /* FreReceiptItem.swift */; };
-		90BE821022D3A75900AF56CC /* InAppPurchaseEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BE820F22D3A75900AF56CC /* InAppPurchaseEvent.swift */; };
-		CE05603F1FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
+		90B723A823BF77E10033DF40 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 90B723A723BF77E10033DF40 /* SwiftyJSON */; };
+		90B723AB23BF785E0033DF40 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 90B723AA23BF785E0033DF40 /* SwiftyStoreKit */; };
+		90BE821022D3A75900AF56CC /* StoreKitEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BE820F22D3A75900AF56CC /* StoreKitEvent.swift */; };
+		CE05603F1FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; platformFilter = ios; };
 		CE0560401FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		CE0560431FB25D1B00D06976 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0560411FB25D1B00D06976 /* SwiftController.swift */; };
-		CE0560451FB25DD000D06976 /* InAppPurchaseANE_FW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE87F4831FB259FA005CF7DF /* InAppPurchaseANE_FW.framework */; };
-		CE05604A1FB25DF600D06976 /* InAppPurchaseANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CE87F4771FB259DB005CF7DF /* InAppPurchaseANE_oc.h */; };
-		CE05604E1FB25E8E00D06976 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
+		CE0560451FB25DD000D06976 /* InAppPurchaseANE_FW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE87F4831FB259FA005CF7DF /* InAppPurchaseANE_FW.framework */; platformFilter = ios; };
+		CE05604A1FB25DF600D06976 /* InAppPurchaseANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CE87F4771FB259DB005CF7DF /* InAppPurchaseANE_oc.h */; platformFilter = ios; };
+		CE05604E1FB25E8E00D06976 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; platformFilter = ios; };
 		CE05604F1FB25E9F00D06976 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
-		CE87F4791FB259DB005CF7DF /* InAppPurchaseANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE87F4781FB259DB005CF7DF /* InAppPurchaseANE.m */; };
+		CE87F4791FB259DB005CF7DF /* InAppPurchaseANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE87F4781FB259DB005CF7DF /* InAppPurchaseANE.m */; platformFilter = ios; };
 		CE87F4871FB259FA005CF7DF /* InAppPurchaseANE_FW.h in Headers */ = {isa = PBXBuildFile; fileRef = CE87F4851FB259FA005CF7DF /* InAppPurchaseANE_FW.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEC5AEFE202F536F00519265 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5AEFD202F536F00519265 /* SwiftController+FreSwift.swift */; };
 /* End PBXBuildFile section */
@@ -67,25 +53,9 @@
 		9063C47322FF4C58003A451B /* FrePaymentTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrePaymentTransaction.swift; sourceTree = "<group>"; };
 		9063C47522FF4C72003A451B /* FreRestoreResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreRestoreResults.swift; sourceTree = "<group>"; };
 		909EF11F22D24DA2006EFEB4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		909EF12222D24EFF006EFEB4 /* SKProduct+LocalizedPrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKProduct+LocalizedPrice.swift"; sourceTree = "<group>"; };
-		909EF12322D24EFF006EFEB4 /* OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OS.swift; sourceTree = "<group>"; };
-		909EF12422D24EFF006EFEB4 /* CompleteTransactionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteTransactionsController.swift; sourceTree = "<group>"; };
-		909EF12522D24EFF006EFEB4 /* InAppReceipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppReceipt.swift; sourceTree = "<group>"; };
-		909EF12622D24EFF006EFEB4 /* InAppProductQueryRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppProductQueryRequest.swift; sourceTree = "<group>"; };
-		909EF12722D24EFF006EFEB4 /* SwiftyStoreKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyStoreKit.swift; sourceTree = "<group>"; };
-		909EF12822D24EFF006EFEB4 /* ProductsInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsInfoController.swift; sourceTree = "<group>"; };
-		909EF12922D24EFF006EFEB4 /* InAppReceiptVerificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppReceiptVerificator.swift; sourceTree = "<group>"; };
-		909EF12A22D24EFF006EFEB4 /* PaymentQueueController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentQueueController.swift; sourceTree = "<group>"; };
-		909EF12B22D24EFF006EFEB4 /* InAppReceiptRefreshRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppReceiptRefreshRequest.swift; sourceTree = "<group>"; };
-		909EF12C22D24EFF006EFEB4 /* RestorePurchasesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestorePurchasesController.swift; sourceTree = "<group>"; };
-		909EF12D22D24EFF006EFEB4 /* PaymentsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentsController.swift; sourceTree = "<group>"; };
-		909EF12E22D24F00006EFEB4 /* AppleReceiptValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleReceiptValidator.swift; sourceTree = "<group>"; };
-		909EF12F22D24F00006EFEB4 /* SwiftyStoreKit+Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftyStoreKit+Types.swift"; sourceTree = "<group>"; };
-		909EF14022D24F8F006EFEB4 /* SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiftyJSON.h; path = InAppPurchaseANE/SwiftyJSON/SwiftyJSON.h; sourceTree = SOURCE_ROOT; };
-		909EF14122D24F8F006EFEB4 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = InAppPurchaseANE/SwiftyJSON/SwiftyJSON.swift; sourceTree = SOURCE_ROOT; };
 		909EF14522D26E59006EFEB4 /* FreRetrieveResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreRetrieveResults.swift; sourceTree = "<group>"; };
 		90AB882A23033ECE0009C9C7 /* FreReceiptItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreReceiptItem.swift; sourceTree = "<group>"; };
-		90BE820F22D3A75900AF56CC /* InAppPurchaseEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseEvent.swift; sourceTree = "<group>"; };
+		90BE820F22D3A75900AF56CC /* StoreKitEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitEvent.swift; sourceTree = "<group>"; };
 		CE05603E1FB25CE200D06976 /* FreSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreSwift.framework; path = Carthage/Build/iOS/FreSwift.framework; sourceTree = "<group>"; };
 		CE0560411FB25D1B00D06976 /* SwiftController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
 		CE05604D1FB25E8E00D06976 /* FreMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FreMacros.h; path = InAppPurchaseANE/Headers/FreMacros.h; sourceTree = SOURCE_ROOT; };
@@ -113,6 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90B723A823BF77E10033DF40 /* SwiftyJSON in Frameworks */,
+				90B723AB23BF785E0033DF40 /* SwiftyStoreKit in Frameworks */,
 				909EF12022D24DA2006EFEB4 /* StoreKit.framework in Frameworks */,
 				CE0560401FB25CE200D06976 /* FreSwift.framework in Frameworks */,
 			);
@@ -129,36 +101,6 @@
 				CE87F4851FB259FA005CF7DF /* InAppPurchaseANE_FW.h */,
 			);
 			path = Headers;
-			sourceTree = "<group>";
-		};
-		909EF12122D24ED3006EFEB4 /* SwiftyStoreKit */ = {
-			isa = PBXGroup;
-			children = (
-				909EF12E22D24F00006EFEB4 /* AppleReceiptValidator.swift */,
-				909EF12422D24EFF006EFEB4 /* CompleteTransactionsController.swift */,
-				909EF12622D24EFF006EFEB4 /* InAppProductQueryRequest.swift */,
-				909EF12522D24EFF006EFEB4 /* InAppReceipt.swift */,
-				909EF12B22D24EFF006EFEB4 /* InAppReceiptRefreshRequest.swift */,
-				909EF12922D24EFF006EFEB4 /* InAppReceiptVerificator.swift */,
-				909EF12322D24EFF006EFEB4 /* OS.swift */,
-				909EF12A22D24EFF006EFEB4 /* PaymentQueueController.swift */,
-				909EF12D22D24EFF006EFEB4 /* PaymentsController.swift */,
-				909EF12822D24EFF006EFEB4 /* ProductsInfoController.swift */,
-				909EF12C22D24EFF006EFEB4 /* RestorePurchasesController.swift */,
-				909EF12222D24EFF006EFEB4 /* SKProduct+LocalizedPrice.swift */,
-				909EF12722D24EFF006EFEB4 /* SwiftyStoreKit.swift */,
-				909EF12F22D24F00006EFEB4 /* SwiftyStoreKit+Types.swift */,
-			);
-			path = SwiftyStoreKit;
-			sourceTree = "<group>";
-		};
-		909EF13F22D24F7F006EFEB4 /* SwiftyJSON */ = {
-			isa = PBXGroup;
-			children = (
-				909EF14022D24F8F006EFEB4 /* SwiftyJSON.h */,
-				909EF14122D24F8F006EFEB4 /* SwiftyJSON.swift */,
-			);
-			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
 		909EF14422D2634B006EFEB4 /* Extensions */ = {
@@ -181,7 +123,7 @@
 		90BE820E22D3A6BB00AF56CC /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				90BE820F22D3A75900AF56CC /* InAppPurchaseEvent.swift */,
+				90BE820F22D3A75900AF56CC /* StoreKitEvent.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -219,8 +161,6 @@
 			children = (
 				90BE820E22D3A6BB00AF56CC /* Events */,
 				909EF14422D2634B006EFEB4 /* Extensions */,
-				909EF13F22D24F7F006EFEB4 /* SwiftyJSON */,
-				909EF12122D24ED3006EFEB4 /* SwiftyStoreKit */,
 				90638465220CBB5900ED65C8 /* Headers */,
 				CE87F4781FB259DB005CF7DF /* InAppPurchaseANE.m */,
 				CE87F4861FB259FA005CF7DF /* Info.plist */,
@@ -246,7 +186,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				909EF14222D24F8F006EFEB4 /* SwiftyJSON.h in Headers */,
 				CE87F4871FB259FA005CF7DF /* InAppPurchaseANE_FW.h in Headers */,
 				CE05604F1FB25E9F00D06976 /* FreMacros.h in Headers */,
 			);
@@ -270,6 +209,8 @@
 				CE0560471FB25DD600D06976 /* PBXTargetDependency */,
 			);
 			name = InAppPurchaseANE_LIB;
+			packageProductDependencies = (
+			);
 			productName = HelloWorldANE_LIB;
 			productReference = CE87F4751FB259DB005CF7DF /* libInAppPurchaseANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
@@ -288,6 +229,10 @@
 			dependencies = (
 			);
 			name = InAppPurchaseANE_FW;
+			packageProductDependencies = (
+				90B723A723BF77E10033DF40 /* SwiftyJSON */,
+				90B723AA23BF785E0033DF40 /* SwiftyStoreKit */,
+			);
 			productName = HelloWorldANE_FW;
 			productReference = CE87F4831FB259FA005CF7DF /* InAppPurchaseANE_FW.framework */;
 			productType = "com.apple.product-type.framework";
@@ -298,7 +243,7 @@
 		CE87F45D1FB259C9005CF7DF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Tua Rua Ltd";
 				TargetAttributes = {
 					CE87F4741FB259DB005CF7DF = {
@@ -308,19 +253,24 @@
 					};
 					CE87F4821FB259FA005CF7DF = {
 						CreatedOnToolsVersion = 8.3;
-						LastSwiftMigration = 0910;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Manual;
 					};
 				};
 			};
 			buildConfigurationList = CE87F4601FB259C9005CF7DF /* Build configuration list for PBXProject "InAppPurchaseANE" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			compatibilityVersion = "Xcode 11.0";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CE87F45C1FB259C9005CF7DF;
+			packageReferences = (
+				90B723A623BF77E10033DF40 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				90B723A923BF785E0033DF40 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
+			);
 			productRefGroup = CE87F4661FB259C9005CF7DF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -373,34 +323,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				909EF13D22D24F00006EFEB4 /* SwiftyStoreKit+Types.swift in Sources */,
 				9063C47622FF4C72003A451B /* FreRestoreResults.swift in Sources */,
 				9063C46A22FF1DB7003A451B /* FreSKDownload.swift in Sources */,
 				9063C46822FF1D6A003A451B /* FreSKProduct.swift in Sources */,
-				909EF13022D24F00006EFEB4 /* SKProduct+LocalizedPrice.swift in Sources */,
-				909EF13422D24F00006EFEB4 /* InAppProductQueryRequest.swift in Sources */,
-				909EF13B22D24F00006EFEB4 /* PaymentsController.swift in Sources */,
-				909EF13622D24F00006EFEB4 /* ProductsInfoController.swift in Sources */,
-				909EF13522D24F00006EFEB4 /* SwiftyStoreKit.swift in Sources */,
 				9063C46C22FF1E2A003A451B /* FreSKProductDiscount.swift in Sources */,
-				909EF13C22D24F00006EFEB4 /* AppleReceiptValidator.swift in Sources */,
-				909EF13122D24F00006EFEB4 /* OS.swift in Sources */,
 				90AB882B23033ECE0009C9C7 /* FreReceiptItem.swift in Sources */,
-				90BE821022D3A75900AF56CC /* InAppPurchaseEvent.swift in Sources */,
+				90BE821022D3A75900AF56CC /* StoreKitEvent.swift in Sources */,
 				9063C47022FF1EDB003A451B /* FrePurchase.swift in Sources */,
 				CE0560431FB25D1B00D06976 /* SwiftController.swift in Sources */,
-				909EF13822D24F00006EFEB4 /* PaymentQueueController.swift in Sources */,
-				909EF13A22D24F00006EFEB4 /* RestorePurchasesController.swift in Sources */,
 				CEC5AEFE202F536F00519265 /* SwiftController+FreSwift.swift in Sources */,
 				9063C47422FF4C58003A451B /* FrePaymentTransaction.swift in Sources */,
-				909EF13222D24F00006EFEB4 /* CompleteTransactionsController.swift in Sources */,
-				909EF13722D24F00006EFEB4 /* InAppReceiptVerificator.swift in Sources */,
 				9063C47222FF4C38003A451B /* FrePurchaseDetails.swift in Sources */,
 				909EF14622D26E59006EFEB4 /* FreRetrieveResults.swift in Sources */,
 				9063C46E22FF1E56003A451B /* FreSKProductSubscriptionPeriod.swift in Sources */,
-				909EF14322D24F8F006EFEB4 /* SwiftyJSON.swift in Sources */,
-				909EF13922D24F00006EFEB4 /* InAppReceiptRefreshRequest.swift in Sources */,
-				909EF13322D24F00006EFEB4 /* InAppReceipt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +344,7 @@
 /* Begin PBXTargetDependency section */
 		CE0560471FB25DD600D06976 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = CE87F4821FB259FA005CF7DF /* InAppPurchaseANE_FW */;
 			targetProxy = CE0560461FB25DD600D06976 /* PBXContainerItemProxy */;
 		};
@@ -419,6 +355,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -478,6 +415,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -522,7 +460,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -541,7 +480,11 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -563,7 +506,11 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -591,16 +538,21 @@
 				INFOPLIST_FILE = "$(SRCROOT)/InAppPurchaseANE/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuarua.InAppPurchaseANE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -627,15 +579,21 @@
 				INFOPLIST_FILE = "$(SRCROOT)/InAppPurchaseANE/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuarua.InAppPurchaseANE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -673,6 +631,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		90B723A623BF77E10033DF40 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		90B723A923BF785E0033DF40 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bizz84/SwiftyStoreKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.15.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		90B723A723BF77E10033DF40 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 90B723A623BF77E10033DF40 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		90B723AA23BF785E0033DF40 /* SwiftyStoreKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 90B723A923BF785E0033DF40 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */;
+			productName = SwiftyStoreKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE87F45D1FB259C9005CF7DF /* Project object */;
 }

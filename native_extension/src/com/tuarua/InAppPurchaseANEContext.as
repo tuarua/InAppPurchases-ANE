@@ -33,11 +33,11 @@ public class InAppPurchaseANEContext {
     internal static const TRACE:String = "TRACE";
 
     // storekit
-    private static const PRODUCT_INFO:String = "InAppPurchaseEvent.ProductInfo";
-    private static const PURCHASE:String = "InAppPurchaseEvent.Purchase";
-    private static const RESTORE:String = "InAppPurchaseEvent.Restore";
-    private static const VERIFY_RECEIPT:String = "InAppPurchaseEvent.VerifyReceipt";
-    private static const FETCH_RECEIPT:String = "InAppPurchaseEvent.FetchReceipt";
+    private static const PRODUCT_INFO:String = "StoreKitEvent.ProductInfo";
+    private static const PURCHASE:String = "StoreKitEvent.Purchase";
+    private static const RESTORE:String = "StoreKitEvent.Restore";
+    private static const VERIFY_RECEIPT:String = "StoreKitEvent.VerifyReceipt";
+    private static const FETCH_RECEIPT:String = "StoreKitEvent.FetchReceipt";
     //billing
     private static const ON_CONSUME:String = "BillingEvent.onConsume";
     private static const ON_ACKNOWLEDGE_PURCHASE:String = "BillingEvent.onAcknowledgePurchase";
@@ -106,7 +106,7 @@ public class InAppPurchaseANEContext {
                     }
                     callCallback(argsAsJSON.callbackId, ret, err);
                 } catch (e:Error) {
-                    trace("parsing error", event.code, e.message);
+                    trace(PRODUCT_INFO, "parsing error", event.code, e.message);
                 }
                 break;
             case PURCHASE:
@@ -123,7 +123,7 @@ public class InAppPurchaseANEContext {
                     }
                     callCallback(argsAsJSON.callbackId, ret, err);
                 } catch (e:Error) {
-                    trace("parsing error", event.code, e.message);
+                    trace(PURCHASE, "parsing error", event.code, e.message);
                 }
                 break;
             case RESTORE:
@@ -136,7 +136,7 @@ public class InAppPurchaseANEContext {
                     }
                     callCallback(argsAsJSON.callbackId, ret);
                 } catch (e:Error) {
-                    trace("parsing error", event.code, e.message);
+                    trace(RESTORE, "parsing error", event.code, e.message);
                 }
                 break;
             case VERIFY_RECEIPT:
@@ -150,12 +150,11 @@ public class InAppPurchaseANEContext {
                     }
                     callCallback(argsAsJSON.callbackId, ret);
                 } catch (e:Error) {
-                    trace("parsing error", event.code, e.message);
+                    trace(VERIFY_RECEIPT, "parsing error", event.code, e.message);
                 }
                 break;
             case FETCH_RECEIPT:
                 trace(event.code);
-                // FetchReceiptResult
                 try {
                     argsAsJSON = JSON.parse(event.code);
                     var receiptResult:FetchReceiptResult;
@@ -166,11 +165,10 @@ public class InAppPurchaseANEContext {
                     }
                     callCallback(argsAsJSON.callbackId, receiptResult);
                 } catch (e:Error) {
-                    trace("parsing error", event.code, e.message);
+                    trace(FETCH_RECEIPT, "parsing error", event.code, e.message);
                 }
                 break;
             case ON_CONSUME:
-                trace(event.code);
                 try {
                     argsAsJSON = JSON.parse(event.code);
                     callCallback(argsAsJSON.callbackId,
@@ -179,14 +177,13 @@ public class InAppPurchaseANEContext {
                             argsAsJSON.data.purchaseToken);
 
                 } catch (e:Error) {
-                    trace("parsing error", event.code, e.message);
+                    trace(ON_CONSUME, "parsing error", event.code, e.message);
                 }
                 break;
             case ON_PRICE_CHANGE:
             case ON_ACKNOWLEDGE_PURCHASE:
             case ON_SETUP_FINISHED:
             case ON_REWARDED_SKU:
-                trace(event.code);
                 try {
                     argsAsJSON = JSON.parse(event.code);
                     callCallback(argsAsJSON.callbackId,
@@ -194,7 +191,7 @@ public class InAppPurchaseANEContext {
                                     argsAsJSON.data.billingResult.debugMessage));
 
                 } catch (e:Error) {
-                    trace("parsing error", event.code, e.message);
+                    trace(event.level, "parsing error", event.code, e.message);
                 }
                 break;
             case ON_SERVICE_DISCONNECTED:
@@ -202,7 +199,7 @@ public class InAppPurchaseANEContext {
                     argsAsJSON = JSON.parse(event.code);
                     callCallback(argsAsJSON.callbackId);
                 } catch (e:Error) {
-                    trace("parsing error", event.code, e.message);
+                    trace(ON_SERVICE_DISCONNECTED, "parsing error", event.code, e.message);
                 }
                 break;
             case ON_QUERY_SKU:
@@ -218,7 +215,7 @@ public class InAppPurchaseANEContext {
                             skuDetailsList);
 
                 } catch (e:Error) {
-                    trace("parsing error", event.code, e.message);
+                    trace(ON_QUERY_SKU, "parsing error", event.code, e.message);
                 }
                 break;
             case ON_PURCHASE_HISTORY:
@@ -232,7 +229,7 @@ public class InAppPurchaseANEContext {
                             argsAsJSON.data.billingResult.debugMessage),
                             purchasesList);
                 } catch (e:Error) {
-                    trace("parsing error", event.code, e.message);
+                    trace(ON_PURCHASE_HISTORY, "parsing error", event.code, e.message);
                 }
                 break;
             case BillingEvent.ON_PURCHASES_UPDATED:
@@ -245,7 +242,7 @@ public class InAppPurchaseANEContext {
                     }
                     InAppPurchase.billing().dispatchEvent(new BillingEvent(event.level, ret as PurchasesResult));
                 } catch (e:Error) {
-                    trace("parsing error", event.code, e.message);
+                    trace(BillingEvent.ON_PURCHASES_UPDATED, "parsing error", event.code, e.message);
                 }
                 break;
         }

@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftyJSON",
+        "repositoryURL": "https://github.com/SwiftyJSON/SwiftyJSON.git",
+        "state": {
+          "branch": null,
+          "revision": "2b6054efa051565954e1d2b9da831680026cd768",
+          "version": "5.0.0"
+        }
+      },
+      {
+        "package": "SwiftyStoreKit",
+        "repositoryURL": "https://github.com/bizz84/SwiftyStoreKit.git",
+        "state": {
+          "branch": null,
+          "revision": "d830aaac6822a70245aa62ea1c51548e4fc90bad",
+          "version": "0.15.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
