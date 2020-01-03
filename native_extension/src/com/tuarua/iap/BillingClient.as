@@ -234,7 +234,7 @@ public class BillingClient extends EventDispatcher {
      * Verifies that the data was signed with the given signature
      *
      * @param publicKey should be YOUR APPLICATION'S PUBLIC KEY
-     * (that you got from the Google Play developer console, usually under Services & APIs tab).
+     * (that you got from the Google Play developer console, usually under Services &amp; APIs tab).
      * This is not your developer public key, it's the <b>app-specific</b> public key.
      * @param purchase The purchase to check
      */

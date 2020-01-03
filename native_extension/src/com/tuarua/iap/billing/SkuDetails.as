@@ -74,7 +74,7 @@ public class SkuDetails {
      * Trial period configured in Google Play Console, specified in ISO 8601 format. For example, P7D
      * equates to seven days. To learn more about free trial eligibility, see In-app Subscriptions.
      *
-     * <p>Note: Returned only for subscriptions which have a trial period configured.
+     * <p>Note: Returned only for subscriptions which have a trial period configured.</p>
      */
     public function get freeTrialPeriod():String {
         return _freeTrialPeriod;
@@ -143,7 +143,7 @@ public class SkuDetails {
      * Returns formatted original price of the item, including its currency sign. The price does not
      * include tax.
      *
-     * <p>The original price is the price of the item before any applicable sales have been applied.
+     * <p>The original price is the price of the item before any applicable sales have been applied.</p>
      */
     public function get originalPrice():String {
         return _originalPrice;
