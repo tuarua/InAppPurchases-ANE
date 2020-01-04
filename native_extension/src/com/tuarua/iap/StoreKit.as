@@ -1,4 +1,4 @@
-/* Copyright 2018 Tua Rua Ltd.
+/* Copyright 2019 Tua Rua Ltd.
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,12 +17,15 @@ package com.tuarua.iap {
 import com.tuarua.InAppPurchaseANEContext;
 import com.tuarua.fre.ANEError;
 import com.tuarua.iap.storekit.PaymentTransaction;
+import com.tuarua.iap.storekit.Purchase;
 import com.tuarua.iap.storekit.SubscriptionType;
 import com.tuarua.iap.storekit.VerifyPurchaseResult;
 import com.tuarua.iap.storekit.VerifySubscriptionResult;
 
 public class StoreKit {
-    public function StoreKit() {
+    private var _pendingPurchases:Vector.<Purchase> = new Vector.<Purchase>();
+    public function StoreKit(pendingPurchases:Vector.<Purchase>) {
+        this._pendingPurchases = pendingPurchases;
     }
 
     /**
@@ -41,13 +44,17 @@ public class StoreKit {
      * Purchase a product
      *
      * @param productId productId as specified in iTunes Connect
-     * @param completion  handler for result
+     * @param completion handler for result
      * @param atomically whether the product is purchased atomically (e.g. finishTransaction is called immediately)
      * @param quantity quantity of the product to be purchased
+     * @param applicationUsername an opaque identifier for the user’s account on your system
+     * @param simulatesAskToBuyInSandbox
      */
-    public function purchaseProduct(productId:String, completion:Function, atomically:Boolean = true, quantity:int = 1):void {
+    public function purchaseProduct(productId:String, completion:Function, atomically:Boolean = true, quantity:int = 1,
+                                    applicationUsername:String = "", simulatesAskToBuyInSandbox:Boolean = false):void {
         var ret:* = InAppPurchaseANEContext.context.call("purchaseProduct", productId, quantity,
-                atomically, InAppPurchaseANEContext.createCallback(completion));
+                atomically, applicationUsername, simulatesAskToBuyInSandbox,
+                InAppPurchaseANEContext.createCallback(completion));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -66,7 +73,7 @@ public class StoreKit {
      * @param transaction transaction to finish
      */
     public function finishTransaction(transaction:PaymentTransaction):void {
-        var ret:* = InAppPurchaseANEContext.context.call("finishTransaction", transaction);
+        var ret:* = InAppPurchaseANEContext.context.call("finishTransaction", transaction.id);
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -131,13 +138,19 @@ public class StoreKit {
      *
      * @param atomically whether the product is purchased atomically (e.g. finishTransaction is called immediately)
      * @param completion handler for result
+     * @param applicationUsername an opaque identifier for the user’s account on your system
      */
-    public function restorePurchases(atomically:Boolean, completion:Function):void {
+    public function restorePurchases(atomically:Boolean, completion:Function, applicationUsername:String = ""):void {
         var ret:* = InAppPurchaseANEContext.context.call("restorePurchases", atomically,
-                InAppPurchaseANEContext.createCallback(completion));
+                applicationUsername, InAppPurchaseANEContext.createCallback(completion));
         if (ret is ANEError) throw ret as ANEError;
     }
 
-
+    /**
+     * Pending Purchases available on app launch
+     */
+    public function get pendingPurchases():Vector.<Purchase> {
+        return _pendingPurchases;
+    }
 }
 }

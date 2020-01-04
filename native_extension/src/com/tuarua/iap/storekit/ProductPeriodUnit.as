@@ -12,25 +12,11 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-
 package com.tuarua.iap.storekit {
-
-[RemoteClass(alias="com.tuarua.iap.storekit.Purchase")]
-public class Purchase {
-    private var _id:String;
-
-    public var productId:String;
-    public var quantity:int;
-    public var needsFinishTransaction:Boolean;
-    public var transaction:PaymentTransaction;
-    public var originalTransaction:PaymentTransaction;
-
-    public function Purchase(id:String) {
-        this._id = id;
-    }
-
-    public function get id():String {
-        return _id;
-    }
+public final class ProductPeriodUnit {
+    public static const day:uint = 0;
+    public static const week:uint = 1;
+    public static const month:uint = 2;
+    public static const year:uint = 3;
 }
 }

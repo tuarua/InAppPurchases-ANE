@@ -1,4 +1,4 @@
-/* Copyright 2018 Tua Rua Ltd.
+/* Copyright 2019 Tua Rua Ltd.
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ import com.tuarua.iap.billing.SkuDetails;
 import com.tuarua.iap.billing.events.BillingEvent;
 import com.tuarua.iap.storekit.FetchReceiptResult;
 import com.tuarua.iap.storekit.PurchaseError;
+import com.tuarua.iap.storekit.ReceiptError;
 
 import flash.events.StatusEvent;
 import flash.external.ExtensionContext;
@@ -87,7 +88,9 @@ public class InAppPurchaseANEContext {
     private static function gotEvent(event:StatusEvent):void {
         var argsAsJSON:Object;
         var ret:* = null;
-        var err:PurchaseError = null;
+        var pErr:PurchaseError = null;
+        var rErr:ReceiptError = null;
+        trace(event.level, event.code);
         switch (event.level) {
             case TRACE:
                 trace("[" + NAME + "]", event.code);
@@ -96,7 +99,7 @@ public class InAppPurchaseANEContext {
                 try {
                     argsAsJSON = JSON.parse(event.code);
                     if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
-                        err = new PurchaseError(argsAsJSON.error.text, argsAsJSON.error.id);
+                        pErr = new PurchaseError(argsAsJSON.error.text, argsAsJSON.error.id);
                     } else {
                         ret = _context.call("getProductsInfo", argsAsJSON.callbackId);
                     }
@@ -104,7 +107,7 @@ public class InAppPurchaseANEContext {
                         printANEError(ret as ANEError);
                         return;
                     }
-                    callCallback(argsAsJSON.callbackId, ret, err);
+                    callCallback(argsAsJSON.callbackId, ret, pErr);
                 } catch (e:Error) {
                     trace(PRODUCT_INFO, "parsing error", event.code, e.message);
                 }
@@ -113,7 +116,7 @@ public class InAppPurchaseANEContext {
                 try {
                     argsAsJSON = JSON.parse(event.code);
                     if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
-                        err = new PurchaseError(argsAsJSON.error.text, argsAsJSON.error.id);
+                        pErr = new PurchaseError(argsAsJSON.error.text, argsAsJSON.error.id);
                     } else {
                         ret = _context.call("getPurchaseProduct", argsAsJSON.callbackId);
                     }
@@ -121,7 +124,7 @@ public class InAppPurchaseANEContext {
                         printANEError(ret as ANEError);
                         return;
                     }
-                    callCallback(argsAsJSON.callbackId, ret, err);
+                    callCallback(argsAsJSON.callbackId, ret, pErr);
                 } catch (e:Error) {
                     trace(PURCHASE, "parsing error", event.code, e.message);
                 }
@@ -143,12 +146,16 @@ public class InAppPurchaseANEContext {
                 trace(event.code);
                 try {
                     argsAsJSON = JSON.parse(event.code);
-                    ret = _context.call("getReceipt", argsAsJSON.callbackId);
-                    if (ret is ANEError) {
-                        printANEError(ret as ANEError);
-                        return;
+                    if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
+                        var receipt_a:Object = null;
+                        var status_a:int = 0;
+                        if (argsAsJSON.error.hasOwnProperty("receipt")) receipt_a = argsAsJSON.error.receipt;
+                        if (argsAsJSON.error.hasOwnProperty("status")) status_a = argsAsJSON.error.status;
+                        rErr = new ReceiptError(argsAsJSON.error.text, argsAsJSON.error.type, receipt_a, status_a);
+                    } else {
+                        ret = argsAsJSON.receipt;
                     }
-                    callCallback(argsAsJSON.callbackId, ret);
+                    callCallback(argsAsJSON.callbackId, ret, rErr);
                 } catch (e:Error) {
                     trace(VERIFY_RECEIPT, "parsing error", event.code, e.message);
                 }
@@ -159,11 +166,15 @@ public class InAppPurchaseANEContext {
                     argsAsJSON = JSON.parse(event.code);
                     var receiptResult:FetchReceiptResult;
                     if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
-                        trace("has error");
+                        var receipt_b:Object = null;
+                        var status_b:int = 0;
+                        if (argsAsJSON.error.hasOwnProperty("receipt")) receipt_b = argsAsJSON.error.receipt;
+                        if (argsAsJSON.error.hasOwnProperty("status")) status_b = argsAsJSON.error.status;
+                        rErr = new ReceiptError(argsAsJSON.error.text, argsAsJSON.error.type, receipt_b, status_b);
                     } else {
                         receiptResult = new FetchReceiptResult(argsAsJSON.receiptData);
                     }
-                    callCallback(argsAsJSON.callbackId, receiptResult);
+                    callCallback(argsAsJSON.callbackId, receiptResult, rErr);
                 } catch (e:Error) {
                     trace(FETCH_RECEIPT, "parsing error", event.code, e.message);
                 }

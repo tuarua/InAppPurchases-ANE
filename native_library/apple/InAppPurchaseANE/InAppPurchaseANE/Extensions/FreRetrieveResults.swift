@@ -47,9 +47,19 @@ public extension FreObjectSwift {
 
 public extension Locale {
     func toFREObject() -> FREObject? {
-        // TODO
-        guard let ret = FreObjectSwift(className: "flash.globalization.LocaleID", args: self.identifier)
+        guard let ret = FreObjectSwift(className: "com.tuarua.iap.storekit.Locale")
             else { return nil }
+        ret.currencyCode = currencyCode
+        ret.currencySymbol = currencySymbol
+        ret.identifier = identifier
         return ret.rawValue
+    }
+    
+}
+
+public extension FreObjectSwift {
+    subscript(dynamicMember name: String) -> Locale? {
+        get { return nil }
+        set { rawValue?[name] = newValue?.toFREObject() }
     }
 }

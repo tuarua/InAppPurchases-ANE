@@ -12,25 +12,23 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-
 package com.tuarua.iap.storekit {
-
-[RemoteClass(alias="com.tuarua.iap.storekit.Purchase")]
-public class Purchase {
-    private var _id:String;
-
-    public var productId:String;
-    public var quantity:int;
-    public var needsFinishTransaction:Boolean;
-    public var transaction:PaymentTransaction;
-    public var originalTransaction:PaymentTransaction;
-
-    public function Purchase(id:String) {
-        this._id = id;
-    }
-
-    public function get id():String {
-        return _id;
+public class Locale {
+    /**
+     * Returns the currency code of the locale.
+     *
+     * <p>For example, for "zh-Hant-HK", returns "HKD".</p>
+     */
+    public var currencyCode:String;
+    /**
+     * Returns the currency symbol of the locale.
+     *
+     * <p>For example, for "zh-Hant-HK", returns "HK$".</p>
+     */
+    public var currencySymbol:String;
+    /** Returns the identifier of the locale. */
+    public var identifier:String;
+    public function Locale() {
     }
 }
 }

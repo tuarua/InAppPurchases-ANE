@@ -1,4 +1,4 @@
-/* Copyright 2018 Tua Rua Ltd.
+/* Copyright 2019 Tua Rua Ltd.
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,13 +16,11 @@
 package com.tuarua {
 import com.tuarua.fre.ANEError;
 import com.tuarua.iap.BillingClient;
+import com.tuarua.iap.StoreKit;
 import com.tuarua.iap.billing.ChildDirected;
 import com.tuarua.iap.billing.UnderAgeOfConsent;
-import com.tuarua.iap.storekit.PaymentTransaction;
-import com.tuarua.iap.StoreKit;
+import com.tuarua.iap.storekit.Purchase;
 import com.tuarua.utils.os;
-
-import flash.events.EventDispatcher;
 
 public class InAppPurchase {
     private static var _storeKit:StoreKit;
@@ -39,7 +37,7 @@ public class InAppPurchase {
         if (_storeKit == null) {
             var ret:* = InAppPurchaseANEContext.context.call("init");
             if (ret is ANEError) throw ret as ANEError;
-            _storeKit = new StoreKit();
+            _storeKit = new StoreKit(ret as Vector.<Purchase>);
         }
         return _storeKit
     }

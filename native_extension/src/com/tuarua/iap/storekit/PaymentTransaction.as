@@ -1,4 +1,4 @@
-/* Copyright 2018 Tua Rua Ltd.
+/* Copyright 2019 Tua Rua Ltd.
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -27,7 +27,8 @@ public class PaymentTransaction {
         this._id = id;
     }
 
-    internal function get id():String {
+    /** The purchase id associated with this transaction */
+    public function get id():String {
         return _id;
     }
 }

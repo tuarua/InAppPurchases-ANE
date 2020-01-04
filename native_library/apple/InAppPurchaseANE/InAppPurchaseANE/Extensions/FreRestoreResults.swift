@@ -19,11 +19,7 @@ import SwiftyStoreKit
 import StoreKit
 
 public extension RestoreResults {
-    func toFREObject(_ id: String) -> FREObject? {
-        guard let ret = FreObjectSwift(className: "com.tuarua.iap.storekit.RestoreResults")
-            else { return nil }
-        ret.restoredPurchases = restoredPurchases.toFREObject(id)
-        // ret.restoreFailedPurchases = restoreFailedPurchases // TODO
-        return ret.rawValue
+    func toFREObject() -> FREObject? {
+        return FreObjectSwift(className: "com.tuarua.iap.storekit.RestoreResults")?.rawValue
     }
 }

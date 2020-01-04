@@ -25,8 +25,13 @@ public extension SKProductDiscount {
         ret.numberOfPeriods = numberOfPeriods
         ret.paymentMode = paymentMode.rawValue
         ret.price = price
-        ret.priceLocale = priceLocale.toFREObject()
+        ret.priceLocale = priceLocale
         ret.subscriptionPeriod = subscriptionPeriod
+        
+        if #available(iOS 12.2, *) {
+            ret.identifier = identifier
+            ret["type"] = type.rawValue.toFREObject()
+        }
         return ret.rawValue
     }
 }

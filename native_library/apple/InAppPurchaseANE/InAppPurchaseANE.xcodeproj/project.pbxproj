@@ -17,6 +17,7 @@
 		9063C47622FF4C72003A451B /* FreRestoreResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9063C47522FF4C72003A451B /* FreRestoreResults.swift */; };
 		909EF12022D24DA2006EFEB4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909EF11F22D24DA2006EFEB4 /* StoreKit.framework */; };
 		909EF14622D26E59006EFEB4 /* FreRetrieveResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909EF14522D26E59006EFEB4 /* FreRetrieveResults.swift */; };
+		90A5D3A323C0CEBA000AB585 /* FreReceiptError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5D3A223C0CEBA000AB585 /* FreReceiptError.swift */; };
 		90AB882B23033ECE0009C9C7 /* FreReceiptItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AB882A23033ECE0009C9C7 /* FreReceiptItem.swift */; };
 		90B723A823BF77E10033DF40 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 90B723A723BF77E10033DF40 /* SwiftyJSON */; };
 		90B723AB23BF785E0033DF40 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 90B723AA23BF785E0033DF40 /* SwiftyStoreKit */; };
@@ -54,6 +55,7 @@
 		9063C47522FF4C72003A451B /* FreRestoreResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreRestoreResults.swift; sourceTree = "<group>"; };
 		909EF11F22D24DA2006EFEB4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		909EF14522D26E59006EFEB4 /* FreRetrieveResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreRetrieveResults.swift; sourceTree = "<group>"; };
+		90A5D3A223C0CEBA000AB585 /* FreReceiptError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreReceiptError.swift; sourceTree = "<group>"; };
 		90AB882A23033ECE0009C9C7 /* FreReceiptItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreReceiptItem.swift; sourceTree = "<group>"; };
 		90BE820F22D3A75900AF56CC /* StoreKitEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitEvent.swift; sourceTree = "<group>"; };
 		CE05603E1FB25CE200D06976 /* FreSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreSwift.framework; path = Carthage/Build/iOS/FreSwift.framework; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				9063C47322FF4C58003A451B /* FrePaymentTransaction.swift */,
 				9063C47522FF4C72003A451B /* FreRestoreResults.swift */,
 				90AB882A23033ECE0009C9C7 /* FreReceiptItem.swift */,
+				90A5D3A223C0CEBA000AB585 /* FreReceiptError.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				90AB882B23033ECE0009C9C7 /* FreReceiptItem.swift in Sources */,
 				90BE821022D3A75900AF56CC /* StoreKitEvent.swift in Sources */,
 				9063C47022FF1EDB003A451B /* FrePurchase.swift in Sources */,
+				90A5D3A323C0CEBA000AB585 /* FreReceiptError.swift in Sources */,
 				CE0560431FB25D1B00D06976 /* SwiftController.swift in Sources */,
 				CEC5AEFE202F536F00519265 /* SwiftController+FreSwift.swift in Sources */,
 				9063C47422FF4C58003A451B /* FrePaymentTransaction.swift in Sources */,

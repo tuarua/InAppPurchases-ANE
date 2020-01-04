@@ -1,4 +1,4 @@
-/* Copyright 2018 Tua Rua Ltd.
+/* Copyright 2019 Tua Rua Ltd.
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,9 +17,10 @@ package com.tuarua.iap.storekit {
 
 [RemoteClass(alias="com.tuarua.iap.storekit.RetrieveResults")]
 public class RetrieveResults {
-    public var retrievedProducts: Vector.<Product> = new Vector.<Product>();
-    public var invalidProductIDs: Vector.<String> = new Vector.<String>();
+    public var retrievedProducts:Vector.<Product> = new Vector.<Product>();
+    public var invalidProductIDs:Vector.<String> = new Vector.<String>();
     public var error:Error;
+
     public function RetrieveResults() {
 
     }

@@ -17,7 +17,7 @@
 #import "InAppPurchaseANE_oc.h"
 #import <InAppPurchaseANE_FW/InAppPurchaseANE_FW.h>
 
-#define FRE_OBJC_BRIDGE TRIAP_FlashRuntimeExtensionsBridge // use unique prefix throughout to prevent clashes with other ANEs
+#define FRE_OBJC_BRIDGE TRIAP_FlashRuntimeExtensionsBridge
 @interface FRE_OBJC_BRIDGE : NSObject<FreSwiftBridgeProtocol>
 @end
 @implementation FRE_OBJC_BRIDGE {
@@ -26,13 +26,9 @@ FRE_OBJC_BRIDGE_FUNCS
 @end
 
 @implementation InAppPurchaseANE_LIB
-SWIFT_DECL(TRIAP) // use unique prefix throughout to prevent clashes with other ANEs
+SWIFT_DECL(TRIAP)
 CONTEXT_INIT(TRIAP) {
     SWIFT_INITS(TRIAP)
-    
-    /**************************************************************************/
-    /******* MAKE SURE TO ADD FUNCTIONS HERE THE SAME AS SWIFT CONTROLLER *****/
-    /**************************************************************************/
     
     static FRENamedFunction extensionFunctions[] =
     {
@@ -47,16 +43,11 @@ CONTEXT_INIT(TRIAP) {
         ,MAP_FUNCTION(TRIAP, verifyPurchase)
         ,MAP_FUNCTION(TRIAP, verifyReceipt)
         ,MAP_FUNCTION(TRIAP, verifySubscription)
-        ,MAP_FUNCTION(TRIAP, getReceipt)
         ,MAP_FUNCTION(TRIAP, fetchReceipt)
         ,MAP_FUNCTION(TRIAP, restorePurchases)
         ,MAP_FUNCTION(TRIAP, getRestore)
         
-        
     };
-    
-    /**************************************************************************/
-    /**************************************************************************/
     
     SET_FUNCTIONS
     

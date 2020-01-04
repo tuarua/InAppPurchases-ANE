@@ -25,10 +25,18 @@ public class SwiftController: NSObject {
     private var retrieveResults: [String: RetrieveResults] = [:]
     private var purchaseResult: [String: PurchaseDetails] = [:]
     private var restoreResults: [String: RestoreResults] = [:]
-    private var receiptResults: [String: ReceiptInfo] = [:]
-    
+    private var restoredPurchases: [String: Purchase] = [:]
+    internal var launchPurchases: [Purchase] = []
+    private var pendingPurchases: [String: Purchase] = [:]
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        return true.toFREObject()
+        return FREArray(className: "com.tuarua.iap.storekit.Purchase", length: launchPurchases.count, fixed: true,
+                        items: launchPurchases.map {
+                            let pid = UUID().uuidString
+                            if $0.needsFinishTransaction {
+                                pendingPurchases[pid] = $0
+                            }
+                            return $0.toFREObject(pid)
+        })?.rawValue
     }
     
     func retrieveProductsInfo(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
@@ -42,7 +50,8 @@ public class SwiftController: NSObject {
             self.retrieveResults[callbackId] = result
             if let error = result.error {
                 self.dispatchEvent(name: StoreKitEvent.PRODUCT_INFO,
-                                   value: JSON(["error": ["text": error.localizedDescription,
+                                   value: JSON(["callbackId": callbackId,
+                                                "error": ["text": error.localizedDescription,
                                                           "id": 0]]).description)
                 return
             }
@@ -59,7 +68,7 @@ public class SwiftController: NSObject {
                 return FreArgError().getError()
         }
         let ret = retrieveResults[id]?.toFREObject()
-        retrieveResults.removeValue(forKey: id) //ok
+        retrieveResults.removeValue(forKey: id)
         return ret
     }
     
@@ -68,15 +77,19 @@ public class SwiftController: NSObject {
     }
     
     func purchaseProduct(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 3,
+        guard argc > 5,
             let productId = String(argv[0]),
             let quantity = Int(argv[1]),
             let atomically = Bool(argv[2]),
-            let callbackId = String(argv[3])
+            let applicationUsername = String(argv[3]),
+            let simulatesAskToBuyInSandbox = Bool(argv[4]),
+            let callbackId = String(argv[5])
             else {
                 return FreArgError().getError()
         }
-        SwiftyStoreKit.purchaseProduct(productId, quantity: quantity, atomically: atomically) { result in
+        SwiftyStoreKit.purchaseProduct(productId, quantity: quantity, atomically: atomically,
+                                       applicationUsername: applicationUsername,
+                                       simulatesAskToBuyInSandbox: simulatesAskToBuyInSandbox) { result in
             switch result {
             case .success(let purchase):
                 self.purchaseResult[callbackId] = purchase
@@ -85,7 +98,8 @@ public class SwiftController: NSObject {
 
             case .error(let error):
                 self.dispatchEvent(name: StoreKitEvent.PURCHASE,
-                                   value: JSON(["error": ["text": error.localizedDescription,
+                                   value: JSON(["callbackId": callbackId,
+                                                "error": ["text": error.localizedDescription,
                                                           "id": error.code.rawValue]]).description)
             }
         }
@@ -118,29 +132,29 @@ public class SwiftController: NSObject {
             SwiftyStoreKit.finishTransaction(purchase.transaction)
             purchaseResult.removeValue(forKey: id)
         }
+        if let purchase = restoredPurchases[id], purchase.needsFinishTransaction {
+            SwiftyStoreKit.finishTransaction(purchase.transaction)
+            restoredPurchases.removeValue(forKey: id)
+        }
+        if let purchase = pendingPurchases[id], purchase.needsFinishTransaction {
+            SwiftyStoreKit.finishTransaction(purchase.transaction)
+            pendingPurchases.removeValue(forKey: id)
+        }
         return nil
     }
     
     func restorePurchases(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 1,
+        guard argc > 2,
             let atomically = Bool(argv[0]),
-            let callbackId = String(argv[1])
+            let applicationUsername = String(argv[1]),
+            let callbackId = String(argv[2])
             else {
                 return FreArgError().getError()
         }
-        SwiftyStoreKit.restorePurchases(atomically: atomically) { results in
+        SwiftyStoreKit.restorePurchases(atomically: atomically, applicationUsername: applicationUsername) { results in
             self.restoreResults[callbackId] = results
             self.dispatchEvent(name: StoreKitEvent.RESTORE,
                                value: JSON(["callbackId": callbackId]).description)
-            
-//            if results.restoreFailedPurchases.count > 0 {
-//                self.trace("Restore Failed: \(results.restoreFailedPurchases)")
-//            } else if results.restoredPurchases.count > 0 {
-//                // TODO save restoredPurchases to dict and look for in finishTransaction
-//                self.trace("Restore Success: \(results.restoredPurchases)")
-//            } else {
-//                self.trace("Nothing to Restore")
-//            }
         }
         return nil
     }
@@ -152,12 +166,25 @@ public class SwiftController: NSObject {
                 return FreArgError().getError()
         }
         if let restore = restoreResults[id] {
-            trace("restore.restoredPurchases.count", restore.restoredPurchases.count)
-            trace("restore.restoreFailedPurchases.count", restore.restoreFailedPurchases.count)
-            let ret = restore.toFREObject(id)
-//            if purchase.needsFinishTransaction == false {
-//                purchaseResult.removeValue(forKey: id)
-//            }
+            var ret = restore.toFREObject()
+            ret?["restoredPurchases"] = FREArray(className: "com.tuarua.iap.storekit.Purchase",
+                                                 length: restore.restoredPurchases.count,
+                                                 fixed: true,
+                                                 items: restore.restoredPurchases.map {
+                                                    let pid = UUID().uuidString
+                                                    if $0.needsFinishTransaction {
+                                                        restoredPurchases[pid] = $0
+                                                    }
+                                                    return $0.toFREObject(pid)})?.rawValue
+            
+            ret?["restoreFailedPurchases"] = FREArray(className: "Error",
+                                                      length: restore.restoreFailedPurchases.count,
+                                                      fixed: true,
+                                                      items: restore.restoreFailedPurchases.map {
+                                                        return FREObject(className: "Error",
+                                                                         args: $0.0.localizedDescription,
+                                                                         $0.0.errorCode)})?.rawValue
+            restoreResults.removeValue(forKey: id)
             return ret
         }
         
@@ -176,27 +203,11 @@ public class SwiftController: NSObject {
             case .success(let receiptData):
                 self.dispatchEvent(name: StoreKitEvent.FETCH_RECEIPT,
                                    value: JSON(["callbackId": callbackId,
-                                   "receiptData": receiptData.base64EncodedString(options: [])]).description)
+                                    "receiptData": receiptData.base64EncodedString(options: [])]).description)
             case .error(let error):
-                switch error {
-                case .noReceiptData:
-                    break
-                case .noRemoteData:
-                    break
-                case .requestBodyEncodeError(let error):
-                    self.trace("requestBodyEncodeError", error.localizedDescription)
-                case .networkError(let error):
-                    self.trace("networkError", error.localizedDescription)
-                case .jsonDecodeError(let string):
-                    self.trace("jsonDecodeError", string ?? "")
-                case .receiptInvalid(let receipt, let status):
-                    self.trace("receiptInvalid", receipt.debugDescription, status.rawValue)
-                }
                 self.dispatchEvent(name: StoreKitEvent.FETCH_RECEIPT,
                                    value: JSON(["callbackId": callbackId,
-                                                "error": ["text": error.localizedDescription,
-                                                          "id": 0]]).description)
-                self.trace("Fetch receipt failed: \(error)")
+                                                "error": error.toDictionary()]).description)
             }
         }
         
@@ -221,58 +232,13 @@ public class SwiftController: NSObject {
         SwiftyStoreKit.verifyReceipt(using: appleValidator, forceRefresh: forceRefresh) { result in
             switch result {
             case .success(let receipt):
-                self.receiptResults[callbackId] = receipt
                 self.dispatchEvent(name: StoreKitEvent.VERIFY_RECEIPT,
-                                   value: JSON(["callbackId": callbackId]).description)
+                                   value: JSON(["callbackId": callbackId, "receipt": receipt]).description)
             case .error(let error):
-                self.trace("Verify receipt failed: \(error)")
+                self.dispatchEvent(name: StoreKitEvent.VERIFY_RECEIPT,
+                                   value: JSON(["callbackId": callbackId,
+                                                "error": error.toDictionary()]).description)
             }
-        }
-        return nil
-    }
-    
-    func getReceipt(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 0,
-            let id = String(argv[0])
-            else {
-                return FreArgError().getError()
-        }
-        if let receipt = receiptResults[id] {
-            //trace(receipt.keys)
-            //trace(receipt.values)
-            //trace(receipt.debugDescription)
-            
-            return JSON(receipt).description.toFREObject()
-            
-//            if var ret: FREObject = FREObject(className: "Object") {
-//                for key in receipt.keys {
-//                    let value = receipt[key]
-//                    if value is FREObject {
-//                        ret[key] = value as? FREObject
-//                    } else if value is String {
-//                        if let v = value as? String {
-//                            ret[key] = v.toFREObject()
-//                        }
-//
-//                    } else if value is Int {
-//                        if let v = value as? Int {
-//                            ret[key] = v.toFREObject()
-//                        }
-//
-//                    } else if value is Double {
-//                        if let v = value as? Double {
-//                            ret[key] = v.toFREObject()
-//                        }
-//
-//                    } else if value is Bool {
-//                        if let v = value as? Bool {
-//                            ret[key] = v.toFREObject()
-//                        }
-//
-//                    }
-//                }
-//                return ret
-//            }
         }
         return nil
     }
@@ -288,11 +254,9 @@ public class SwiftController: NSObject {
         if let ret = FreObjectSwift(className: "com.tuarua.iap.storekit.VerifyPurchaseResult") {
             switch result {
             case .purchased(let item):
-                self.trace("purchased \(item.productId)")
                 ret.item = item
                 ret.purchased = true
-            case .notPurchased:
-                self.trace("notPurchased")
+            case .notPurchased: break
             }
             return ret.rawValue
         }
@@ -316,9 +280,9 @@ public class SwiftController: NSObject {
                 inReceipt: receipt)
         case 1: // nonRenewing
             result = SwiftyStoreKit.verifySubscription(
-            ofType: .nonRenewing(validDuration: 3600 * 24 * 30),
-            productId: productId,
-            inReceipt: receipt)
+                ofType: .nonRenewing(validDuration: 3600 * 24 * 30),
+                productId: productId,
+                inReceipt: receipt)
         default: return nil
         }
         
@@ -331,7 +295,7 @@ public class SwiftController: NSObject {
             case .notPurchased: break
             case .expired(let expiryDate, let items):
                 ret.expired = true
-                ret.expiryDate = expiryDate.toFREObject()
+                ret.expiryDate = expiryDate
                 ret.items = items
             case .none: break
             }
@@ -341,12 +305,3 @@ public class SwiftController: NSObject {
         return nil
     }
 }
-
-// TODO
-// SwiftyStoreKit.start([SKDownload])
-
-//public extension NSError {
-//    func toDictionary() -> [String: Any] {
-//        return ["text": self.localizedDescription, "id": self.code]
-//    }
-//}

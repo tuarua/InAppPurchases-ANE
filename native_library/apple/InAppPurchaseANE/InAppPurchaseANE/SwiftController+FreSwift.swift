@@ -30,7 +30,6 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)verifyPurchase"] = verifyPurchase
         functionsToSet["\(prefix)verifyReceipt"] = verifyReceipt
         functionsToSet["\(prefix)verifySubscription"] = verifySubscription
-        functionsToSet["\(prefix)getReceipt"] = getReceipt
         functionsToSet["\(prefix)fetchReceipt"] = fetchReceipt
         functionsToSet["\(prefix)restorePurchases"] = restorePurchases
         functionsToSet["\(prefix)getRestore"] = getRestore
@@ -47,22 +46,8 @@ extension SwiftController: FreSwiftMainController {
     }
     
     @objc func applicationDidFinishLaunching(_ notification: Notification) {
-        // see notes below for the meaning of Atomic / Non-Atomic
-        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
-            for purchase in purchases {
-                switch purchase.transaction.transactionState {
-                case .purchased, .restored:
-                    if purchase.needsFinishTransaction {
-                        // Deliver content from server, then:
-                        SwiftyStoreKit.finishTransaction(purchase.transaction)
-                    }
-                // Unlock content
-                case .failed, .purchasing, .deferred:
-                    break // do nothing
-                @unknown default:
-                    break
-                }
-            }
+        SwiftyStoreKit.completeTransactions(atomically: false) { purchases in
+            self.launchPurchases = purchases
         }
     }
     

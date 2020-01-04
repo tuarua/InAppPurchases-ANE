@@ -30,10 +30,3 @@ public extension Purchase {
         return ret.rawValue
     }
 }
-
-public extension Array where Element == Purchase {
-    func toFREObject(_ id: String) -> FREObject? {
-        return FREArray(className: "com.tuarua.iap.storekit.Purchase",
-            length: self.count, fixed: true, items: self.map { $0.toFREObject(id) })?.rawValue
-    }
-}

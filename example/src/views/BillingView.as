@@ -89,7 +89,7 @@ import starling.text.TextField;
  *    the data visible to the clients is wrapped in [LiveData] so that changes are reflected in
  *    the clients as soon as they happen.
  */
-    
+
 public class BillingView extends Sprite {
     private var purchaseConsumableBtn:SimpleButton = new SimpleButton("Purchase Consumable");
     private var billingClient:BillingClient;
@@ -137,7 +137,7 @@ public class BillingView extends Sprite {
     private function onBillingSetupFinished(billingResult:BillingResult):void {
         switch (billingResult.responseCode) {
             case BillingResponseCode.ok:
-                initBillingMenu();
+                initMenu();
                 querySkuDetails(SkuType.inApp, INAPP_SKUS);
                 querySkuDetails(SkuType.subs, SUBS_SKUS);
                 queryPurchases();
@@ -346,15 +346,11 @@ public class BillingView extends Sprite {
 
     }
 
-    private function initBillingMenu():void {
+    private function initMenu():void {
         purchaseConsumableBtn.x = (stage.stageWidth - 200) / 2;
-
         purchaseConsumableBtn.y = 100;
-
         purchaseConsumableBtn.addEventListener(TouchEvent.TOUCH, onLaunchBillingFlowClick);
-
         purchaseConsumableBtn.visible = false;
-
         addChild(purchaseConsumableBtn);
     }
 

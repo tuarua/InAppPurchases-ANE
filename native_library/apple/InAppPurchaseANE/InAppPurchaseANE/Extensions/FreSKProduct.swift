@@ -29,7 +29,7 @@ public extension SKProduct {
         ret.isDownloadable = isDownloadable
         ret.downloadContentLengths = downloadContentLengths
         ret.downloadContentVersion = downloadContentVersion
-        ret.priceLocale = priceLocale.toFREObject()
+        ret.priceLocale = priceLocale
         ret.productIdentifier = productIdentifier
         if #available(iOS 12.0, *) {
             ret.subscriptionGroupIdentifier = subscriptionGroupIdentifier
