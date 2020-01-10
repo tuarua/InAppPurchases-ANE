@@ -1,4 +1,85 @@
-<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.tuarua.iap"><apiName>com.tuarua.iap</apiName><apiDetail/><apiClassifier id="com.tuarua.iap:StoreKit"><apiName>StoreKit</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.iap:StoreKit:StoreKit"><apiName>StoreKit</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiOperation id="com.tuarua.iap:StoreKit:fetchReceipt"><apiName>fetchReceipt</apiName><shortdesc/><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>forceRefresh</apiItemName><apiType value="Boolean"/></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/></apiParam></apiOperationDef></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:StoreKit:finishTransaction"><apiName>finishTransaction</apiName><shortdesc/><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>transaction</apiItemName><apiOperationClassifier>com.tuarua.iap.storekit:PaymentTransaction</apiOperationClassifier></apiParam></apiOperationDef></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:StoreKit:purchaseProduct"><apiName>purchaseProduct</apiName><shortdesc/><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>productId</apiItemName><apiType value="String"/></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/></apiParam><apiParam><apiItemName>atomically</apiItemName><apiType value="Boolean"/><apiData>true</apiData></apiParam><apiParam><apiItemName>quantity</apiItemName><apiType value="int"/><apiData>1</apiData></apiParam></apiOperationDef></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:StoreKit:restorePurchases"><apiName>restorePurchases</apiName><shortdesc/><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>atomically</apiItemName><apiType value="Boolean"/></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/></apiParam></apiOperationDef></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:StoreKit:retrieveProductsInfo"><apiName>retrieveProductsInfo</apiName><shortdesc/><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>productIds</apiItemName><apiType value="Vector$String"/></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/></apiParam></apiOperationDef></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:StoreKit:verifyPurchase"><apiName>verifyPurchase</apiName><shortdesc/><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiOperationClassifier>com.tuarua.iap.storekit:VerifyPurchaseResult</apiOperationClassifier></apiReturn><apiParam><apiItemName>productId</apiItemName><apiType value="String"/></apiParam><apiParam><apiItemName>receipt</apiItemName><apiType value="Object"/></apiParam></apiOperationDef></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:StoreKit:verifyReceipt"><apiName>verifyReceipt</apiName><shortdesc/><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>service</apiItemName><apiType value="String"/></apiParam><apiParam><apiItemName>sharedSecret</apiItemName><apiType value="String"/></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/></apiParam><apiParam><apiItemName>forceRefresh</apiItemName><apiType value="Boolean"/><apiData>false</apiData></apiParam></apiOperationDef></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:StoreKit:verifySubscription"><apiName>verifySubscription</apiName><shortdesc/><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiOperationClassifier>com.tuarua.iap.storekit:VerifySubscriptionResult</apiOperationClassifier></apiReturn><apiParam><apiItemName>productId</apiItemName><apiType value="String"/></apiParam><apiParam><apiItemName>receipt</apiItemName><apiType value="Object"/></apiParam></apiOperationDef></apiOperationDetail></apiOperation><apiValue id="com.tuarua.iap:StoreKit:canMakePayments:get"><apiName>canMakePayments</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.iap:BillingClient"><apiName>BillingClient</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>flash.events:EventDispatcher</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.iap:BillingClient:BillingClient"><apiName>BillingClient</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>childDirected</apiItemName><apiType value="int"/><apiData>unknown</apiData></apiParam><apiParam><apiItemName>underAgeOfConsent</apiItemName><apiType value="int"/><apiData>unknown</apiData></apiParam></apiConstructorDef></apiConstructorDetail></apiConstructor><apiOperation id="com.tuarua.iap:BillingClient:acknowledgePurchase"><apiName>acknowledgePurchase</apiName><shortdesc>
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.tuarua.iap"><apiName>com.tuarua.iap</apiName><apiDetail/><apiClassifier id="com.tuarua.iap:StoreKit"><apiName>StoreKit</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.iap:StoreKit:StoreKit"><apiName>StoreKit</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>pendingPurchases</apiItemName><apiType value="Vector$com.tuarua.iap.storekit:Purchase"/></apiParam></apiConstructorDef></apiConstructorDetail></apiConstructor><apiOperation id="com.tuarua.iap:StoreKit:fetchReceipt"><apiName>fetchReceipt</apiName><shortdesc>
+     Fetch application receipt
+     
+     </shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>forceRefresh</apiItemName><apiType value="Boolean"/><apiDesc>If true, refreshes the receipt even if one already exists.
+     </apiDesc></apiParam><apiParam><apiItemName>completion</apiItemName><apiType value="Function"/><apiDesc>handler for result
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Fetch application receipt
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:StoreKit:finishTransaction"><apiName>finishTransaction</apiName><shortdesc>
+     Finish a transaction Once the content has been delivered, call this method to finish a transaction that was performed non-atomically
+     
+     </shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>transaction</apiItemName><apiOperationClassifier>com.tuarua.iap.storekit:PaymentTransaction</apiOperationClassifier><apiDesc>transaction to finish
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Finish a transaction Once the content has been delivered, call this method to finish a transaction that was performed non-atomically
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:StoreKit:purchaseProduct"><apiName>purchaseProduct</apiName><shortdesc>
+     Purchase a product
+     
+     </shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>productId</apiItemName><apiType value="String"/><apiDesc>productId as specified in iTunes Connect
+     </apiDesc></apiParam><apiParam><apiItemName>completion</apiItemName><apiType value="Function"/><apiDesc>handler for result
+     </apiDesc></apiParam><apiParam><apiItemName>atomically</apiItemName><apiType value="Boolean"/><apiData>true</apiData><apiDesc>whether the product is purchased atomically (e.g. finishTransaction is called immediately)
+     </apiDesc></apiParam><apiParam><apiItemName>quantity</apiItemName><apiType value="int"/><apiData>1</apiData><apiDesc>quantity of the product to be purchased
+     </apiDesc></apiParam><apiParam><apiItemName>applicationUsername</apiItemName><apiType value="String"/><apiData/><apiDesc>an opaque identifier for the user’s account on your system
+     </apiDesc></apiParam><apiParam><apiItemName>simulatesAskToBuyInSandbox</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>    </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Purchase a product
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:StoreKit:restorePurchases"><apiName>restorePurchases</apiName><shortdesc>
+     Restore purchases
+     
+     </shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>atomically</apiItemName><apiType value="Boolean"/><apiDesc>whether the product is purchased atomically (e.g. finishTransaction is called immediately)
+     </apiDesc></apiParam><apiParam><apiItemName>completion</apiItemName><apiType value="Function"/><apiDesc>handler for result
+     </apiDesc></apiParam><apiParam><apiItemName>applicationUsername</apiItemName><apiType value="String"/><apiData/><apiDesc>an opaque identifier for the user’s account on your system
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Restore purchases
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:StoreKit:retrieveProductsInfo"><apiName>retrieveProductsInfo</apiName><shortdesc>
+     Retrieve products information
+     
+     </shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>productIds</apiItemName><apiType value="Vector$String"/><apiDesc>The set of product identifiers to retrieve corresponding products for
+     </apiDesc></apiParam><apiParam><apiItemName>completion</apiItemName><apiType value="Function"/><apiDesc>handler for result
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Retrieve products information
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:StoreKit:verifyPurchase"><apiName>verifyPurchase</apiName><shortdesc>
+     Verify the purchase of a Consumable or NonConsumable product in a receipt
+     
+     </shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>either notPurchased or purchased
+     </apiDesc><apiOperationClassifier>com.tuarua.iap.storekit:VerifyPurchaseResult</apiOperationClassifier></apiReturn><apiParam><apiItemName>productId</apiItemName><apiType value="String"/><apiDesc>the product id of the purchase to verify
+     </apiDesc></apiParam><apiParam><apiItemName>receipt</apiItemName><apiOperationClassifier>com.tuarua.iap.storekit:Receipt</apiOperationClassifier><apiDesc>the receipt to use for looking up the purchase
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Verify the purchase of a Consumable or NonConsumable product in a receipt
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:StoreKit:verifyReceipt"><apiName>verifyReceipt</apiName><shortdesc>
+     Verify application receipt
+     
+     </shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>service</apiItemName><apiType value="String"/><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>sharedSecret</apiItemName><apiType value="String"/><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>completion</apiItemName><apiType value="Function"/><apiDesc>handler for result
+     </apiDesc></apiParam><apiParam><apiItemName>forceRefresh</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>If true, refreshes the receipt even if one already exists.
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Verify application receipt
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:StoreKit:verifySubscription"><apiName>verifySubscription</apiName><shortdesc>
+      Verify the validity of a subscription (auto-renewable, free or non-renewing) in a receipt
+     
+     This method extracts all transactions matching the given productId and sorts them by date in descending order.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>
+     </apiDesc><apiOperationClassifier>com.tuarua.iap.storekit:VerifySubscriptionResult</apiOperationClassifier></apiReturn><apiParam><apiItemName>productId</apiItemName><apiType value="String"/><apiDesc>The product id of the subscription to verify.
+     </apiDesc></apiParam><apiParam><apiItemName>receipt</apiItemName><apiOperationClassifier>com.tuarua.iap.storekit:Receipt</apiOperationClassifier><apiDesc>The receipt to use for looking up the subscription.
+     </apiDesc></apiParam><apiParam><apiItemName>type</apiItemName><apiType value="int"/><apiData>unknown</apiData><apiDesc>SubscriptionType.autoRenewable or SubscriptionType.nonRenewing.
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Verify the validity of a subscription (auto-renewable, free or non-renewing) in a receipt
+     
+     <p>This method extracts all transactions matching the given productId and sorts them by date in descending order.
+     It then compares the first transaction expiry date against the receipt date to determine its validity.</p>
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.tuarua.iap:StoreKit:canMakePayments:get"><apiName>canMakePayments</apiName><shortdesc>
+     Return false if this device is not able or allowed to make payments
+     </shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+     Return false if this device is not able or allowed to make payments
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.iap:StoreKit:pendingPurchases:get"><apiName>pendingPurchases</apiName><shortdesc>
+     Pending Purchases available on app launch
+     </shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Vector$com.tuarua.iap.storekit:Purchase"/></apiValueDef><apiDesc>
+     Pending Purchases available on app launch
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.iap:BillingClient"><apiName>BillingClient</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>flash.events:EventDispatcher</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.iap:BillingClient:BillingClient"><apiName>BillingClient</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>childDirected</apiItemName><apiType value="int"/><apiData>unknown</apiData></apiParam><apiParam><apiItemName>underAgeOfConsent</apiItemName><apiType value="int"/><apiData>unknown</apiData></apiParam></apiConstructorDef></apiConstructorDetail></apiConstructor><apiOperation id="com.tuarua.iap:BillingClient:acknowledgePurchase"><apiName>acknowledgePurchase</apiName><shortdesc>
      Acknowledge in-app purchases.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>purchase</apiItemName><apiOperationClassifier>com.tuarua.iap.billing:Purchase</apiOperationClassifier><apiDesc>   </apiDesc></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiDesc>Implement it to get the result of the acknowledge operation returned
     asynchronously through the callback
     </apiDesc></apiParam></apiOperationDef><apiDesc>
