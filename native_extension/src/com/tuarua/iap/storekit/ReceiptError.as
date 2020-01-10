@@ -15,15 +15,15 @@
 package com.tuarua.iap.storekit {
 
 public class ReceiptError extends Error {
-    private var _receipt:Object;
+    private var _receipt:Receipt;
     private var _status:int;
-    public function ReceiptError(message:String = "", id:int = 0, receipt: Object = null, status: int = 0) {
+    public function ReceiptError(message:String = "", id:int = 0, receipt: Receipt = null, status: int = 0) {
         super(message, id);
         this._receipt = receipt;
         this._status = status;
     }
 
-    public function get receipt():Object {
+    public function get receipt():Receipt {
         return _receipt;
     }
 

@@ -46,6 +46,10 @@ CONTEXT_INIT(TRIAP) {
         ,MAP_FUNCTION(TRIAP, fetchReceipt)
         ,MAP_FUNCTION(TRIAP, restorePurchases)
         ,MAP_FUNCTION(TRIAP, getRestore)
+        ,MAP_FUNCTION(TRIAP, start)
+        ,MAP_FUNCTION(TRIAP, pause)
+        ,MAP_FUNCTION(TRIAP, resume)
+        ,MAP_FUNCTION(TRIAP, cancel)
         
     };
     

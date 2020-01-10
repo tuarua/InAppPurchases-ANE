@@ -33,7 +33,11 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)fetchReceipt"] = fetchReceipt
         functionsToSet["\(prefix)restorePurchases"] = restorePurchases
         functionsToSet["\(prefix)getRestore"] = getRestore
-        
+        functionsToSet["\(prefix)start"] = start
+        functionsToSet["\(prefix)pause"] = pause
+        functionsToSet["\(prefix)resume"] = resume
+        functionsToSet["\(prefix)cancel"] = cancel
+
         var arr: [String] = []
         for key in functionsToSet.keys {
             arr.append(key)
@@ -48,6 +52,9 @@ extension SwiftController: FreSwiftMainController {
     @objc func applicationDidFinishLaunching(_ notification: Notification) {
         SwiftyStoreKit.completeTransactions(atomically: false) { purchases in
             self.launchPurchases = purchases
+        }
+        SwiftyStoreKit.updatedDownloadsHandler = { downloads in
+            
         }
     }
     

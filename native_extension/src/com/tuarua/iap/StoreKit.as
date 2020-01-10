@@ -16,14 +16,17 @@
 package com.tuarua.iap {
 import com.tuarua.InAppPurchaseANEContext;
 import com.tuarua.fre.ANEError;
+import com.tuarua.iap.storekit.Download;
 import com.tuarua.iap.storekit.PaymentTransaction;
 import com.tuarua.iap.storekit.Purchase;
+import com.tuarua.iap.storekit.Receipt;
 import com.tuarua.iap.storekit.SubscriptionType;
 import com.tuarua.iap.storekit.VerifyPurchaseResult;
 import com.tuarua.iap.storekit.VerifySubscriptionResult;
 
 public class StoreKit {
     private var _pendingPurchases:Vector.<Purchase> = new Vector.<Purchase>();
+
     public function StoreKit(pendingPurchases:Vector.<Purchase>) {
         this._pendingPurchases = pendingPurchases;
     }
@@ -84,7 +87,7 @@ public class StoreKit {
      * @param receipt the receipt to use for looking up the purchase
      * @return either notPurchased or purchased
      */
-    public function verifyPurchase(productId:String, receipt:Object):VerifyPurchaseResult {
+    public function verifyPurchase(productId:String, receipt:Receipt):VerifyPurchaseResult {
         var ret:* = InAppPurchaseANEContext.context.call("verifyPurchase", productId, receipt);
         if (ret is ANEError) throw ret as ANEError;
         return ret as VerifyPurchaseResult;
@@ -101,7 +104,7 @@ public class StoreKit {
      * @param type SubscriptionType.autoRenewable or SubscriptionType.nonRenewing.
      * @return
      */
-    public function verifySubscription(productId:String, receipt:Object, type:int = SubscriptionType.autoRenewable):VerifySubscriptionResult {
+    public function verifySubscription(productId:String, receipt:Receipt, type:int = SubscriptionType.autoRenewable):VerifySubscriptionResult {
         var ret:* = InAppPurchaseANEContext.context.call("verifySubscription", productId, receipt, type);
         if (ret is ANEError) throw ret as ANEError;
         return ret as VerifySubscriptionResult;
@@ -152,5 +155,53 @@ public class StoreKit {
     public function get pendingPurchases():Vector.<Purchase> {
         return _pendingPurchases;
     }
+
+    /**
+     * Resume Downloads
+     * @param downloads
+     * @private
+     */
+    private function start(downloads:Vector.<Download>):void {
+        if(downloads == null || downloads.length == 0) return;
+        var ret:* = InAppPurchaseANEContext.context.call("start", downloads[0].productId);
+        if (ret is ANEError) throw ret as ANEError;
+    }
+
+    /**
+     * Pause Downloads
+     *
+     * @param downloads
+     * @private
+     */
+    private function pause(downloads:Vector.<Download>):void {
+        if(downloads == null || downloads.length == 0) return;
+        var ret:* = InAppPurchaseANEContext.context.call("pause", downloads[0].productId);
+        if (ret is ANEError) throw ret as ANEError;
+    }
+
+    /**
+     * Resume Downloads
+     *
+     * @param downloads
+     * @private
+     */
+    private function resume(downloads:Vector.<Download>):void {
+        if (downloads == null || downloads.length == 0) return;
+        var ret:* = InAppPurchaseANEContext.context.call("resume", downloads[0].productId);
+        if (ret is ANEError) throw ret as ANEError;
+    }
+
+    /**
+     * Cancel Downloads
+     *
+     * @param downloads
+     * @private
+     */
+    private function cancel(downloads:Vector.<Download>):void {
+        if(downloads == null || downloads.length == 0) return;
+        var ret:* = InAppPurchaseANEContext.context.call("cancel", downloads[0].productId);
+        if (ret is ANEError) throw ret as ANEError;
+    }
+
 }
 }

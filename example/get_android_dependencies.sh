@@ -1,9 +1,15 @@
 #!/bin/sh
 
-AneVersion="1.2.0"
-FreKotlinVersion="1.8.0"
-SupportV4Version="27.1.0"
+AneVersion="1.0.0"
+FreKotlinVersion="1.9.1"
+KotlinxCoroutinesVersion="1.2.2"
+SupportV4Version="1.0.0"
+GsonVersion="2.8.6"
+BillingVersion="2.1.0"
 
 wget -O android_dependencies/com.tuarua.frekotlin-$FreKotlinVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/kotlin/com.tuarua.frekotlin-$FreKotlinVersion.ane?raw=true
-wget -O android_dependencies/com.android.support.support-v4-$SupportV4Version.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/support/com.android.support.support-v4-$SupportV4Version.ane?raw=true
-wget -O ../native_extension/ane/ShareANE.ane https://github.com/tuarua/Share-ANE/releases/download/$AneVersion/ShareANE.ane?raw=true
+wget -O android_dependencies/androidx.legacy.legacy-support-v4-${SupportV4Version}.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/support/androidx.legacy.legacy-support-v4-$SupportV4Version.ane?raw=true
+wget -O android_dependencies/com.google.code.gson.gson-${GsonVersion}.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/misc/com.google.code.gson.gson-${GsonVersion}.ane?raw=true
+wget -O android_dependencies/com.android.billingclient.billing-${BillingVersion}.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/play-services/com.android.billingclient.billing-${BillingVersion}.ane?raw=true
+wget -O android_dependencies/org.jetbrains.kotlinx.kotlinx-coroutines-android-${KotlinxCoroutinesVersion}.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/kotlin/org.jetbrains.kotlinx.kotlinx-coroutines-android-${KotlinxCoroutinesVersion}.ane?raw=true
+wget -O ../native_extension/ane/InAppPurchaseANE.ane https://github.com/tuarua/InAppPurchase-ANE/releases/download/$AneVersion/InAppPurchaseANE.ane?raw=true

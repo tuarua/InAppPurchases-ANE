@@ -19,13 +19,15 @@ import SwiftyStoreKit
 import StoreKit
 
 public extension PaymentTransaction {
-    func toFREObject(_ id: String) -> FREObject? {
+    func toFREObject(_ id: String, _ returnDownloads: Bool = true) -> FREObject? {
         guard let ret = FreObjectSwift(className: "com.tuarua.iap.storekit.PaymentTransaction", args: id)
             else { return nil }
         ret.transactionIdentifier = transactionIdentifier
         ret.transactionDate = transactionDate
         ret.transactionState = transactionState.rawValue
-        ret.downloads = self.downloads.toFREObject(id)
+        if returnDownloads {
+            ret.downloads = self.downloads.toFREObject(id)
+        }
         return ret.rawValue
     }
 }

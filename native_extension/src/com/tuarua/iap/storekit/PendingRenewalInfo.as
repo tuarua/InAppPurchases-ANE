@@ -14,23 +14,15 @@
  */
 
 package com.tuarua.iap.storekit {
-[RemoteClass(alias="com.tuarua.iap.storekit.Download")]
-public class Download {
-    private var _productId:String;
-    public var contentIdentifier:String;
-    public var contentLength:Number;
-    public var contentURL:String;
-    public var contentVersion:String;
-    public var transaction:PaymentTransaction;
+public class PendingRenewalInfo {
+    public var expiration_intent:String;
+    public var auto_renew_status:String;
+    public var is_in_billing_retry_period:String;
+    public var product_id:String;
+    public var auto_renew_product_id:String;
+    public var original_transaction_id:String;
 
-    /** @private */
-    public function Download(id:String) {
-        this._productId = id;
-    }
-
-    /** @private */
-    public function get productId():String {
-        return _productId;
+    public function PendingRenewalInfo() {
     }
 }
 }

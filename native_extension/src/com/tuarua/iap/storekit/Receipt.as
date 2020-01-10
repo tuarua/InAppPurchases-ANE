@@ -14,23 +14,14 @@
  */
 
 package com.tuarua.iap.storekit {
-[RemoteClass(alias="com.tuarua.iap.storekit.Download")]
-public class Download {
-    private var _productId:String;
-    public var contentIdentifier:String;
-    public var contentLength:Number;
-    public var contentURL:String;
-    public var contentVersion:String;
-    public var transaction:PaymentTransaction;
-
-    /** @private */
-    public function Download(id:String) {
-        this._productId = id;
-    }
-
-    /** @private */
-    public function get productId():String {
-        return _productId;
+public class Receipt {
+    public var pending_renewal_info:Vector.<PendingRenewalInfo>;
+    public var latest_receipt:String;
+    public var receipt:ReceiptDetails;
+    public var status:int;
+    public var latest_receipt_info:Vector.<ReceiptInfo>;
+    public var environment:String;
+    public function Receipt() {
     }
 }
 }

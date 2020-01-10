@@ -14,23 +14,18 @@
  */
 
 package com.tuarua.iap.storekit {
-[RemoteClass(alias="com.tuarua.iap.storekit.Download")]
-public class Download {
-    private var _productId:String;
-    public var contentIdentifier:String;
-    public var contentLength:Number;
-    public var contentURL:String;
-    public var contentVersion:String;
-    public var transaction:PaymentTransaction;
-
-    /** @private */
-    public function Download(id:String) {
-        this._productId = id;
-    }
-
-    /** @private */
-    public function get productId():String {
-        return _productId;
-    }
+public final class DownloadState {
+    /** Download is inactive, waiting to be downloaded */
+    public static var waiting:uint = 0;
+    /** Download is actively downloading */
+    public static var active:uint = 1;
+    /** Download was paused by the user */
+    public static var paused:uint = 2;//
+    /** Download is finished, content is available */
+    public static var finished:uint = 3;
+    /** Download failed */
+    public static var failed:uint = 4; //
+    /** Download was cancelled */
+    public static var cancelled:uint = 5;
 }
 }

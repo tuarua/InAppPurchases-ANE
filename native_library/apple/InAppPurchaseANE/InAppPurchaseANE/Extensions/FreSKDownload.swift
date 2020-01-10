@@ -19,12 +19,13 @@ import StoreKit
 
 public extension SKDownload {
     func toFREObject(_ id: String) -> FREObject? {
-        guard let ret = FreObjectSwift(className: "com.tuarua.iap.storekit.Download")
+        guard let ret = FreObjectSwift(className: "com.tuarua.iap.storekit.Download", args: id)
             else { return nil }
         ret.contentIdentifier = contentIdentifier
         ret.contentLength = NSNumber(value: contentLength)
         ret.contentURL = contentURL?.absoluteString
         ret.contentVersion = contentVersion
+        ret.transaction = transaction.toFREObject(id, false)
         return ret.rawValue
     }
 }

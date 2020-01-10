@@ -98,7 +98,7 @@ public class BillingView extends Sprite {
     private static const CONSUMABLE_SKUS:Vector.<String> = new <String>["android.test.purchased"];
     private static const SUBS_SKUS:Vector.<String> = new Vector.<String>();
     private static const LOG_TAG:String = "BillingRepository";
-    private static const BASE_64_ENCODED_PUBLIC_KEY:String = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvtXpPwVCGGuXy3nxBOlhdQVB2DUkiR1s8QLYGqTb015kSFFu0CA1ZX2KYVQS3UXdWakiCB6igMJM8eGrU56Y1O2ZDSWHC8KHYU9JYspHnZz9ZVTxQyPao3buOTk6nDgm+QIhfIFUGoRe4IihQ6Y6j60KUxVUdUdy2fFczDK+YifGi35rf7qeZCkHeJr22iIhzgvHgr2W/ob+ASQuaf5BlIawsfNGxkTQrxMcsYZ2ESPZDVxvHbbsQQwt5DWb/k6UKC9Qlim7hXTq4wfCov+lo6/efyDznx89O/pAbaN3xTJvEshaMR9A+wAm7k7oeAOQRDiGont2zrITDuMYF0SyUwIDAQAB";
+    private static const BASE_64_ENCODED_PUBLIC_KEY:String = "[APP_PUBLIC_KEY]";
 
     public function BillingView() {
         billingClient = InAppPurchase.billing();
@@ -110,7 +110,7 @@ public class BillingView extends Sprite {
     private function connectToPlayBillingService():Boolean {
         trace(LOG_TAG, "connectToPlayBillingService");
         if (!billingClient.isReady) {
-            billingClient.startConnection(onBillingSetupFinished);
+            billingClient.startConnection(onBillingSetupFinished, onBillingServiceDisconnected);
             return true
         }
         return false
