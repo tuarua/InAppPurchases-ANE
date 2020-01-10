@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.tuarua.iap"><apiName>com.tuarua.iap</apiName><apiDetail/><apiClassifier id="com.tuarua.iap:StoreKit"><apiName>StoreKit</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.iap:StoreKit:StoreKit"><apiName>StoreKit</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>pendingPurchases</apiItemName><apiType value="Vector$com.tuarua.iap.storekit:Purchase"/></apiParam></apiConstructorDef></apiConstructorDetail></apiConstructor><apiOperation id="com.tuarua.iap:StoreKit:fetchReceipt"><apiName>fetchReceipt</apiName><shortdesc>
+     Fetch application receipt
+     
+     </shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>forceRefresh</apiItemName><apiType value="Boolean"/><apiDesc>If true, refreshes the receipt even if one already exists.
+     </apiDesc></apiParam><apiParam><apiItemName>completion</apiItemName><apiType value="Function"/><apiDesc>handler for result
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Fetch application receipt
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:StoreKit:finishTransaction"><apiName>finishTransaction</apiName><shortdesc>
+     Finish a transaction Once the content has been delivered, call this method to finish a transaction that was performed non-atomically
+     
+     </shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>transaction</apiItemName><apiOperationClassifier>com.tuarua.iap.storekit:PaymentTransaction</apiOperationClassifier><apiDesc>transaction to finish
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Finish a transaction Once the content has been delivered, call this method to finish a transaction that was performed non-atomically
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:StoreKit:purchaseProduct"><apiName>purchaseProduct</apiName><shortdesc>
+     Purchase a product
+     
+     </shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>productId</apiItemName><apiType value="String"/><apiDesc>productId as specified in iTunes Connect
+     </apiDesc></apiParam><apiParam><apiItemName>completion</apiItemName><apiType value="Function"/><apiDesc>handler for result
+     </apiDesc></apiParam><apiParam><apiItemName>atomically</apiItemName><apiType value="Boolean"/><apiData>true</apiData><apiDesc>whether the product is purchased atomically (e.g. finishTransaction is called immediately)
+     </apiDesc></apiParam><apiParam><apiItemName>quantity</apiItemName><apiType value="int"/><apiData>1</apiData><apiDesc>quantity of the product to be purchased
+     </apiDesc></apiParam><apiParam><apiItemName>applicationUsername</apiItemName><apiType value="String"/><apiData/><apiDesc>an opaque identifier for the user’s account on your system
+     </apiDesc></apiParam><apiParam><apiItemName>simulatesAskToBuyInSandbox</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>    </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Purchase a product
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:StoreKit:restorePurchases"><apiName>restorePurchases</apiName><shortdesc>
+     Restore purchases
+     
+     </shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>atomically</apiItemName><apiType value="Boolean"/><apiDesc>whether the product is purchased atomically (e.g. finishTransaction is called immediately)
+     </apiDesc></apiParam><apiParam><apiItemName>completion</apiItemName><apiType value="Function"/><apiDesc>handler for result
+     </apiDesc></apiParam><apiParam><apiItemName>applicationUsername</apiItemName><apiType value="String"/><apiData/><apiDesc>an opaque identifier for the user’s account on your system
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Restore purchases
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:StoreKit:retrieveProductsInfo"><apiName>retrieveProductsInfo</apiName><shortdesc>
+     Retrieve products information
+     
+     </shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>productIds</apiItemName><apiType value="Vector$String"/><apiDesc>The set of product identifiers to retrieve corresponding products for
+     </apiDesc></apiParam><apiParam><apiItemName>completion</apiItemName><apiType value="Function"/><apiDesc>handler for result
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Retrieve products information
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:StoreKit:verifyPurchase"><apiName>verifyPurchase</apiName><shortdesc>
+     Verify the purchase of a Consumable or NonConsumable product in a receipt
+     
+     </shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>either notPurchased or purchased
+     </apiDesc><apiOperationClassifier>com.tuarua.iap.storekit:VerifyPurchaseResult</apiOperationClassifier></apiReturn><apiParam><apiItemName>productId</apiItemName><apiType value="String"/><apiDesc>the product id of the purchase to verify
+     </apiDesc></apiParam><apiParam><apiItemName>receipt</apiItemName><apiOperationClassifier>com.tuarua.iap.storekit:Receipt</apiOperationClassifier><apiDesc>the receipt to use for looking up the purchase
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Verify the purchase of a Consumable or NonConsumable product in a receipt
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:StoreKit:verifyReceipt"><apiName>verifyReceipt</apiName><shortdesc>
+     Verify application receipt
+     
+     </shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>service</apiItemName><apiType value="String"/><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>sharedSecret</apiItemName><apiType value="String"/><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>completion</apiItemName><apiType value="Function"/><apiDesc>handler for result
+     </apiDesc></apiParam><apiParam><apiItemName>forceRefresh</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>If true, refreshes the receipt even if one already exists.
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Verify application receipt
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:StoreKit:verifySubscription"><apiName>verifySubscription</apiName><shortdesc>
+      Verify the validity of a subscription (auto-renewable, free or non-renewing) in a receipt
+     
+     This method extracts all transactions matching the given productId and sorts them by date in descending order.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>
+     </apiDesc><apiOperationClassifier>com.tuarua.iap.storekit:VerifySubscriptionResult</apiOperationClassifier></apiReturn><apiParam><apiItemName>productId</apiItemName><apiType value="String"/><apiDesc>The product id of the subscription to verify.
+     </apiDesc></apiParam><apiParam><apiItemName>receipt</apiItemName><apiOperationClassifier>com.tuarua.iap.storekit:Receipt</apiOperationClassifier><apiDesc>The receipt to use for looking up the subscription.
+     </apiDesc></apiParam><apiParam><apiItemName>type</apiItemName><apiType value="int"/><apiData>unknown</apiData><apiDesc>SubscriptionType.autoRenewable or SubscriptionType.nonRenewing.
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Verify the validity of a subscription (auto-renewable, free or non-renewing) in a receipt
+     
+     <p>This method extracts all transactions matching the given productId and sorts them by date in descending order.
+     It then compares the first transaction expiry date against the receipt date to determine its validity.</p>
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.tuarua.iap:StoreKit:canMakePayments:get"><apiName>canMakePayments</apiName><shortdesc>
+     Return false if this device is not able or allowed to make payments
+     </shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+     Return false if this device is not able or allowed to make payments
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.iap:StoreKit:pendingPurchases:get"><apiName>pendingPurchases</apiName><shortdesc>
+     Pending Purchases available on app launch
+     </shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Vector$com.tuarua.iap.storekit:Purchase"/></apiValueDef><apiDesc>
+     Pending Purchases available on app launch
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.iap:BillingClient"><apiName>BillingClient</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>flash.events:EventDispatcher</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.iap:BillingClient:BillingClient"><apiName>BillingClient</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>childDirected</apiItemName><apiType value="int"/><apiData>unknown</apiData></apiParam><apiParam><apiItemName>underAgeOfConsent</apiItemName><apiType value="int"/><apiData>unknown</apiData></apiParam></apiConstructorDef></apiConstructorDetail></apiConstructor><apiOperation id="com.tuarua.iap:BillingClient:acknowledgePurchase"><apiName>acknowledgePurchase</apiName><shortdesc>
+     Acknowledge in-app purchases.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>purchase</apiItemName><apiOperationClassifier>com.tuarua.iap.billing:Purchase</apiOperationClassifier><apiDesc>   </apiDesc></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiDesc>Implement it to get the result of the acknowledge operation returned
+    asynchronously through the callback
+    </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Acknowledge in-app purchases.
+     
+     <p>Developers are required to acknowledge that they have granted entitlement for all in-app
+     purchases for their application.</p>
+     
+     <p><b>Warning!</b> All purchases require acknowledgement. Failure to acknowledge a purchase
+     will result in that purchase being refunded. For one-time products ensure you are using
+     <codeph>consumeAsync</codeph> which acts as an implicit acknowledgement or you can explicitly
+    acknowledge the purchase via this method. For subscriptions use <codeph>acknowledgePurchase</codeph>.
+    Please refer to
+    https://developer.android.com/google/play/billing/billing_library_overview#acknowledge for more
+    details.</p>
+    
+    </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:BillingClient:consumePurchase"><apiName>consumePurchase</apiName><shortdesc>
+     Consumes a given in-app product.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>purchase</apiItemName><apiOperationClassifier>com.tuarua.iap.billing:Purchase</apiOperationClassifier><apiDesc>   </apiDesc></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiDesc>Implement it to get the result of your consume operation returned
+    asynchronously through the callback with token
+    </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Consumes a given in-app product. Consuming can only be done on an item that's owned, and as a
+     result of consumption, the user will no longer own it.
+     
+     <p>Consumption is done asynchronously and the listener receives the callback specified upon
+     completion.</p>
+     
+     <p><b>Warning!</b> All purchases require acknowledgement. Failure to acknowledge a purchase
+     will result in that purchase being refunded. For one-time products ensure you are using this
+     method which acts as an implicit acknowledgement or you can explicitly acknowledge the purchase
+     via <codeph>acknowledgePurchase</codeph>. For subscriptions use <codeph>acknowledgePurchase</codeph>.
+    Please refer to
+    https://developer.android.com/google/play/billing/billing_library_overview#acknowledge for more
+    details.</p>
+    
+    </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:BillingClient:endConnection"><apiName>endConnection</apiName><shortdesc>
+     Close the connection and release all held resources such as service connections.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc>
+     Close the connection and release all held resources such as service connections.
+     
+     <p>Call this method once you are done with this BillingClient reference.</p>
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:BillingClient:isFeatureSupported"><apiName>isFeatureSupported</apiName><shortdesc>
+     Check if specified feature or capability is supported by the Play Store.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>BillingResponseCode.ok if feature is supported and corresponding error code otherwise.
+     </apiDesc><apiOperationClassifier>com.tuarua.iap.billing:BillingResult</apiOperationClassifier></apiReturn><apiParam><apiItemName>feature</apiItemName><apiType value="String"/><apiDesc>One of FeatureType constants.
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Check if specified feature or capability is supported by the Play Store.
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:BillingClient:isSignatureValid"><apiName>isSignatureValid</apiName><shortdesc>
+     Verifies that the data was signed with the given signature
+     
+     </shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>publicKey</apiItemName><apiType value="String"/><apiDesc>should be YOUR APPLICATION'S PUBLIC KEY
+     (that you got from the Google Play developer console, usually under Services &amp; APIs tab).
+     This is not your developer public key, it's the <b>app-specific</b> public key.
+     </apiDesc></apiParam><apiParam><apiItemName>purchase</apiItemName><apiOperationClassifier>com.tuarua.iap.billing:Purchase</apiOperationClassifier><apiDesc>The purchase to check
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Verifies that the data was signed with the given signature
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:BillingClient:launchBillingFlow"><apiName>launchBillingFlow</apiName><shortdesc>
+     Initiate the billing flow for an in-app purchase or subscription.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>BillingResult
+     </apiDesc><apiOperationClassifier>com.tuarua.iap.billing:BillingResult</apiOperationClassifier></apiReturn><apiParam><apiItemName>skuDetails</apiItemName><apiOperationClassifier>com.tuarua.iap.billing:SkuDetails</apiOperationClassifier><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>accountId</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>vrPurchaseFlow</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>replaceSkusProrationMode</apiItemName><apiType value="int"/><apiData>-1</apiData><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>developerId</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>    </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Initiate the billing flow for an in-app purchase or subscription.
+     <p>It will show the Google Play purchase screen.</p>
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:BillingClient:launchPriceChangeConfirmationFlow"><apiName>launchPriceChangeConfirmationFlow</apiName><shortdesc>
+     Initiate a flow to confirm the change of price for an item subscribed by the user.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>skuDetails</apiItemName><apiOperationClassifier>com.tuarua.iap.billing:SkuDetails</apiOperationClassifier><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiDesc>    </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Initiate a flow to confirm the change of price for an item subscribed by the user.
+     
+     <p>When the price of a user subscribed item has changed, launch this flow to take users to a screen with price
+     change information. User can confirm the new price or cancel the flow.</p>
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:BillingClient:loadRewardedSku"><apiName>loadRewardedSku</apiName><shortdesc>
+     Loads a rewarded sku in the background and returns the result asynchronously.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>skuList</apiItemName><apiType value="Vector$String"/><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiDesc>Implement it to get the result of the load operation returned asynchronously
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Loads a rewarded sku in the background and returns the result asynchronously.
+     
+     <p>If the rewarded sku is available, the response will be BillingResponseCode.ok. Otherwise the
+     response will be BillingResponseCode.itemUnavailable. There is no guarantee that a rewarded sku will always be
+     available. After a successful response, only then should the offer be given to a user to obtain
+     a rewarded item and call launchBillingFlow.</p>
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:BillingClient:queryPurchaseHistory"><apiName>queryPurchaseHistory</apiName><shortdesc>
+     Returns the most recent purchase made by the user for each SKU, even if that purchase is expired, canceled,
+     or consumed.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>skuType</apiItemName><apiType value="String"/><apiDesc>The type of SKU, either "inapp" or "subs" as in <codeph>SkuType</codeph>.
+     </apiDesc></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiDesc>Implement it to get the result of your query operation returned asynchronously through
+     the callback with the BillingResponseCode and the list of PurchaseHistoryRecord.
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Returns the most recent purchase made by the user for each SKU, even if that purchase is expired, canceled,
+     or consumed.
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:BillingClient:queryPurchases"><apiName>queryPurchases</apiName><shortdesc>
+     Get purchases details for all the items bought within your app.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>PurchasesResult The <codeph>PurchasesResult</codeph> containing the list of purchases and the
+     response code
+     </apiDesc><apiOperationClassifier>com.tuarua.iap.billing:PurchasesResult</apiOperationClassifier></apiReturn><apiParam><apiItemName>skuType</apiItemName><apiType value="String"/><apiData>unknown</apiData><apiDesc>The type of SKU, either "inapp" or "subs" as in <codeph>SkuType</codeph>.
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Get purchases details for all the items bought within your app. This method uses a cache of
+     Google Play Store app without initiating a network request.
+     
+     <p>Note: It's recommended for security purposes to go through purchases verification on your
+     backend (if you have one) by calling one of the following APIs:
+     <ul><li>https://developers.google.com/android-publisher/api-ref/purchases/products/get</li>
+     <li>https://developers.google.com/android-publisher/api-ref/purchases/subscriptions/get</li></ul></p>
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:BillingClient:querySkuDetails"><apiName>querySkuDetails</apiName><shortdesc>
+     Perform a network query to get SKU details and return the result asynchronously.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>skuList</apiItemName><apiType value="Vector$String"/><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiDesc>Implement it to get the result of your query operation returned asynchronously
+     </apiDesc></apiParam><apiParam><apiItemName>skuType</apiItemName><apiType value="String"/><apiData>unknown</apiData><apiDesc>    </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Perform a network query to get SKU details and return the result asynchronously.
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:BillingClient:startConnection"><apiName>startConnection</apiName><shortdesc>
+     Starts up BillingClient setup process asynchronously.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>onBillingSetupFinished</apiItemName><apiType value="Function"/><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>onBillingServiceDisconnected</apiItemName><apiType value="Function"/><apiData>null</apiData><apiDesc>    </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Starts up BillingClient setup process asynchronously.
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.tuarua.iap:BillingClient:isReady:get"><apiName>isReady</apiName><shortdesc>
+     Checks if the client is currently connected to the service, so that requests to other methods
+     will succeed.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+     Checks if the client is currently connected to the service, so that requests to other methods
+     will succeed.
+     
+     <p>Returns true if the client is currently connected to the service, false otherwise.</p>
+     
+     <p>Note: It also means that SkuType.inApp items are supported for purchasing, queries and all other
+     actions. If you need to check support for SUBSCRIPTIONS or something different, use isFeatureSupported(String) method.</p>
+     </apiDesc></apiValueDetail></apiValue></apiClassifier></apiPackage>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<application xmlns="http://ns.adobe.com/air/application/32.0">
+    <id>com.tuarua.storekitdemo</id>
+    <filename>Main</filename>
+    <name>InAppPurchasesANEExample</name>
+    <versionNumber>1.0.0</versionNumber>
+    <extensions>
+        <extensionID>com.tuarua.InAppPurchaseANE</extensionID>
+    </extensions>
+    <initialWindow>
+        <content>SWF file name is set automatically at compile time</content>
+        <visible>true</visible>
+        <aspectRatio>portrait</aspectRatio>
+        <autoOrients>false</autoOrients>
+        <fullScreen>true</fullScreen>
+        <renderMode>direct</renderMode>
+        <depthAndStencil>true</depthAndStencil>
+    </initialWindow>
+    
+    <icon>
+        <image76x76>icon76.png</image76x76>
+        <image120x120>icon120.png</image120x120>
+        <image152x152>icon152.png</image152x152>
+        <image167x167>icon167.png</image167x167>
+        <image180x180>icon180.png</image180x180>
+    </icon>
+    
+    <!-- iOS specific capabilities -->
+    <iPhone>
+        <!-- A list of plist key/value pairs to be added to the application Info.plist -->
+        <InfoAdditions>
+            <![CDATA[
+                <key>UIDeviceFamily</key>
+                <array>
+                <!-- iPhone and iPod touch devices -->
+                <string>1</string>
+                <!-- iPad devices -->
+                <string>2</string>
+                </array>
+                <key>MinimumOSVersion</key>
+                <string>9.0</string>
+            ]]>
+        </InfoAdditions>
+        
+        <!-- Display Resolution for the app (either "standard" or "high"). Optional. Default "standard" -->
+        <requestedDisplayResolution>high</requestedDisplayResolution>
+    </iPhone>
+    
+    
+</application>
