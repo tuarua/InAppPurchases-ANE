@@ -79,7 +79,7 @@ After the ipa is created unzip it and confirm there is a "Frameworks" folder in 
 You will need:
 
 - IntelliJ IDEA
-- AIR 330.2.338 or greater
+- AIR 33.0.2.338 or greater
 - Android Studio 3.5 if you wish to edit the Android source
 - Xcode 11.3
 - [wget](http://rudix.org/packages/wget.html) on macOS
