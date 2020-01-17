@@ -98,7 +98,7 @@ public class StoreKitView extends Sprite {
         purchaseAutoRenewSubBtn.y = 340;
         restorePurchasesBtn.y = 420;
         verifyReceiptBtn.y = 500;
-        purchaseConsumableBtn.addEventListener(TouchEvent.TOUCH, onPurchaseConsumableClick);
+        purchaseConsumableBtn.addEventListener(TouchEvent.TOUCH, onPurchaseConsumableTouch);
         purchaseNonConsumableBtn.addEventListener(TouchEvent.TOUCH, onPurchaseNonConsumableTouch);
         restorePurchasesBtn.addEventListener(TouchEvent.TOUCH, onRestorePurchasesTouch);
         verifyReceiptBtn.addEventListener(TouchEvent.TOUCH, onVerifyReceiptTouch);
@@ -115,7 +115,7 @@ public class StoreKitView extends Sprite {
         addChild(verifyReceiptBtn);
     }
 
-    private function onPurchaseConsumableClick(event:TouchEvent):void {
+    private function onPurchaseConsumableTouch(event:TouchEvent):void {
         event.stopPropagation();
         var touch:Touch = event.getTouch(purchaseConsumableBtn, TouchPhase.ENDED);
         if (touch && touch.phase == TouchPhase.ENDED) {

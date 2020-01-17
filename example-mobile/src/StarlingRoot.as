@@ -1,28 +1,16 @@
 package {
 
 import com.tuarua.InAppPurchase;
-import com.tuarua.iap.StoreKit;
-import com.tuarua.iap.storekit.FetchReceiptResult;
-import com.tuarua.iap.storekit.PurchaseDetails;
-import com.tuarua.iap.storekit.PurchaseError;
-import com.tuarua.iap.storekit.RestoreResults;
-import com.tuarua.iap.storekit.RetrieveResults;
-import com.tuarua.iap.storekit.VerifyPurchaseResult;
-import com.tuarua.iap.storekit.VerifyReceiptURLType;
 import com.tuarua.utils.os;
 
 import flash.desktop.NativeApplication;
 import flash.events.Event;
 
 import starling.display.Sprite;
-import starling.events.Touch;
-import starling.events.TouchEvent;
-import starling.events.TouchPhase;
 import starling.text.TextField;
 
 import views.BillingView;
 
-import views.SimpleButton;
 import views.StoreKitView;
 
 // https://developer.android.com/google/play/billing/billing_testing#billing-testing-static

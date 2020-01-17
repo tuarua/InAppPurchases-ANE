@@ -5,7 +5,6 @@ import com.android.billingclient.api.BillingResult
 import com.android.billingclient.api.Purchase
 import com.tuarua.frekotlin.FREArray
 import com.tuarua.frekotlin.FREObject
-import com.tuarua.frekotlin.push
 import com.tuarua.frekotlin.set
 
 fun Purchase.PurchasesResult.toFREObject(): FREObject? {

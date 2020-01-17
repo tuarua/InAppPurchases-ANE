@@ -17,7 +17,7 @@ import Foundation
 import FreSwift
 import StoreKit
 
-@available(iOS 11.2, *)
+@available(macOS 10.13.2, iOS 11.2, tvOS 11.2, *)
 public extension SKProductSubscriptionPeriod {
     func toFREObject() -> FREObject? {
         guard let ret = FreObjectSwift(className: "com.tuarua.iap.storekit.ProductSubscriptionPeriod")
@@ -29,7 +29,7 @@ public extension SKProductSubscriptionPeriod {
 }
 
 public extension FreObjectSwift {
-    @available(iOS 11.2, *)
+    @available(macOS 10.13.2, iOS 11.2, tvOS 11.2, *)
     subscript(dynamicMember name: String) -> SKProductSubscriptionPeriod? {
         get { return nil }
         set { rawValue?[name] = newValue?.toFREObject() }

@@ -1,7 +1,7 @@
-$AneVersion = "1.0.0"
-$FreKotlinVersion = "1.9.1"
+$AneVersion = "1.1.0"
+$FreKotlinVersion = "1.9.5"
 $SupportV4Version = "1.0.0"
-$KotlinxCoroutinesVersion = "1.2.2"
+$KotlinxCoroutinesVersion = "1.3.3"
 $GsonVersion = "2.8.6"
 $BillingVersion="2.1.0"
 

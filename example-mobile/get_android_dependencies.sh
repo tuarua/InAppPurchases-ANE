@@ -1,8 +1,8 @@
 #!/bin/sh
 
-AneVersion="1.0.0"
-FreKotlinVersion="1.9.1"
-KotlinxCoroutinesVersion="1.2.2"
+AneVersion="1.1.0"
+FreKotlinVersion="1.9.5"
+KotlinxCoroutinesVersion="1.3.3"
 SupportV4Version="1.0.0"
 GsonVersion="2.8.6"
 BillingVersion="2.1.0"

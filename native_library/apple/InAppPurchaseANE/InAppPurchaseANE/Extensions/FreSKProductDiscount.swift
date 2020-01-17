@@ -17,7 +17,7 @@ import Foundation
 import FreSwift
 import StoreKit
 
-@available(iOS 11.2, *)
+@available(macOS 10.13.2, iOS 11.2, tvOS 11.2, *)
 public extension SKProductDiscount {
     func toFREObject() -> FREObject? {
         guard let ret = FreObjectSwift(className: "com.tuarua.iap.storekit.ProductDiscount")
@@ -28,7 +28,7 @@ public extension SKProductDiscount {
         ret.priceLocale = priceLocale
         ret.subscriptionPeriod = subscriptionPeriod
         
-        if #available(iOS 12.2, *) {
+        if #available(macOS 10.14.4, iOS 12.2, tvOS 12.2, *) {
             ret.identifier = identifier
             ret["type"] = type.rawValue.toFREObject()
         }
@@ -37,7 +37,7 @@ public extension SKProductDiscount {
 }
 
 public extension FreObjectSwift {
-    @available(iOS 11.2, *)
+    @available(macOS 10.13.2, iOS 11.2, tvOS 11.2, *)
     subscript(dynamicMember name: String) -> SKProductDiscount? {
         get { return nil }
         set { rawValue?[name] = newValue?.toFREObject() }

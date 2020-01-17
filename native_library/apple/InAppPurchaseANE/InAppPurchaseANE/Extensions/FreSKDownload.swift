@@ -22,7 +22,11 @@ public extension SKDownload {
         guard let ret = FreObjectSwift(className: "com.tuarua.iap.storekit.Download", args: id)
             else { return nil }
         ret.contentIdentifier = contentIdentifier
+#if os(iOS) || os(tvOS)
         ret.contentLength = NSNumber(value: contentLength)
+#else
+        ret.contentLength = contentLength
+#endif
         ret.contentURL = contentURL?.absoluteString
         ret.contentVersion = contentVersion
         ret.transaction = transaction.toFREObject(id, false)

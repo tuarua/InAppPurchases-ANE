@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CE87F4821FB259FA005CF7DF"
                BuildableName = "InAppPurchaseANE_FW.framework"
-               BlueprintName = "InAppPurchaseANE_FW"
+               BlueprintName = "InAppPurchaseANE_FW (iOS)"
                ReferencedContainer = "container:InAppPurchaseANE.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,7 +45,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE87F4821FB259FA005CF7DF"
             BuildableName = "InAppPurchaseANE_FW.framework"
-            BlueprintName = "InAppPurchaseANE_FW"
+            BlueprintName = "InAppPurchaseANE_FW (iOS)"
             ReferencedContainer = "container:InAppPurchaseANE.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -61,7 +61,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE87F4821FB259FA005CF7DF"
             BuildableName = "InAppPurchaseANE_FW.framework"
-            BlueprintName = "InAppPurchaseANE_FW"
+            BlueprintName = "InAppPurchaseANE_FW (iOS)"
             ReferencedContainer = "container:InAppPurchaseANE.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

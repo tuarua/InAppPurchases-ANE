@@ -26,15 +26,19 @@ public extension SKProduct {
         ret.price = price
         ret.localizedPrice = localizedPrice
         ret.localizedDescription = localizedDescription
-        ret.isDownloadable = isDownloadable
-        ret.downloadContentLengths = downloadContentLengths
-        ret.downloadContentVersion = downloadContentVersion
+        if #available(macOS 10.15, iOS 9.0, tvOS 9.2, *) {
+            ret.isDownloadable = isDownloadable
+        }
+        if #available(macOS 10.14, iOS 9.0, tvOS 9.2, *) {
+            ret.downloadContentLengths = downloadContentLengths
+            ret.downloadContentVersion = downloadContentVersion
+        }
         ret.priceLocale = priceLocale
         ret.productIdentifier = productIdentifier
-        if #available(iOS 12.0, *) {
+        if #available(macOS 10.14, iOS 12.0, tvOS 12.2, *) {
             ret.subscriptionGroupIdentifier = subscriptionGroupIdentifier
         }
-        if #available(iOS 11.2, *) {
+        if #available(macOS 10.13.2, iOS 11.2, tvOS 11.2, *) {
             ret.introductoryPrice = introductoryPrice
             ret.subscriptionPeriod = subscriptionPeriod
         }

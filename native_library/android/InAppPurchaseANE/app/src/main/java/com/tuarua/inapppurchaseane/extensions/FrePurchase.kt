@@ -9,17 +9,17 @@ import java.util.*
 
 fun Purchase.toFREObject(): FREObject? {
     val ret = FREObject("com.tuarua.iap.billing.Purchase")
-    ret["developerPayload"] = developerPayload?.toFREObject()
-    ret["isAcknowledged"] = isAcknowledged.toFREObject()
-    ret["isAutoRenewing"] = isAutoRenewing.toFREObject()
-    ret["orderId"] = orderId.toFREObject()
-    ret["originalJson"] = originalJson.toFREObject()
-    ret["packageName"] = packageName.toFREObject()
-    ret["purchaseState"] = purchaseState.toFREObject()
-    ret["purchaseTime"] = Date(purchaseTime).toFREObject()
-    ret["purchaseToken"] = purchaseToken.toFREObject()
-    ret["sku"] = sku.toFREObject()
-    ret["signature"] = signature.toFREObject()
+    ret["developerPayload"] = developerPayload
+    ret["isAcknowledged"] = isAcknowledged
+    ret["isAutoRenewing"] = isAutoRenewing
+    ret["orderId"] = orderId
+    ret["originalJson"] = originalJson
+    ret["packageName"] = packageName
+    ret["purchaseState"] = purchaseState
+    ret["purchaseTime"] = Date(purchaseTime)
+    ret["purchaseToken"] = purchaseToken
+    ret["sku"] = sku
+    ret["signature"] = signature
     return ret
 }
 
