@@ -3,7 +3,7 @@
     <id>com.tuarua.storekitdemo</id>
     <filename>Main</filename>
     <name>InAppPurchasesANEExample</name>
-    <versionNumber>1.0.0</versionNumber>
+    <versionNumber>1.1.0</versionNumber>
     <extensions>
         <extensionID>com.tuarua.frekotlin</extensionID>
         <extensionID>com.google.code.gson.gson</extensionID>
@@ -28,7 +28,8 @@
 			    <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="28" />
 			    <uses-permission android:name="android.permission.INTERNET"/>
 			    <uses-permission android:name="com.android.vending.BILLING" />
-			    <application>
+			    <application android:enabled="true">
+			        <meta-data android:name="android.max_aspect" android:value="2.1" />
                     <meta-data
                         android:name="com.google.android.play.billingclient.version"
                         android:value="2.1.0" />

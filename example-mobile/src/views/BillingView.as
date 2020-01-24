@@ -5,7 +5,6 @@ import com.tuarua.iap.billing.BillingResponseCode;
 import com.tuarua.iap.billing.BillingResult;
 import com.tuarua.iap.billing.FeatureType;
 import com.tuarua.iap.billing.Purchase;
-import com.tuarua.iap.billing.PurchaseHistoryRecord;
 import com.tuarua.iap.billing.PurchaseState;
 import com.tuarua.iap.billing.PurchasesResult;
 import com.tuarua.iap.billing.SkuDetails;
@@ -16,7 +15,6 @@ import starling.display.Sprite;
 import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
-import starling.text.TextField;
 
 /**
  * Figure 4 -- Serverless billing integration
@@ -82,12 +80,6 @@ import starling.text.TextField;
  *    cheap; it involves no network calls since Play stores the data in its own local cache. The
  *    purchase data is then [processed][processPurchases] and converted to
  *    [premium contents][Entitlement].
- *
- * 4. Finally, all data that end up as part of the public interface of the [BillingRepository]
- *    (i.e. in the [BillingViewModel]), and therefore in other portions of the app, come immediately
- *    from the local cache billing client. The local cache is backed by a [Room] database and all
- *    the data visible to the clients is wrapped in [LiveData] so that changes are reflected in
- *    the clients as soon as they happen.
  */
 
 public class BillingView extends Sprite {
@@ -182,7 +174,7 @@ public class BillingView extends Sprite {
      *
      * Google Play Billing refers to receipts as [Purchases][Purchase]. So when a user buys
      * something, Play Billing returns a [Purchase] object that the app then uses to release the
-     * [Entitlement] to the user. Receipts are pivotal within the [BillingRepositor]; but they are
+     * [Entitlement] to the user. Receipts are pivotal within the [BillingRepository]; but they are
      * not part of the repo’s public API, because clients don’t need to know about them. When
      * the release of entitlements occurs depends on the type of purchase. For consumable products,
      * the release may be deferred until after consumption by Google Play; for non-consumable
@@ -277,9 +269,6 @@ public class BillingView extends Sprite {
           disbursed. In this sample, the receipts are then removed upon entitlement
           disbursement.
          */
-        // var testing = localCacheBillingClient.purchaseDao().getPurchases()
-        // trace(LOG_TAG, "processPurchases purchases in the lcl db ${testing?.size}");
-        // localCacheBillingClient.purchaseDao().insert(*validPurchases.toTypedArray())
         handleConsumablePurchases(consumables);
         acknowledgeNonConsumablePurchases(nonConsumables);
     }
