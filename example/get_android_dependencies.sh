@@ -12,4 +12,4 @@ wget -O android_dependencies/androidx.legacy.legacy-support-v4-${SupportV4Versio
 wget -O android_dependencies/com.google.code.gson.gson-${GsonVersion}.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/misc/com.google.code.gson.gson-${GsonVersion}.ane?raw=true
 wget -O android_dependencies/com.android.billingclient.billing-${BillingVersion}.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/play-services/com.android.billingclient.billing-${BillingVersion}.ane?raw=true
 wget -O android_dependencies/org.jetbrains.kotlinx.kotlinx-coroutines-android-${KotlinxCoroutinesVersion}.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/kotlin/org.jetbrains.kotlinx.kotlinx-coroutines-android-${KotlinxCoroutinesVersion}.ane?raw=true
-wget -O ../native_extension/ane/InAppPurchaseANE.ane https://github.com/tuarua/InAppPurchase-ANE/releases/download/$AneVersion/InAppPurchaseANE.ane?raw=true
+wget -O ../native_extension/ane/InAppPurchaseANE.ane https://github.com/tuarua/InAppPurchases-ANE/releases/download/$AneVersion/InAppPurchaseANE.ane?raw=true
