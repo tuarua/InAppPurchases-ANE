@@ -10,8 +10,8 @@ wget https://github.com/tuarua/Swift-IOS-ANE/releases/download/$FreSwiftVersion/
 unzip -u -o ios_dependencies.zip
 rm ios_dependencies.zip
 
-wget https://github.com/tuarua/InAppPurchase-ANE/releases/download/$AneVersion/ios_dependencies.zip
+wget https://github.com/tuarua/InAppPurchases-ANE/releases/download/$AneVersion/ios_dependencies.zip
 unzip -u -o ios_dependencies.zip
 rm ios_dependencies.zip
 
-wget -O ../native_extension/ane/InAppPurchaseANE.ane https://github.com/tuarua/InAppPurchase-ANE/releases/download/$AneVersion/InAppPurchaseANE.ane?raw=true
+wget -O ../native_extension/ane/InAppPurchaseANE.ane https://github.com/tuarua/InAppPurchases-ANE/releases/download/$AneVersion/InAppPurchaseANE.ane?raw=true
