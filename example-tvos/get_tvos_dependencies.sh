@@ -13,4 +13,4 @@ wget https://github.com/tuarua/InAppPurchase-ANE/releases/download/$AneVersion/t
 unzip -u -o tvos_dependencies.zip
 rm tvos_dependencies.zip
 
-wget -O ../native_extension/ane/InAppPurchaseANE.ane https://github.com/tuarua/InAppPurchase-ANE/releases/download/$AneVersion/InAppPurchaseANE.ane?raw=true
+wget -O ../native_extension/ane/InAppPurchaseANE.ane https://github.com/tuarua/InAppPurchases-ANE/releases/download/$AneVersion/InAppPurchaseANE.ane?raw=true
