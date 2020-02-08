@@ -1,6 +1,6 @@
 # InAppPurchases-ANE
 
-Use StoreKit and BillingClient with this Adobe Air Native Extension for iOS 9.0+ and Android 19+.    
+Use StoreKit and BillingClient with this Adobe Air Native Extension for iOS 9.0+, tvOS 9.2+,macOS 10.12+ and Android 19+.    
 
 -------------
 
@@ -73,6 +73,35 @@ bash get_ios_dependencies.sh
 This folder, ios_dependencies/device/Frameworks, must be packaged as part of your app when creating the ipa. How this is done will depend on the IDE you are using.
 After the ipa is created unzip it and confirm there is a "Frameworks" folder in the root of the .app package.   
 
+## tvOS
+
+### The ANE + Dependencies
+
+N.B. You must use a Mac to build an tvOS app using this ANE. Windows is NOT supported.
+
+From the command line cd into /example-tvos and run:
+
+```shell
+bash get_tvos_dependencies.sh
+```
+
+### App Setup
+
+As per iOS above.
+
+## macOS
+
+### The ANE + Dependencies
+
+From the command line cd into /example-desktop and run:
+
+```shell
+bash get_dependencies.sh
+```
+
+### App Setup
+
+As per iOS above.
 
 ### Prerequisites
 

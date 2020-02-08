@@ -280,9 +280,7 @@ class KotlinController : FreKotlinMainController, PurchasesUpdatedListener {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val publicKey = String(argv[0]) ?: return null
         val purchase = Purchase(argv[1]) ?: return null
-        return Security.verifyPurchase(
-                publicKey, purchase.originalJson, purchase.signature
-        ).toFREObject()
+        return Security.verifyPurchase(publicKey, purchase.originalJson, purchase.signature).toFREObject()
     }
 
     fun getOnPurchasesUpdates(ctx: FREContext, argv: FREArgv): FREObject? {

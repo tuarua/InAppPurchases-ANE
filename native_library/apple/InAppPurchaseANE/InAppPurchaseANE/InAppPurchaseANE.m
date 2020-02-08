@@ -12,11 +12,13 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-
+#import <Foundation/Foundation.h>
 #import "FreMacros.h"
 #import "InAppPurchaseANE_oc.h"
+#ifdef OSX
+#import <InAppPurchaseANE/InAppPurchaseANE-Swift.h>
+#else
 #import <InAppPurchaseANE_FW/InAppPurchaseANE_FW.h>
-
 #define FRE_OBJC_BRIDGE TRIAP_FlashRuntimeExtensionsBridge
 @interface FRE_OBJC_BRIDGE : NSObject<FreSwiftBridgeProtocol>
 @end
@@ -24,7 +26,7 @@
 }
 FRE_OBJC_BRIDGE_FUNCS
 @end
-
+#endif
 @implementation InAppPurchaseANE_LIB
 SWIFT_DECL(TRIAP)
 CONTEXT_INIT(TRIAP) {
@@ -60,8 +62,11 @@ CONTEXT_INIT(TRIAP) {
 CONTEXT_FIN(TRIAP) {
     [TRIAP_swft dispose];
     TRIAP_swft = nil;
+#ifdef OSX
+#else
     TRIAP_freBridge = nil;
     TRIAP_swftBridge = nil;
+#endif
     TRIAP_funcArray = nil;
 }
 EXTENSION_INIT(TRIAP)

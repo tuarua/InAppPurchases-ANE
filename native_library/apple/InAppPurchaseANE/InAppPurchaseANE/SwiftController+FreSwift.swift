@@ -13,6 +13,7 @@
  limitations under the License.
  */
 
+import FreSwift
 import Foundation
 import SwiftyStoreKit
 
@@ -77,8 +78,13 @@ extension SwiftController: FreSwiftMainController {
     }
     
     @objc public func onLoad() {
+#if os(iOS) || os(tvOS)
         NotificationCenter.default.addObserver(self, selector: #selector(applicationDidFinishLaunching),
                                                name: UIApplication.didFinishLaunchingNotification, object: nil)
+#else
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidFinishLaunching),
+                                               name: NSApplication.didFinishLaunchingNotification, object: nil)
+#endif
     }
     
 }

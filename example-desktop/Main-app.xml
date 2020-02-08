@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<application xmlns="http://ns.adobe.com/air/application/32.0">
+    <id>com.tuarua.storekitdemo.mac</id>
+    <filename>Main</filename>
+    <name>Main</name>
+    <versionNumber>1.0.0</versionNumber>
+
+    <!-- Identifies the ActionScript extensions used by an application. -->
+    <extensions>
+        <extensionID>com.tuarua.FreSwift</extensionID>
+        <extensionID>com.tuarua.InAppPurchaseANE</extensionID>
+    </extensions>
+
+    <!-- Settings for the application's initial window. Required. -->
+    <initialWindow>
+        <!-- The main SWF or HTML file of the application. Required. -->
+        <content>SWF file name is set automatically at compile time</content>
+        <requestedDisplayResolution>high</requestedDisplayResolution>
+        <depthAndStencil>true</depthAndStencil>
+        <renderMode>direct</renderMode>
+        <autoOrients>false</autoOrients>
+        <fullScreen>false</fullScreen>
+        <visible>true</visible>
+    </initialWindow>
+
+
+</application>

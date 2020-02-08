@@ -13,7 +13,26 @@
  limitations under the License.
  */
 
+#import "FreMacros.h"
 #import <Foundation/Foundation.h>
+
+#ifdef OSX
+#ifndef InAppPurchaseANE_InAppPurchaseANE_H
+#define InAppPurchaseANE_InAppPurchaseANE_H
+#import <Cocoa/Cocoa.h>
+#include <Adobe AIR/Adobe AIR.h>
+
+#define EXPORT __attribute__((visibility("default")))
+
+EXPORT
+EXTENSION_FIN_DECL(TRIAP);
+
+EXPORT
+EXTENSION_INIT_DECL(TRIAP);
+#endif // InAppPurchaseANE_InAppPurchaseANE_H
+#else
+#import <UIKit/UIKit.h>
+#endif
 
 @interface InAppPurchaseANE_LIB : NSObject
 

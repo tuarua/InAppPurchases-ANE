@@ -30,8 +30,8 @@ public class InAppPurchase {
     }
 
     public static function storeKit():StoreKit {
-        if (!os.isIos) {
-            trace("StoreKit can only be created for iOS");
+        if (!os.isIos && !os.isOSX && !os.isTvos) {
+            trace("StoreKit can only be created for iOS, macOS and tvOS");
             return null;
         }
         if (_storeKit == null) {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension xmlns="http://ns.adobe.com/air/extension/19.0">
+<extension xmlns="http://ns.adobe.com/air/extension/24.0">
     <id>com.tuarua.InAppPurchaseANE</id>
     <name>In App Purchases ANE</name>
     <copyright>This work is licensed under Apache License, Copyright (c) 2018 Tua Rua Ltd.</copyright>
-    <versionNumber>1.0.0</versionNumber>
+    <versionNumber>1.1.0</versionNumber>
     <platforms>
         <platform name="Android-x86">
             <applicationDeployment>
@@ -36,6 +36,20 @@
         <platform name="iPhone-x86">
             <applicationDeployment>
                 <nativeLibrary>libInAppPurchaseANE.a</nativeLibrary>
+                <initializer>TRIAPExtInizer</initializer>
+                <finalizer>TRIAPExtFinizer</finalizer>
+            </applicationDeployment>
+        </platform>
+        <platform name="appleTV-ARM">
+            <applicationDeployment>
+                <nativeLibrary>libInAppPurchaseANE.a</nativeLibrary>
+                <initializer>TRIAPExtInizer</initializer>
+                <finalizer>TRIAPExtFinizer</finalizer>
+            </applicationDeployment>
+        </platform>
+        <platform name="MacOS-x86-64">
+            <applicationDeployment>
+                <nativeLibrary>InAppPurchaseANE.framework</nativeLibrary>
                 <initializer>TRIAPExtInizer</initializer>
                 <finalizer>TRIAPExtFinizer</finalizer>
             </applicationDeployment>
