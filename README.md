@@ -111,7 +111,7 @@ You will need:
 - AIR 33.0.2.338 or greater
 - Android Studio 3.5 if you wish to edit the Android source
 - Xcode 11.3
-- [wget](http://rudix.org/packages/wget.html) on macOS
+* wget on macOS via `brew install wget`
 - Powershell on Windows
 
 ### References
