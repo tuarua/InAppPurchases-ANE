@@ -1,6 +1,6 @@
 #!/bin/sh
 
-AneVersion="1.1.0"
+AneVersion="1.2.0"
 FreKotlinVersion="1.9.5"
 KotlinxCoroutinesVersion="1.3.3"
 SupportV4Version="1.0.0"

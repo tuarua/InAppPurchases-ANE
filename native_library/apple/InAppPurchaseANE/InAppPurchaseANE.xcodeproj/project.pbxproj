@@ -670,6 +670,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuarua.InAppPurchaseANE;
 				PRODUCT_NAME = InAppPurchaseANE_FW;
@@ -713,6 +714,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuarua.InAppPurchaseANE;
 				PRODUCT_NAME = InAppPurchaseANE_FW;
@@ -808,7 +810,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = /Users/eoinlandy/SDKs/AIRSDK_30/runtimes/air/mac;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.2.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = (
@@ -859,7 +861,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = /Users/eoinlandy/SDKs/AIRSDK_30/runtimes/air/mac;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.2.0;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
@@ -1069,6 +1071,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuarua.InAppPurchaseANE;
 				PRODUCT_NAME = InAppPurchaseANE_FW;
@@ -1110,6 +1113,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuarua.InAppPurchaseANE;
 				PRODUCT_NAME = InAppPurchaseANE_FW;
