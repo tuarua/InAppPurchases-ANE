@@ -4,9 +4,6 @@ Use StoreKit and BillingClient with this Adobe Air Native Extension for iOS 9.0+
 
 -------------
 
-### AIR 32 or 33
-This ANE is built against AIR 33 SDK. 
-
 ## Android
 
 #### The ANE + Dependencies
@@ -61,8 +58,6 @@ You will also need to include the following in your app manifest. Update accordi
 #### The ANE + Dependencies
 
 N.B. You must use a Mac to build an iOS app using this ANE. Windows is NOT supported.
-
-N.B. This ANE uses FreSwift 4.2. Other ANEs (WebViewANE, Firebase, etc) are not yet aligned to this version; Waiting on Harman to update iOS SDK to iOS 13.x
 
 From the command line cd into /example and run:
 
