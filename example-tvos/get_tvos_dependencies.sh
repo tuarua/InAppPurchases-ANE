@@ -1,7 +1,7 @@
 #!/bin/sh
 
-AneVersion="1.2.0"
-FreSwiftVersion="4.3.0"
+AneVersion="1.3.0"
+FreSwiftVersion="4.4.0"
 
 rm -r tvos_dependencies/device
 
