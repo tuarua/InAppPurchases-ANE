@@ -136,8 +136,18 @@
      Verifies that the data was signed with the given signature
      
      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:BillingClient:launchBillingFlow"><apiName>launchBillingFlow</apiName><shortdesc>
-     Initiate the billing flow for an in-app purchase or subscription.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>BillingResult
-     </apiDesc><apiOperationClassifier>com.tuarua.iap.billing:BillingResult</apiOperationClassifier></apiReturn><apiParam><apiItemName>skuDetails</apiItemName><apiOperationClassifier>com.tuarua.iap.billing:SkuDetails</apiOperationClassifier><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>accountId</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>vrPurchaseFlow</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>replaceSkusProrationMode</apiItemName><apiType value="int"/><apiData>-1</apiData><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>developerId</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>    </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Initiate the billing flow for an in-app purchase or subscription.</shortdesc><prolog><asCustoms><deprecated>
+     </deprecated></asCustoms></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>BillingResult
+     </apiDesc><apiOperationClassifier>com.tuarua.iap.billing:BillingResult</apiOperationClassifier></apiReturn><apiParam><apiItemName>skuDetails</apiItemName><apiOperationClassifier>com.tuarua.iap.billing:SkuDetails</apiOperationClassifier><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>obfuscatedAccountId</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>Specifies an optional obfuscated string that is uniquely associated with the user's
+     account in your app.
+     <p>If you pass this value, Google Play can use it to detect irregular activity, such as many devices making
+     purchases on the same account in a short period of time. Do not use this field to store any Personally
+     Identifiable Information (PII) such as emails in cleartext. Attempting to store PII in this field will
+     result in purchases being blocked. Google Play recommends that you use either encryption or a one-way
+     hash to generate an obfuscated identifier to send to Google Play.</p>
+     <p>You can also retrieve this identifier via the Purchase object.</p>
+     <p>This identifier is limited to 64 characters.</p>
+     </apiDesc></apiParam><apiParam><apiItemName>obfuscatedProfileId</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>vrPurchaseFlow</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>replaceSkusProrationMode</apiItemName><apiType value="int"/><apiData>-1</apiData><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>developerId</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc></apiDesc></apiParam></apiOperationDef><apiDesc>
      Initiate the billing flow for an in-app purchase or subscription.
      <p>It will show the Google Play purchase screen.</p>
      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:BillingClient:launchPriceChangeConfirmationFlow"><apiName>launchPriceChangeConfirmationFlow</apiName><shortdesc>
@@ -147,8 +157,8 @@
      <p>When the price of a user subscribed item has changed, launch this flow to take users to a screen with price
      change information. User can confirm the new price or cancel the flow.</p>
      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:BillingClient:loadRewardedSku"><apiName>loadRewardedSku</apiName><shortdesc>
-     Loads a rewarded sku in the background and returns the result asynchronously.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>skuList</apiItemName><apiType value="Vector$String"/><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiDesc>Implement it to get the result of the load operation returned asynchronously
-     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     </shortdesc><prolog><asCustoms><deprecated>This method is deprecated. Rewarded Skus are no longer supported.
+     
      Loads a rewarded sku in the background and returns the result asynchronously.
      
      <p>If the rewarded sku is available, the response will be BillingResponseCode.ok. Otherwise the
@@ -156,6 +166,8 @@
      available. After a successful response, only then should the offer be given to a user to obtain
      a rewarded item and call launchBillingFlow.</p>
      
+     </deprecated></asCustoms></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>skuList</apiItemName><apiType value="Vector$String"/><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiDesc>Implement it to get the result of the load operation returned asynchronously
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.iap:BillingClient:queryPurchaseHistory"><apiName>queryPurchaseHistory</apiName><shortdesc>
      Returns the most recent purchase made by the user for each SKU, even if that purchase is expired, canceled,
      or consumed.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>skuType</apiItemName><apiType value="String"/><apiDesc>The type of SKU, either "inapp" or "subs" as in <codeph>SkuType</codeph>.
