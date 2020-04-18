@@ -16,7 +16,7 @@
 package com.tuarua.iap.billing {
 [RemoteClass(alias="com.tuarua.iap.billing.Purchase")]
 public class Purchase {
-    /** Returns the payload specified when the purchase was acknowledged or consumed. */
+    /** @deprecated Returns the payload specified when the purchase was acknowledged or consumed. */
     public var developerPayload:String;
     /** Indicates whether the purchase has been acknowledged. */
     public var isAcknowledged:Boolean;
@@ -38,6 +38,8 @@ public class Purchase {
     public var sku:String;
     /** Returns String containing the signature of the purchase data that was signed with the private key of the developer. */
     public var signature:String;
+    /** Returns account identifiers that were provided when the purchase was made. */
+    public var accountIdentifiers:AccountIdentifiers;
 
     public function Purchase() {
     }

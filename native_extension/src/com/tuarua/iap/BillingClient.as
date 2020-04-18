@@ -103,16 +103,25 @@ public class BillingClient extends EventDispatcher {
      * <p>It will show the Google Play purchase screen.</p>
      * @return BillingResult
      * @param skuDetails
-     * @param accountId
+     * @param obfuscatedAccountId Specifies an optional obfuscated string that is uniquely associated with the user's
+     * account in your app.
+     * <p>If you pass this value, Google Play can use it to detect irregular activity, such as many devices making
+     * purchases on the same account in a short period of time. Do not use this field to store any Personally
+     * Identifiable Information (PII) such as emails in cleartext. Attempting to store PII in this field will
+     * result in purchases being blocked. Google Play recommends that you use either encryption or a one-way
+     * hash to generate an obfuscated identifier to send to Google Play.</p>
+     * <p>You can also retrieve this identifier via the Purchase object.</p>
+     * <p>This identifier is limited to 64 characters.</p>
+     * @param obfuscatedProfileId
      * @param vrPurchaseFlow
      * @param replaceSkusProrationMode
-     * @param developerId
+     * @param developerId @deprecated
      */
-    public function launchBillingFlow(skuDetails:SkuDetails, accountId:String = null,
-                                      vrPurchaseFlow:Boolean = false, replaceSkusProrationMode:int = -1,
-                                      developerId:String = null):BillingResult {
+    public function launchBillingFlow(skuDetails:SkuDetails, obfuscatedAccountId:String = null,
+                                      obfuscatedProfileId:String = null, vrPurchaseFlow:Boolean = false,
+                                      replaceSkusProrationMode:int = -1, developerId:String = null):BillingResult {
         var ret:* = InAppPurchaseANEContext.context.call("launchBillingFlow", skuDetails,
-                accountId, vrPurchaseFlow, replaceSkusProrationMode, developerId);
+                obfuscatedAccountId, obfuscatedProfileId, vrPurchaseFlow, replaceSkusProrationMode, developerId);
         if (ret is ANEError) throw ret as ANEError;
         return ret as BillingResult;
     }
@@ -214,6 +223,8 @@ public class BillingClient extends EventDispatcher {
     }
 
     /**
+     * @deprecated This method is deprecated. Rewarded Skus are no longer supported.
+     *
      * Loads a rewarded sku in the background and returns the result asynchronously.
      *
      * <p>If the rewarded sku is available, the response will be BillingResponseCode.ok. Otherwise the

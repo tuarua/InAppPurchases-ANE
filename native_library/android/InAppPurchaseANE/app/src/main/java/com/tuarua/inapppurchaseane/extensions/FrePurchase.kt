@@ -20,6 +20,7 @@ fun Purchase.toFREObject(): FREObject? {
     ret["purchaseToken"] = purchaseToken
     ret["sku"] = sku
     ret["signature"] = signature
+    ret["accountIdentifiers"] = this.accountIdentifiers
     return ret
 }
 
