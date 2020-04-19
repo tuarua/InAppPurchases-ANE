@@ -1,11 +1,11 @@
 #!/bin/sh
 
-AneVersion="1.3.0"
+AneVersion="1.4.0"
 FreKotlinVersion="1.10.0"
 KotlinxCoroutinesVersion="1.3.5"
 SupportV4Version="1.0.0"
 GsonVersion="2.8.6"
-BillingVersion="2.1.0"
+BillingVersion="2.2.0"
 
 wget -O android_dependencies/com.tuarua.frekotlin-$FreKotlinVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/kotlin/com.tuarua.frekotlin-$FreKotlinVersion.ane?raw=true
 wget -O android_dependencies/androidx.legacy.legacy-support-v4-${SupportV4Version}.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/support/androidx.legacy.legacy-support-v4-$SupportV4Version.ane?raw=true

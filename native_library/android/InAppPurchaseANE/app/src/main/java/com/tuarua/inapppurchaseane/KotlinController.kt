@@ -135,15 +135,17 @@ class KotlinController : FreKotlinMainController, PurchasesUpdatedListener {
     fun launchBillingFlow(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 4 } ?: return FreArgException()
         val skuDetails = SkuDetails(argv[0]) ?: return null
-        val accountId = String(argv[1])
-        val vrPurchaseFlow = Boolean(argv[2])
+        val obfuscatedAccountId = String(argv[1])
+        val obfuscatedProfileId = String(argv[2])
+        val vrPurchaseFlow = Boolean(argv[3])
 
-        val replaceSkusProrationMode = Int(argv[3])
-        val developerId = String(argv[4])
+        val replaceSkusProrationMode = Int(argv[4])
+        val developerId = String(argv[5])
 
         val builder = BillingFlowParams.newBuilder()
         builder.setSkuDetails(skuDetails)
-        if (!accountId.isNullOrEmpty()) builder.setAccountId(accountId)
+        if (!obfuscatedAccountId.isNullOrEmpty()) builder.setObfuscatedAccountId(obfuscatedAccountId)
+        if (!obfuscatedProfileId.isNullOrEmpty()) builder.setObfuscatedProfileId(obfuscatedProfileId)
         if (vrPurchaseFlow == true) builder.setVrPurchaseFlow(true)
         if (!developerId.isNullOrEmpty()) builder.setDeveloperId(developerId)
         if (replaceSkusProrationMode != null && replaceSkusProrationMode > -1) {
@@ -157,7 +159,7 @@ class KotlinController : FreKotlinMainController, PurchasesUpdatedListener {
         val callbackId = String(argv[1]) ?: return null
 
         val params = PriceChangeFlowParams.newBuilder().setSkuDetails(skuDetails).build()
-        client.launchPriceChangeConfirmationFlow(activity, params) {result ->
+        client.launchPriceChangeConfirmationFlow(activity, params) { result ->
             dispatchEvent(BillingEvent.ON_PRICE_CHANGE,
                     Gson().toJson(BillingEvent(callbackId,
                             mapOf("billingResult" to mapOf("debugMessage" to result.debugMessage,
