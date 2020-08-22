@@ -48,7 +48,6 @@ public class InAppPurchaseANEContext {
     private static const ON_SERVICE_DISCONNECTED:String = "BillingEvent.onBillingServiceDisconnected";
     private static const ON_QUERY_SKU:String = "BillingEvent.onQuerySkuDetails";
     private static const ON_PURCHASE_HISTORY:String = "BillingEvent.onPurchaseHistory";
-    private static const ON_REWARDED_SKU:String = "BillingEvent.onLoadRewardedSku";
     private static const ON_PRICE_CHANGE:String = "BillingEvent.onPriceChange";
 
     public static var callbacks:Dictionary = new Dictionary();
@@ -193,7 +192,6 @@ public class InAppPurchaseANEContext {
             case ON_PRICE_CHANGE:
             case ON_ACKNOWLEDGE_PURCHASE:
             case ON_SETUP_FINISHED:
-            case ON_REWARDED_SKU:
                 try {
                     argsAsJSON = JSON.parse(event.code);
                     callCallback(argsAsJSON.callbackId,

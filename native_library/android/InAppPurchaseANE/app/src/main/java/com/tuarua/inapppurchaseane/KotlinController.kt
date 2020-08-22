@@ -49,15 +49,10 @@ class KotlinController : FreKotlinMainController, PurchasesUpdatedListener {
     }
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         activity = context?.activity ?: return FreException("No activity").getError()
-        val childDirected = Int(argv[0]) ?: return null
-        val underAgeOfConsent = Int(argv[1]) ?: return null
 
         val builder = newBuilder(activity.applicationContext).setListener(this)
         builder.enablePendingPurchases()
-        builder.setChildDirected(childDirected)
-        builder.setUnderAgeOfConsent(underAgeOfConsent)
         client = builder.build()
         return true.toFREObject()
     }
@@ -138,16 +133,13 @@ class KotlinController : FreKotlinMainController, PurchasesUpdatedListener {
         val obfuscatedAccountId = String(argv[1])
         val obfuscatedProfileId = String(argv[2])
         val vrPurchaseFlow = Boolean(argv[3])
-
         val replaceSkusProrationMode = Int(argv[4])
-        val developerId = String(argv[5])
 
         val builder = BillingFlowParams.newBuilder()
         builder.setSkuDetails(skuDetails)
         if (!obfuscatedAccountId.isNullOrEmpty()) builder.setObfuscatedAccountId(obfuscatedAccountId)
         if (!obfuscatedProfileId.isNullOrEmpty()) builder.setObfuscatedProfileId(obfuscatedProfileId)
         if (vrPurchaseFlow == true) builder.setVrPurchaseFlow(true)
-        if (!developerId.isNullOrEmpty()) builder.setDeveloperId(developerId)
         if (replaceSkusProrationMode != null && replaceSkusProrationMode > -1) {
             builder.setReplaceSkusProrationMode(replaceSkusProrationMode)
         }
@@ -171,15 +163,11 @@ class KotlinController : FreKotlinMainController, PurchasesUpdatedListener {
     }
 
     fun acknowledgePurchase(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 2 } ?: return FreArgException()
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val purchaseToken = String(argv[0]) ?: return null
-        val developerPayload = String(argv[1])
-        val callbackId = String(argv[2]) ?: return null
+        val callbackId = String(argv[1]) ?: return null
         val builder = AcknowledgePurchaseParams.newBuilder()
         builder.setPurchaseToken(purchaseToken)
-        if (developerPayload != null) {
-            builder.setDeveloperPayload(developerPayload)
-        }
 
         GlobalScope.launch(Dispatchers.IO) {
             val result = withContext(this.coroutineContext) {
@@ -197,16 +185,12 @@ class KotlinController : FreKotlinMainController, PurchasesUpdatedListener {
     }
 
     fun consumePurchase(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 2 } ?: return FreArgException()
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val token = String(argv[0]) ?: return null
-        val developerPayload = String(argv[1])
-        val callbackId = String(argv[2]) ?: return null
+        val callbackId = String(argv[1]) ?: return null
 
         val builder = ConsumeParams.newBuilder()
         builder.setPurchaseToken(token)
-        if (developerPayload != null) {
-            builder.setDeveloperPayload(developerPayload)
-        }
 
         GlobalScope.launch(Dispatchers.IO) {
             val result = withContext(this.coroutineContext) {
@@ -254,24 +238,6 @@ class KotlinController : FreKotlinMainController, PurchasesUpdatedListener {
                             },
                                     "billingResult" to mapOf("debugMessage" to billingResult.debugMessage,
                                             "responseCode" to billingResult.responseCode))
-                    ))
-            )
-        }
-        return null
-    }
-
-    fun loadRewardedSku(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException()
-        val skuDetails = SkuDetails(argv[0]) ?: return null
-        val callbackId = String(argv[1]) ?: return null
-
-        val builder = RewardLoadParams.newBuilder()
-        builder.setSkuDetails(skuDetails)
-        client.loadRewardedSku(builder.build()) {
-            dispatchEvent(BillingEvent.ON_REWARDED_SKU,
-                    Gson().toJson(BillingEvent(callbackId,
-                            mapOf("billingResult" to mapOf("debugMessage" to it.debugMessage,
-                                    "responseCode" to it.responseCode))
                     ))
             )
         }

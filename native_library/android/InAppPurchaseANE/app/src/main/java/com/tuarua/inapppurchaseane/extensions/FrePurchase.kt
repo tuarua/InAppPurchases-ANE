@@ -20,11 +20,13 @@ fun Purchase.toFREObject(): FREObject? {
     ret["purchaseToken"] = purchaseToken
     ret["sku"] = sku
     ret["signature"] = signature
-    ret["accountIdentifiers"] = this.accountIdentifiers
+    ret["accountIdentifiers"] = accountIdentifiers
     return ret
 }
 
 fun Purchase(freObject: FREObject?): Purchase? {
     val rv = freObject ?: return null
-    return Purchase(String(rv["originalJson"]), String(rv["signature"]))
+    val s = String(rv["originalJson"]) ?: return null
+    val s1 = String(rv["signature"]) ?: return null
+    return Purchase(s, s1)
 }

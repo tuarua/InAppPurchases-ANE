@@ -1,9 +1,9 @@
-$AneVersion = "1.4.0"
-$FreKotlinVersion = "1.10.0"
+$AneVersion = "1.5.0"
+$FreKotlinVersion = "1.40.0"
 $SupportV4Version = "1.0.0"
-$KotlinxCoroutinesVersion = "1.3.5"
+$KotlinxCoroutinesVersion = "1.3.9"
 $GsonVersion = "2.8.6"
-$BillingVersion="2.2.0"
+$BillingVersion="3.0.0"
 
 $currentDir = (Get-Item -Path ".\" -Verbose).FullName
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -11,5 +11,5 @@ Invoke-WebRequest -Uri https://github.com/tuarua/InAppPurchases-ANE/releases/dow
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\org.jetbrains.kotlinx.kotlinx-coroutines-android-$KotlinxCoroutinesVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/kotlin/org.jetbrains.kotlinx.kotlinx-coroutines-android-$KotlinxCoroutinesVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\androidx.legacy.legacy-support-v4-$SupportV4Version.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/support/androidx.legacy.legacy-support-v4-$SupportV4Version.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.tuarua.frekotlin-$FreKotlinVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/kotlin/com.tuarua.frekotlin-$FreKotlinVersion.ane?raw=true
-Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.android.billingclient.billing-$BillingVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/play-services/com.android.billingclient.billing-$BillingVersion.ane?raw=true
+Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.android.billingclient.billing-ktx-$BillingVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/play-services/com.android.billingclient.billing-ktx-$BillingVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.code.gson.gson-$GsonVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/misc/com.google.code.gson.gson-$GsonVersion.ane?raw=true

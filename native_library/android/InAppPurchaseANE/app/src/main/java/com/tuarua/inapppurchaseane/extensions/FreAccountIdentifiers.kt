@@ -7,8 +7,8 @@ import com.tuarua.frekotlin.set
 
 fun AccountIdentifiers.toFREObject(): FREObject? {
     val ret = FREObject("com.tuarua.iap.billing.AccountIdentifiers")
-    ret["obfuscatedAccountId"] = this.obfuscatedAccountId
-    ret["obfuscatedProfileId"] = this.obfuscatedProfileId
+    ret["obfuscatedAccountId"] = obfuscatedAccountId
+    ret["obfuscatedProfileId"] = obfuscatedProfileId
     return ret
 }
 

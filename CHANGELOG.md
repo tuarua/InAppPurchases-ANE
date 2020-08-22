@@ -1,3 +1,8 @@
+### 1.5.0 
+- AND: Updated to Billing 3.0.0
+- macOS/iOS/tvOS: Updated to SwiftyStoreKit 0.16.1
+- Updated to FreSwift 4.5.0
+
 ### 1.4.0 
 - AND: Updated to Billing 2.2.0
 
