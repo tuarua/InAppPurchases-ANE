@@ -17,8 +17,6 @@ package com.tuarua {
 import com.tuarua.fre.ANEError;
 import com.tuarua.iap.BillingClient;
 import com.tuarua.iap.StoreKit;
-import com.tuarua.iap.billing.ChildDirected;
-import com.tuarua.iap.billing.UnderAgeOfConsent;
 import com.tuarua.iap.storekit.Purchase;
 import com.tuarua.utils.os;
 
@@ -42,15 +40,15 @@ public class InAppPurchase {
         return _storeKit
     }
 
-    public static function billing(childDirected:int = ChildDirected.unspecified, underAgeOfConsent:int = UnderAgeOfConsent.unspecified):BillingClient {
+    public static function billing():BillingClient {
         if (!os.isAndroid) {
             trace("BillingClient can only be created for Android");
             return null;
         }
         if (_billing == null) {
-            var ret:* = InAppPurchaseANEContext.context.call("init", childDirected, underAgeOfConsent);
+            var ret:* = InAppPurchaseANEContext.context.call("init");
             if (ret is ANEError) throw ret as ANEError;
-            _billing = new BillingClient(childDirected, underAgeOfConsent);
+            _billing = new BillingClient();
         }
         return _billing
     }

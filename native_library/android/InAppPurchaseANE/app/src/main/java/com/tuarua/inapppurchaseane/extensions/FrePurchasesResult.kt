@@ -9,7 +9,8 @@ import com.tuarua.frekotlin.set
 
 fun Purchase.PurchasesResult.toFREObject(): FREObject? {
     val ret = FREObject("com.tuarua.iap.billing.PurchasesResult")
-    ret["billingResult"] = this.billingResult.toFREObject()
+    val purchasesList = purchasesList ?: return null
+    ret["billingResult"] = billingResult.toFREObject()
     ret["purchaseList"] = FREArray("com.tuarua.iap.billing.Purchase",
             purchasesList.size, true, items = purchasesList.map { it.toFREObject() })
     return ret
@@ -17,9 +18,9 @@ fun Purchase.PurchasesResult.toFREObject(): FREObject? {
 
 fun Pair<BillingResult, List<Purchase>?>.toFREObject(): FREObject? {
     val ret = FREObject("com.tuarua.iap.billing.PurchasesResult") ?: return null
-    ret["billingResult"] = this.first.toFREObject()
+    ret["billingResult"] = first.toFREObject()
     ret["purchaseList"] = FREArray("com.tuarua.iap.billing.Purchase",
-            this.second?.size ?: 0, true,
-            this.second?.map { it.toFREObject() })
+            second?.size ?: 0, true,
+            second?.map { it.toFREObject() })
     return ret
 }

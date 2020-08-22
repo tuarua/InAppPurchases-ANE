@@ -17,22 +17,16 @@ package com.tuarua.iap {
 import com.tuarua.InAppPurchaseANEContext;
 import com.tuarua.fre.ANEError;
 import com.tuarua.iap.billing.BillingResult;
-import com.tuarua.iap.billing.ChildDirected;
 import com.tuarua.iap.billing.Purchase;
 import com.tuarua.iap.billing.PurchasesResult;
 import com.tuarua.iap.billing.SkuDetails;
 import com.tuarua.iap.billing.SkuType;
-import com.tuarua.iap.billing.UnderAgeOfConsent;
 
 import flash.events.EventDispatcher;
 
 public class BillingClient extends EventDispatcher {
-    private var childDirected:int;
-    private var underAgeOfConsent:int;
 
-    public function BillingClient(childDirected:int = ChildDirected.unspecified, underAgeOfConsent:int = UnderAgeOfConsent.unspecified) {
-        this.childDirected = childDirected;
-        this.underAgeOfConsent = underAgeOfConsent;
+    public function BillingClient() {
     }
 
     /**
@@ -115,13 +109,12 @@ public class BillingClient extends EventDispatcher {
      * @param obfuscatedProfileId
      * @param vrPurchaseFlow
      * @param replaceSkusProrationMode
-     * @param developerId @deprecated
      */
     public function launchBillingFlow(skuDetails:SkuDetails, obfuscatedAccountId:String = null,
                                       obfuscatedProfileId:String = null, vrPurchaseFlow:Boolean = false,
-                                      replaceSkusProrationMode:int = -1, developerId:String = null):BillingResult {
+                                      replaceSkusProrationMode:int = -1):BillingResult {
         var ret:* = InAppPurchaseANEContext.context.call("launchBillingFlow", skuDetails,
-                obfuscatedAccountId, obfuscatedProfileId, vrPurchaseFlow, replaceSkusProrationMode, developerId);
+                obfuscatedAccountId, obfuscatedProfileId, vrPurchaseFlow, replaceSkusProrationMode);
         if (ret is ANEError) throw ret as ANEError;
         return ret as BillingResult;
     }
@@ -160,7 +153,7 @@ public class BillingClient extends EventDispatcher {
     */
     public function acknowledgePurchase(purchase:Purchase, listener:Function):void {
         var ret:* = InAppPurchaseANEContext.context.call("acknowledgePurchase", purchase.purchaseToken,
-                purchase.developerPayload, InAppPurchaseANEContext.createCallback(listener));
+                InAppPurchaseANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -185,7 +178,6 @@ public class BillingClient extends EventDispatcher {
     * */
     public function consumePurchase(purchase:Purchase, listener:Function):void {
         var ret:* = InAppPurchaseANEContext.context.call("consumePurchase", purchase.purchaseToken,
-                purchase.developerPayload,
                 InAppPurchaseANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
@@ -219,25 +211,6 @@ public class BillingClient extends EventDispatcher {
     public function queryPurchaseHistory(skuType:String, listener:Function):void {
         var ret:* = InAppPurchaseANEContext.context.call("queryPurchaseHistory", skuType,
                 InAppPurchaseANEContext.createCallback(listener));
-        if (ret is ANEError) throw ret as ANEError;
-    }
-
-    /**
-     * @deprecated This method is deprecated. Rewarded Skus are no longer supported.
-     *
-     * Loads a rewarded sku in the background and returns the result asynchronously.
-     *
-     * <p>If the rewarded sku is available, the response will be BillingResponseCode.ok. Otherwise the
-     * response will be BillingResponseCode.itemUnavailable. There is no guarantee that a rewarded sku will always be
-     * available. After a successful response, only then should the offer be given to a user to obtain
-     * a rewarded item and call launchBillingFlow.</p>
-     *
-     * @param skuList
-     * @param listener Implement it to get the result of the load operation returned asynchronously
-     */
-    public function loadRewardedSku(skuList:Vector.<String>, listener:Function):void {
-        var ret:* = InAppPurchaseANEContext.context.call("loadRewardedSku",
-                skuList, InAppPurchaseANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 

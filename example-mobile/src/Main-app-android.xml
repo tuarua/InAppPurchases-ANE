@@ -3,11 +3,11 @@
     <id>com.tuarua.storekitdemo</id>
     <filename>Main</filename>
     <name>InAppPurchasesANEExample</name>
-    <versionNumber>1.1.0</versionNumber>
+    <versionNumber>1.5.0</versionNumber>
     <extensions>
         <extensionID>com.tuarua.frekotlin</extensionID>
         <extensionID>com.google.code.gson.gson</extensionID>
-        <extensionID>com.android.billingclient.billing</extensionID>
+        <extensionID>com.android.billingclient.billing-ktx</extensionID>
         <extensionID>androidx.legacy.legacy-support-v4</extensionID>
         <extensionID>org.jetbrains.kotlinx.kotlinx-coroutines-android</extensionID>
         <extensionID>com.tuarua.InAppPurchaseANE</extensionID>
@@ -32,7 +32,7 @@
 			        <meta-data android:name="android.max_aspect" android:value="2.1" />
                     <meta-data
                         android:name="com.google.android.play.billingclient.version"
-                        android:value="2.1.0" />
+                        android:value="3.0.0" />
                     <activity
                         android:name="com.android.billingclient.api.ProxyBillingActivity"
                         android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"

@@ -35,7 +35,6 @@ public class InAppPurchaseANE implements FREExtension {
             ,"consumePurchase"
             ,"queryPurchases"
             ,"queryPurchaseHistory"
-            ,"loadRewardedSku"
             ,"getOnPurchasesUpdates"
             ,"isSignatureValid"
     };

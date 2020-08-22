@@ -16,8 +16,6 @@
 package com.tuarua.iap.billing {
 [RemoteClass(alias="com.tuarua.iap.billing.Purchase")]
 public class Purchase {
-    /** @deprecated Returns the payload specified when the purchase was acknowledged or consumed. */
-    public var developerPayload:String;
     /** Indicates whether the purchase has been acknowledged. */
     public var isAcknowledged:Boolean;
     /** Indicates whether the subscription renews automatically. */

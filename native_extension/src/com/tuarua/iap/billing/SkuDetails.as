@@ -20,7 +20,7 @@ public class SkuDetails {
     private var _iconUrl:String;
     private var _introductoryPrice:String;
     private var _introductoryPriceAmountMicros:Number;
-    private var _introductoryPriceCycles:String;
+    private var _introductoryPriceCycles:int;
     private var _introductoryPricePeriod:String;
     private var _isRewarded:Boolean;
     private var _originalJson:String;
@@ -112,7 +112,7 @@ public class SkuDetails {
      *
      * <p>Note: Returned only for subscriptions which have an introductory period configured.</p>
      */
-    public function get introductoryPriceCycles():String {
+    public function get introductoryPriceCycles():int {
         return _introductoryPriceCycles;
     }
 
