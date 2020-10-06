@@ -3,7 +3,7 @@
     <id>com.tuarua.storekitdemo.mac</id>
     <filename>Main</filename>
     <name>Main</name>
-    <versionNumber>1.0.0</versionNumber>
+    <versionNumber>1.6.0</versionNumber>
 
     <!-- Identifies the ActionScript extensions used by an application. -->
     <extensions>

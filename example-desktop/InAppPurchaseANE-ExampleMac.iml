@@ -11,17 +11,14 @@
             <entry library-name="FiraSansSemiBold" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="FreSwift" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="InAppPurchaseANE" library-level="project">
+            <entry library-name="extensions" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
           <sdk name="AIRSDK_32" />
         </dependencies>
         <compiler-options />
-        <packaging-air-desktop use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/Main-app.xml" package-file-name="Main" />
+        <packaging-air-desktop use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/src/Main-app.xml" package-file-name="Main" />
         <packaging-android />
         <packaging-ios />
       </configuration>
@@ -39,5 +36,6 @@
     <orderEntry type="library" exported="" name="FiraSansSemiBold" level="project" />
     <orderEntry type="library" exported="" name="FreSwift" level="project" />
     <orderEntry type="library" exported="" name="InAppPurchaseANE" level="project" />
+    <orderEntry type="library" exported="" name="extensions" level="project" />
   </component>
 </module>
