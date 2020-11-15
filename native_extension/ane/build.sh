@@ -9,8 +9,7 @@ PROJECTNAME=InAppPurchaseANE
 fwSuffix="_FW"
 libSuffix="_LIB"
 
-AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_33"
-echo $AIR_SDK
+AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_33.1.1.300"
 
 ##############################################################################
 
@@ -272,4 +271,13 @@ rm -r "$pathtome/platforms/android/com.tuarua.$PROJECTNAME-res"
 
 echo "Packaging docs into ANE."
 zip "$pathtome/$PROJECTNAME.ane" -u docs/*
+
+zip "$pathtome/$PROJECTNAME.ane" -u "AndroidManifest.xml"
+zip "$pathtome/$PROJECTNAME.ane" -u "Entitlements.entitlements"
+zip "$pathtome/$PROJECTNAME.ane" -u "InfoAdditions.plist"
+zip "$pathtome/$PROJECTNAME.ane" -u "air_package.json"
+
+cp "$pathtome/$PROJECTNAME.ane" "$pathtome/../../example-mobile/extensions/$PROJECTNAME.ane"
+cp "$pathtome/$PROJECTNAME.ane" "$pathtome/../../example-desktop/extensions/$PROJECTNAME.ane"
+
 echo "DONE!"

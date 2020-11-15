@@ -1,0 +1,15 @@
+{
+  "name": "purchases-sample",
+  "version": "1.6.0",
+  "appDescriptor": "src/Main-app.xml",
+  "variables": {
+  },
+  "airDotPrefix": true,
+  "appleTeamId": "XXXXXX",
+  "repository": {
+    "url": "https://tuarua.github.io/air/air_packages.json"
+  },
+  "dependencies": {
+    "com.tuarua.InAppPurchaseANE": "1.6.0"
+  }
+}
