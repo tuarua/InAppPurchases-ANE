@@ -9,8 +9,7 @@ PROJECTNAME=InAppPurchaseANE
 fwSuffix="_FW"
 libSuffix="_LIB"
 
-AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_33.1.1.259"
-echo $AIR_SDK
+AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_33.1.1.300"
 
 ##############################################################################
 

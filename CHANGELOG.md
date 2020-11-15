@@ -1,6 +1,7 @@
 ### 1.6.0 
 - AND: Updated to FreKotlin 1.41.0
 - Updated to FreSwift 5.0.0
+- Upgraded to AIR 33.1.1.300
 
 ### 1.5.0 
 - AND: Updated to Billing 3.0.0
