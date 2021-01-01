@@ -1,18 +1,18 @@
 {
   "name": "com.tuarua.InAppPurchaseANE",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "repository": {
     "url": "https://tuarua.github.io/air/air_packages.json"
   },
   "dependencies": {
-    "com.tuarua.frekotlin": "1.41.0",
+    "com.tuarua.frekotlin": "1.42.0",
     "com.google.code.gson.gson": "2.8.6",
     "androidx.legacy.legacy-support-v4": "1.0.0",
-    "com.android.billingclient.billing-ktx": "3.0.0",
-    "org.jetbrains.kotlinx.kotlinx-coroutines-android": "1.3.9",
-    "com.tuarua.iOS.FreSwift": "5.0.0",
-    "com.tuarua.tvOS.FreSwift": "5.0.0",
-    "com.tuarua.FreSwift": "5.0.0",
-    "com.tuarua.InAppPurchaseANE.IosDependencies": "1.6.0"
+    "com.android.billingclient.billing-ktx": "3.0.2",
+    "org.jetbrains.kotlinx.kotlinx-coroutines-android": "1.4.2",
+    "com.tuarua.iOS.FreSwift": "5.1.0",
+    "com.tuarua.tvOS.FreSwift": "5.1.0",
+    "com.tuarua.FreSwift": "5.1.0",
+    "com.tuarua.InAppPurchaseANE.IosDependencies": "1.7.0"
   }
 }

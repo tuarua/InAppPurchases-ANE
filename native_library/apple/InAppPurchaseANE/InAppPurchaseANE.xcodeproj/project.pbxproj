@@ -15,6 +15,8 @@
 		9063C47222FF4C38003A451B /* FrePurchaseDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9063C47122FF4C38003A451B /* FrePurchaseDetails.swift */; };
 		9063C47422FF4C58003A451B /* FrePaymentTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9063C47322FF4C58003A451B /* FrePaymentTransaction.swift */; };
 		9063C47622FF4C72003A451B /* FreRestoreResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9063C47522FF4C72003A451B /* FreRestoreResults.swift */; };
+		906EAED3259E9BCD00A82FB9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906EAED2259E9BCD00A82FB9 /* Cocoa.framework */; };
+		906EAED5259E9BF300A82FB9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906EAED4259E9BF300A82FB9 /* StoreKit.framework */; };
 		909EF12022D24DA2006EFEB4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909EF11F22D24DA2006EFEB4 /* StoreKit.framework */; };
 		909EF14622D26E59006EFEB4 /* FreRetrieveResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909EF14522D26E59006EFEB4 /* FreRetrieveResults.swift */; };
 		90A5D3A323C0CEBA000AB585 /* FreReceiptError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5D3A223C0CEBA000AB585 /* FreReceiptError.swift */; };
@@ -47,7 +49,6 @@
 		90E2F15223CA26CD005C8D46 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E2F13723CA221D005C8D46 /* FreSwift.framework */; };
 		90E2F15423CA26EF005C8D46 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
 		90E2F15523CA270C005C8D46 /* InAppPurchaseANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CE87F4771FB259DB005CF7DF /* InAppPurchaseANE_oc.h */; };
-		90E2F16423CA2A50005C8D46 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E2F16323CA2A50005C8D46 /* Cocoa.framework */; };
 		90E2F16623CA2A55005C8D46 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 90E2F16523CA2A55005C8D46 /* SwiftyJSON */; };
 		90E2F16823CA2A5A005C8D46 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 90E2F16723CA2A5A005C8D46 /* SwiftyStoreKit */; };
 		90E2F16A23CA2A74005C8D46 /* Adobe AIR in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E2F16923CA2A74005C8D46 /* Adobe AIR */; };
@@ -108,6 +109,8 @@
 		9063C47122FF4C38003A451B /* FrePurchaseDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrePurchaseDetails.swift; sourceTree = "<group>"; };
 		9063C47322FF4C58003A451B /* FrePaymentTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrePaymentTransaction.swift; sourceTree = "<group>"; };
 		9063C47522FF4C72003A451B /* FreRestoreResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreRestoreResults.swift; sourceTree = "<group>"; };
+		906EAED2259E9BCD00A82FB9 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		906EAED4259E9BF300A82FB9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
 		909EF11F22D24DA2006EFEB4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		909EF14522D26E59006EFEB4 /* FreRetrieveResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreRetrieveResults.swift; sourceTree = "<group>"; };
 		90A5D3A223C0CEBA000AB585 /* FreReceiptError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreReceiptError.swift; sourceTree = "<group>"; };
@@ -118,9 +121,8 @@
 		90E2F14023CA23DA005C8D46 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		90E2F14523CA2636005C8D46 /* libInAppPurchaseANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInAppPurchaseANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		90E2F15B23CA29F6005C8D46 /* InAppPurchaseANE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InAppPurchaseANE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		90E2F16323CA2A50005C8D46 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
-		90E2F16923CA2A74005C8D46 /* Adobe AIR */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "Adobe AIR"; path = "../../../../../SDKs/AIRSDK_30/runtimes/air-captive/mac/Adobe AIR.framework/Versions/1.0/Adobe AIR"; sourceTree = "<group>"; };
-		90E2F16B23CA2A7B005C8D46 /* Adobe AIR_64 */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "Adobe AIR_64"; path = "../../../../../SDKs/AIRSDK_30/runtimes/air-captive/mac/Adobe AIR.framework/Versions/1.0/Adobe AIR_64"; sourceTree = "<group>"; };
+		90E2F16923CA2A74005C8D46 /* Adobe AIR */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "Adobe AIR"; path = "../../../../../SDKs/AIRSDK_32/runtimes/air-captive/mac/Adobe AIR.framework/Versions/1.0/Adobe AIR"; sourceTree = "<group>"; };
+		90E2F16B23CA2A7B005C8D46 /* Adobe AIR_64 */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "Adobe AIR_64"; path = "../../../../../SDKs/AIRSDK_32/runtimes/air-captive/mac/Adobe AIR.framework/Versions/1.0/Adobe AIR_64"; sourceTree = "<group>"; };
 		90E2F16D23CA2A8F005C8D46 /* FreSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreSwift.framework; path = Carthage/Build/Mac/FreSwift.framework; sourceTree = "<group>"; };
 		CE05603E1FB25CE200D06976 /* FreSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreSwift.framework; path = Carthage/Build/iOS/FreSwift.framework; sourceTree = "<group>"; };
 		CE0560411FB25D1B00D06976 /* SwiftController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
@@ -160,11 +162,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90E2F16423CA2A50005C8D46 /* Cocoa.framework in Frameworks */,
 				90E2F16C23CA2A7B005C8D46 /* Adobe AIR_64 in Frameworks */,
 				90E2F16A23CA2A74005C8D46 /* Adobe AIR in Frameworks */,
 				90E2F16823CA2A5A005C8D46 /* SwiftyStoreKit in Frameworks */,
 				90E2F16623CA2A55005C8D46 /* SwiftyJSON in Frameworks */,
+				906EAED3259E9BCD00A82FB9 /* Cocoa.framework in Frameworks */,
+				906EAED5259E9BF300A82FB9 /* StoreKit.framework in Frameworks */,
 				90E2F16E23CA2A8F005C8D46 /* FreSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,10 +234,11 @@
 		CE05603D1FB25CD100D06976 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				906EAED4259E9BF300A82FB9 /* StoreKit.framework */,
+				906EAED2259E9BCD00A82FB9 /* Cocoa.framework */,
 				90E2F16D23CA2A8F005C8D46 /* FreSwift.framework */,
 				90E2F16923CA2A74005C8D46 /* Adobe AIR */,
 				90E2F16B23CA2A7B005C8D46 /* Adobe AIR_64 */,
-				90E2F16323CA2A50005C8D46 /* Cocoa.framework */,
 				90E2F13723CA221D005C8D46 /* FreSwift.framework */,
 				CE05603E1FB25CE200D06976 /* FreSwift.framework */,
 				909EF11F22D24DA2006EFEB4 /* StoreKit.framework */,
@@ -441,7 +445,7 @@
 		CE87F45D1FB259C9005CF7DF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "Tua Rua Ltd";
 				TargetAttributes = {
 					90E2F14423CA2636005C8D46 = {
@@ -671,7 +675,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuarua.InAppPurchaseANE;
 				PRODUCT_NAME = InAppPurchaseANE_FW;
@@ -716,7 +720,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuarua.InAppPurchaseANE;
 				PRODUCT_NAME = InAppPurchaseANE_FW;
@@ -787,6 +791,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = x86_64;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -800,7 +805,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/eoinlandy/SDKs/AIRSDK_30/runtimes/air/mac,
+					/Users/eoinlandy/SDKs/AIRSDK_32/runtimes/air/mac,
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -811,9 +816,9 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = /Users/eoinlandy/SDKs/AIRSDK_30/runtimes/air/mac;
+				LIBRARY_SEARCH_PATHS = /Users/eoinlandy/SDKs/AIRSDK_32/runtimes/air/mac;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.7.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = (
@@ -838,6 +843,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = x86_64;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -851,7 +857,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/eoinlandy/SDKs/AIRSDK_30/runtimes/air/mac,
+					/Users/eoinlandy/SDKs/AIRSDK_32/runtimes/air/mac,
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -862,9 +868,9 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = /Users/eoinlandy/SDKs/AIRSDK_30/runtimes/air/mac;
+				LIBRARY_SEARCH_PATHS = /Users/eoinlandy/SDKs/AIRSDK_32/runtimes/air/mac;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.7.0;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
@@ -1078,7 +1084,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuarua.InAppPurchaseANE;
 				PRODUCT_NAME = InAppPurchaseANE_FW;
@@ -1121,7 +1127,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuarua.InAppPurchaseANE;
 				PRODUCT_NAME = InAppPurchaseANE_FW;
