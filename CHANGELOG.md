@@ -1,3 +1,10 @@
+### 1.7.0 
+- AND: Updated to FreKotlin 1.42.0
+- Updated to FreSwift 5.1.0
+- Upgraded to AIR 33.1.1.345
+- AND: Updated to billing-ktx 3.0.2
+- AND: Updated to kotlinx-coroutines-android 1.4.2
+
 ### 1.6.0 
 - AND: Updated to FreKotlin 1.41.0
 - Updated to FreSwift 5.0.0

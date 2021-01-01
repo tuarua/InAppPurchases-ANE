@@ -3,7 +3,7 @@
     <id>com.tuarua.storekitdemo</id>
     <filename>Main</filename>
     <name>InAppPurchasesANEExample</name>
-    <versionNumber>1.6.0</versionNumber>
+    <versionNumber>1.7.0</versionNumber>
     <extensions>
         <extensionID>com.tuarua.frekotlin</extensionID>
         <extensionID>com.google.code.gson.gson</extensionID>
@@ -32,7 +32,7 @@
 			        <meta-data android:name="android.max_aspect" android:value="2.1" />
                     <meta-data
                         android:name="com.google.android.play.billingclient.version"
-                        android:value="3.0.0" />
+                        android:value="3.0.2" />
                     <activity
                         android:name="com.android.billingclient.api.ProxyBillingActivity"
                         android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
