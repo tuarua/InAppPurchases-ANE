@@ -1,3 +1,6 @@
+### 1.8.0 
+- AND: [BUG] Fix missing `Purchase.developerPayload`
+
 ### 1.7.0 
 - AND: Updated to FreKotlin 1.42.0
 - Updated to FreSwift 5.1.0
