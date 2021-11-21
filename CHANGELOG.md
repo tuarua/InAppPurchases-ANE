@@ -1,3 +1,7 @@
+### 1.9.0
+- Updated to FreSwift 5.5.1
+- Support Apple Silicon M1
+
 ### 1.8.0 
 - AND: [BUG] Fix missing `Purchase.developerPayload`
 
