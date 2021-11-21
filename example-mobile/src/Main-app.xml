@@ -3,7 +3,7 @@
     <id>com.tuarua.storekitdemo</id>
     <filename>Main</filename>
     <name>InAppPurchasesANEExample</name>
-    <versionNumber>1.7.0</versionNumber>
+    <versionNumber>1.9.0</versionNumber>
     <extensions>
         <extensionID>com.tuarua.frekotlin</extensionID>
         <extensionID>com.google.code.gson.gson</extensionID>
